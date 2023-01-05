@@ -130,6 +130,7 @@ export const SignUp = () => {
                 <Grid container spacing={4} textAlign="center">
                   <Grid item xs={12} sx={{ ml: 9, mb: 2 }}>
                     <GoogleButton
+                      label="Continue with Google"
                       style={{
                         backgroundColor: "white",
                         color: "black",

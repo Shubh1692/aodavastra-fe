@@ -34,7 +34,7 @@ export const Login = () => {
         className="loginBody"
         id="login"
       >
-        <Grid item xs={6} sx={{ mt: 15 }}>
+        <Grid item xs={6} sx={{ mt: 25 }}>
           <Box
             component="img"
             sx={{
@@ -47,7 +47,7 @@ export const Login = () => {
             src={logo}
           />
         </Grid>
-        <Grid item xs={6} sx={{ mt: 20 }}>
+        <Grid item xs={6} sx={{ mt: 15 }}>
           <Container component="main" maxWidth="xs">
             <CssBaseline />
             <Box
@@ -110,6 +110,7 @@ export const Login = () => {
                 <Grid container spacing={4} textAlign="center">
                   <Grid item xs={12} sx={{ ml: 9, mb: 2 }}>
                     <GoogleButton
+                      label="Continue with Google"
                       style={{
                         backgroundColor: "white",
                         color: "black",
