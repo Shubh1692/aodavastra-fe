@@ -12,7 +12,8 @@ import Container from "@mui/material/Container";
 import logo from "../../Assets/logo.jpeg";
 import "./index.css";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import { SignUp } from "../SignUp";
+import GoogleButton from "react-google-button";
+// import { SignUp } from "../SignUp";
 // import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 export const Login = () => {
@@ -26,8 +27,14 @@ export const Login = () => {
   };
   return (
     <>
-      <Grid container spacing={2} textAlign="center" className="loginBody">
-        <Grid item xs={6} sx={{ mt: 25 }}>
+      <Grid
+        container
+        spacing={2}
+        textAlign="center"
+        className="loginBody"
+        id="login"
+      >
+        <Grid item xs={6} sx={{ mt: 15 }}>
           <Box
             component="img"
             sx={{
@@ -100,10 +107,21 @@ export const Login = () => {
                     <hr></hr>
                   </Grid>
                 </Grid>
+                <Grid container spacing={4} textAlign="center">
+                  <Grid item xs={12} sx={{ ml: 9, mb: 2 }}>
+                    <GoogleButton
+                      style={{
+                        backgroundColor: "white",
+                        color: "black",
+                        fontWeight: "900",
+                      }}
+                    />
+                  </Grid>
+                </Grid>
 
                 <Grid item xs>
                   <Link
-                    href="#"
+                    href="#signUp"
                     variant="body2"
                     color="inherit"
                     underline="hover"
@@ -115,7 +133,8 @@ export const Login = () => {
                   variant="outlined"
                   style={{ color: "#424242", borderColor: "#424242" }}
                   sx={{ mb: 2 }}
-                  onClick={SignUp}
+                  // onClick={SignUp}
+                  href="#signUp"
                 >
                   Create Account
                 </Button>

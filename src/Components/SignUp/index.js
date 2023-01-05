@@ -11,8 +11,9 @@ import Container from "@mui/material/Container";
 // import { Image } from "@mui/icons-material";
 import logo from "../../Assets/logo.jpeg";
 import "./index.css";
+import GoogleButton from "react-google-button";
 // import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import { Login } from "../Login";
+// import { Login } from "../Login";
 // import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 export const SignUp = () => {
@@ -28,7 +29,13 @@ export const SignUp = () => {
   };
   return (
     <>
-      <Grid container spacing={2} textAlign="center" className="SignUpBody">
+      <Grid
+        container
+        spacing={2}
+        textAlign="center"
+        className="SignUpBody"
+        id="signUp"
+      >
         <Grid item xs={6} sx={{ mt: 25 }}>
           <Box
             component="img"
@@ -42,7 +49,7 @@ export const SignUp = () => {
             src={logo}
           />
         </Grid>
-        <Grid item xs={6} sx={{ mt: 20 }}>
+        <Grid item xs={6} sx={{ mt: 15 }}>
           <Container component="main" maxWidth="xs">
             <CssBaseline />
             <Box
@@ -72,6 +79,7 @@ export const SignUp = () => {
                   margin="normal"
                   // required
                   fullWidth
+                  type="email"
                   id="email"
                   label="E-mail"
                   name="email"
@@ -119,6 +127,17 @@ export const SignUp = () => {
                     <hr></hr>
                   </Grid>
                 </Grid>
+                <Grid container spacing={4} textAlign="center">
+                  <Grid item xs={12} sx={{ ml: 9, mb: 2 }}>
+                    <GoogleButton
+                      style={{
+                        backgroundColor: "white",
+                        color: "black",
+                        fontWeight: "900",
+                      }}
+                    />
+                  </Grid>
+                </Grid>
 
                 <Grid item xs>
                   <Link
@@ -133,8 +152,9 @@ export const SignUp = () => {
                 <Button
                   variant="outlined"
                   style={{ color: "#424242", borderColor: "#424242" }}
-                  sx={{ mb: 2 }}
-                  onClick={Login}
+                  sx={{ mb: 2, pl: 8, pr: 8 }}
+                  //   onClick={Login}
+                  href="#login"
                 >
                   LogIn
                 </Button>
