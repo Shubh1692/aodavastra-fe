@@ -90,7 +90,7 @@ export const Login = () => {
                   variant="contained"
                   // color="#ba68c8"
                   style={{
-                    backgroundColor: "#ce93d8",
+                    backgroundColor: "#a384bd",
                   }}
                   sx={{ mt: 3, mb: 2, pl: 10, pr: 10 }}
                 >
