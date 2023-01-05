@@ -11,22 +11,24 @@ import Container from "@mui/material/Container";
 // import { Image } from "@mui/icons-material";
 import logo from "../../Assets/logo.jpeg";
 import "./index.css";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import { SignUp } from "../SignUp";
+// import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import { Login } from "../Login";
 // import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
-export const Login = () => {
+export const SignUp = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
+      FullName: data.get("FullName"),
       email: data.get("email"),
       password: data.get("password"),
+      confirmPassword: data.get("confirmPassword"),
     });
   };
   return (
     <>
-      <Grid container spacing={2} textAlign="center" className="loginBody">
+      <Grid container spacing={2} textAlign="center" className="SignUpBody">
         <Grid item xs={6} sx={{ mt: 25 }}>
           <Box
             component="img"
@@ -61,6 +63,15 @@ export const Login = () => {
                   margin="normal"
                   // required
                   fullWidth
+                  id="FullName"
+                  label="Full Name"
+                  name="FullName"
+                  autoComplete="FullName"
+                />
+                <TextField
+                  margin="normal"
+                  // required
+                  fullWidth
                   id="email"
                   label="E-mail"
                   name="email"
@@ -75,9 +86,17 @@ export const Login = () => {
                   type="password"
                   id="password"
                   autoComplete="current-password"
-                >
-                  <VisibilityOffIcon />
-                </TextField>
+                />
+                <TextField
+                  margin="normal"
+                  // required
+                  fullWidth
+                  name="confirmPassword"
+                  label="Confirm Password"
+                  type="password"
+                  id="confirmPassword"
+                />
+
                 <Button
                   type="submit"
                   variant="contained"
@@ -87,14 +106,14 @@ export const Login = () => {
                   }}
                   sx={{ mt: 3, mb: 2, pl: 10, pr: 10 }}
                 >
-                  Log in
+                  Sign up
                 </Button>
                 <Grid container spacing={3} textAlign="center">
                   <Grid item xs={4} sx={{ mt: 3, mr: 0 }}>
                     <hr></hr>
                   </Grid>
                   <Grid item xs={4} sx={{ p: 0, ml: 0, mr: 0 }}>
-                    <h5>or login with </h5>
+                    <h5>or SignUp with </h5>
                   </Grid>
                   <Grid item xs={4} sx={{ mt: 3 }}>
                     <hr></hr>
@@ -108,27 +127,17 @@ export const Login = () => {
                     color="inherit"
                     underline="hover"
                   >
-                    New Here?
+                    Already Have an Account
                   </Link>
                 </Grid>
                 <Button
                   variant="outlined"
                   style={{ color: "#424242", borderColor: "#424242" }}
                   sx={{ mb: 2 }}
-                  onClick={SignUp}
+                  onClick={Login}
                 >
-                  Create Account
+                  LogIn
                 </Button>
-                <Grid item>
-                  <Link
-                    href="#"
-                    variant="body2"
-                    color="inherit"
-                    underline="hover"
-                  >
-                    {"Skip for Now"}
-                  </Link>
-                </Grid>
               </Box>
             </Box>
           </Container>
