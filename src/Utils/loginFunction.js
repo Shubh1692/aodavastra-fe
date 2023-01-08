@@ -1,9 +1,9 @@
 export const Login = () => {};
 export const Logout = () => {
-  localStorage.removeItem("Token_key");
+  localStorage.removeItem("access_token");
 };
 export const isLogin = () => {
-  if (localStorage.getItem("Token_key")) {
+  if (localStorage.getItem("access_token")) {
     return true;
   }
   return false;
