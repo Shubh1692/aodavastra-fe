@@ -1,15 +1,17 @@
 import "./App.css";
-import { Login } from "./Components/Login";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { SignUp } from "./Components/SignUp";
+import MasterComponent from "./Routes/MainRoute";
+import { BrowserRouter } from 'react-router-dom';
+
 
 function App() {
   const theme = createTheme();
   return (
     <>
       <ThemeProvider theme={theme}>
-        <Login />;
-        <SignUp />
+        <BrowserRouter>
+          <MasterComponent />
+        </BrowserRouter>
       </ThemeProvider>
     </>
   );
