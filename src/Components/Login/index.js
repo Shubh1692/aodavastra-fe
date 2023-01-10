@@ -12,7 +12,8 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { FlexCenterColumn, PrimaryButton, PrimaryText, FlexDivRow, PrimaryColorText } from "../../Utils/Common/component";
 import HttpService from "../../Services/Http.service";
 import { toast } from "react-toastify";
-const url = 'https://79d0-2406-b400-53-7c76-6584-557e-2574-2dbb.in.ngrok.io';
+import './index.scss'
+import { api_base_url } from "../../Utils/Common/urls";
 
 const LoginComponent = () => {
   const navigate = useNavigate();
@@ -53,7 +54,7 @@ const LoginComponent = () => {
       console.log('userPayload', userPayload)
     } else {
        try {
-          const result = await HttpService.post(url + '/user/login', userPayload);
+          const result = await HttpService.post(api_base_url + '/user/login', userPayload);
           if (result.data && result.data.token) {
             localStorage.setItem('access_token', result.data.token);
             toast['success']('Logged in successfully!')
@@ -151,7 +152,7 @@ const LoginComponent = () => {
                   </FormHelperText>
                 )}
                 <Grid item sx={{ mb: 2, textAlign: 'end' }}>
-                  <PrimaryColorText sx={{ fontSize: '14px', cursor: 'pointer' }} onClick={() => navigate('/recover-password')}>Forgot Password?</PrimaryColorText>
+                  <PrimaryColorText className="forgot_text" onClick={() => navigate('/recover-password')}>Forgot Password?</PrimaryColorText>
                 </Grid>
                 <FlexCenterColumn>
                   <PrimaryButton sx={{ mt: 5, width: '50%', margin: 'auto' }} onClick={handleSubmit}>Sign up</PrimaryButton>
@@ -173,7 +174,7 @@ const LoginComponent = () => {
                 </Grid>
 
                 <Grid component='div' item sx={{
-                  fontWeight: 'bold', fontSize: '13px',
+                  fontWeight: '400', fontSize: '16px',
                   display: 'flex', justifyContent: 'center', mt: 3
                 }}>
                   <Grid item component='span' >New here?</Grid>

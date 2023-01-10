@@ -8,8 +8,7 @@ import logo from "../../Assets/Images/project_logo_svg.svg";
 import { FlexCenterColumn, PrimaryButton, PrimaryText, FlexDivRow, PrimaryColorText } from "../../Utils/Common/component";
 import HttpService from "../../Services/Http.service";
 import { toast } from "react-toastify";
-
-const url = 'https://79d0-2406-b400-53-7c76-6584-557e-2574-2dbb.in.ngrok.io';
+import { api_base_url } from "../../Utils/Common/urls";
 
 const RecoverComponent = () => {
     const navigate = useNavigate();
@@ -27,7 +26,7 @@ const RecoverComponent = () => {
             setError('Email required field')
         } else {
             try {
-                const result = await HttpService.post(url + '/user/forgotten-password', { email });
+                const result = await HttpService.post(api_base_url + '/user/forgotten-password', { email });
                 console.log(result, result.status)
                 if (result && result.status == '201') {
                     toast['success']('Mail sent successfully!')

@@ -12,10 +12,10 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 // import { AvForm, AvField } from 'availity-reactstrap-validation';
 import { FlexCenterColumn, PrimaryButton, PrimaryText, FlexDivRow, PrimaryColorText } from "../../Utils/Common/component";
 import HttpService from "../../Services/Http.service";
-import "./index.scss";
+import { api_base_url } from "../../Utils/Common/urls";
 import { toast } from "react-toastify";
+import "./index.scss";
 
-const url = 'https://79d0-2406-b400-53-7c76-6584-557e-2574-2dbb.in.ngrok.io';
 
 const SignUpComponent = () => {
   const navigate = useNavigate();
@@ -78,7 +78,7 @@ const SignUpComponent = () => {
       }
       else {
         try {
-          const result = await HttpService.post(url + '/user/signup', userPayload);
+          const result = await HttpService.post(api_base_url + '/user/signup', userPayload);
           if (result.data && result.data.token) {
             localStorage.setItem('access_token', result.data.token);
             toast['success']('User created successfully!')
@@ -217,24 +217,24 @@ const SignUpComponent = () => {
                 <Grid sx={{ mt: 2 }} >
                   <PrimaryText className="or_signup_text" item xs={4}>or signup with </PrimaryText>
                 </Grid>
-                <Grid sx={{ mt: 2 }}>
-                  <Grid item xs={12} sx={{ ml: 9, mb: 2 }}>
+                <Grid sx={{ mt: 2 , mb:2 }}>
+                  <Grid item xs={12} sx={{display:'flex',justifyContent:'center'}}>
                     <GoogleButton
                       label="Continue with Google"
                       style={{
                         backgroundColor: "white",
-                        color: "black",
-                        fontWeight: "900",
+                        color: "#3C3C3C",
+                        fontSize: "16px",
+                        fontWeight: "400",
                       }}
                     />
                   </Grid>
                 </Grid>
 
                 <Grid component='div' item sx={{
-                  fontWeight: 'bold', fontSize: '14px',
                   display: 'flex', justifyContent: 'center',
                 }}>
-                  <Grid item component='span' >Already Have an Account?</Grid>
+                  <PrimaryText >Already Have an Account?</PrimaryText>
                 </Grid>
                 <Grid item>
                   <Button
