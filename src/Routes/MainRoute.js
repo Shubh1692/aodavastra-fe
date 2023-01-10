@@ -6,9 +6,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import PublicRoute from "../Routes/Public";
 import PrivateRoute from "../Routes/Private"
 import Login from '../Components/Login';
-import { Profile } from '../Components/Profile';
+import Profile from '../Components/Profile';
 import SignUpComponent from '../Components/SignUp';
-import RecoverComponent from '../Components/Login/recoverPassword';
+import RecoverComponent from '../Components/Login/RecoverPassword';
 import Home from '../Components/Home';
 import ConfirmPassword from '../Components/Login/ConfirmPassword';
 

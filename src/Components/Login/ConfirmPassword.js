@@ -13,8 +13,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { FlexCenterColumn, PrimaryButton} from "../../Utils/Common/component";
 import HttpService from "../../Services/Http.service";
 import { toast } from "react-toastify";
-
-const url = 'https://79d0-2406-b400-53-7c76-6584-557e-2574-2dbb.in.ngrok.io';
+import { api_base_url } from "../../Utils/Common/urls";
 
 const ConfirmPassword = () => {
     const navigate = useNavigate();
@@ -65,7 +64,7 @@ const ConfirmPassword = () => {
                    ...userPayload,
                     passwordResetToken:token
                 }
-                const result = await HttpService.post(url + '/user/reset-password', payload);
+                const result = await HttpService.post(api_base_url + '/user/reset-password', payload);
                 if (result.data && result.data.token) {
                     toast['success']('Password updated successfully!')
                     setTimeout(() => {
