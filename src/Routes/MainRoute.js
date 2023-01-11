@@ -11,6 +11,7 @@ import SignUpComponent from "../Components/SignUp";
 import RecoverComponent from "../Components/Login/recoverPassword";
 import Home from "../Components/Home";
 import ConfirmPassword from "../Components/Login/ConfirmPassword";
+import Address from "../Components/Address";
 
 const masterComponent = () => {
   return (
@@ -45,6 +46,10 @@ const masterComponent = () => {
           <Route
             path="/"
             element={<PrivateRoute component={<Home />} />}
+          ></Route>
+          <Route
+            path="/address"
+            element={<PrivateRoute component={<Address />} />}
           ></Route>
         </Routes>
       </Suspense>

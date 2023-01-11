@@ -1,7 +1,8 @@
 import "./App.css";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import MasterComponent from "./Routes/MainRoute";
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from "react-router-dom";
+import Address from "./Components/Address";
 
 const font = "'Poppins', sans-serif";
 
@@ -11,7 +12,7 @@ function App() {
       primary: {
         main: "#A484BD",
       },
-  
+
       secondary: {
         main: "#A484BD",
       },
@@ -24,7 +25,7 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
-          <MasterComponent />
+          <Address />
         </BrowserRouter>
       </ThemeProvider>
     </>
