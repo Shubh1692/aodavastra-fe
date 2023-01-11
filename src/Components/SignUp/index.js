@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import {
-  Button, FormControl, TextField, InputLabel, Box, Container,
-  OutlinedInput, InputAdornment, IconButton, Checkbox, FormHelperText
+  Button, FormControl, OutlinedInput, InputLabel, Box, Container,
+  InputAdornment, IconButton, Checkbox, FormHelperText
 } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import logo from "../../Assets/Images/project_logo_svg.svg";
-import GoogleButton from "react-google-button";
+import { GoogleLogin } from '@react-oauth/google';
 import { useNavigate } from "react-router-dom";
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
@@ -14,7 +14,7 @@ import { FlexCenterColumn, PrimaryButton, PrimaryText, FlexDivRow, PrimaryColorT
 import HttpService from "../../Services/Http.service";
 import { api_base_url } from "../../Utils/Common/urls";
 import { toast } from "react-toastify";
-import "./index.scss";
+import "../index.scss";
 
 
 const SignUpComponent = () => {
@@ -112,53 +112,60 @@ const SignUpComponent = () => {
     <>
       <Grid container
         sx={{ mt: 0, paddingLeft: 0, height: { lg: '100vh', md: '100vh' }, flexDirection: { lg: 'row', md: 'row', sm: 'column' } }}>
-        <Grid item xs={12} sm={12} md={5} lg={5} xl={5}
+        <Grid item xs={12} sm={12} md={6} lg={6} xl={6}
           className="logo_container" sx={{ justifyContent: { xs: 'center', sm: 'center', md: 'end', } }}
         >
           <Box
-            sx={{ width: { lg: '50%', md: '60%', sm: '30%', xs: '30%' }, padding: { md: '0px', sm: '50px', xs: '10px' } }}
+            sx={{ paddingRight: { lg: '50px' }, width: { lg: '43%', md: '60%', sm: '30%', xs: '30%' }, padding: { md: '0px', sm: '50px', xs: '10px' } }}
             component="img"
             className=""
             alt="The MODA VASTRA Logo"
             src={logo}
           />
         </Grid>
-        <Grid item xs={12} sm={12} md={7} lg={7} xl={7} sx={{
+        <Grid item xs={12} sm={12} md={6} lg={6} xl={6} sx={{
           display: 'flex', alignItems: 'center'
         }}>
-          <Container component="main" maxWidth="xs">
+          <Container component="main" maxWidth="xs" sx={{ ml: 0 }}>
             <FlexCenterColumn>
               <Box>
-                <TextField
+                <OutlinedInput
                   fullWidth
-                  label="Full Name"
+                  placeholder="Full Name"
                   name="name"
                   size="small"
                   error={Boolean(errors?.name)}
-                  helperText={errors?.name}
                   onChange={handleChange}
                 />
-                <TextField
+                {errors && (
+                  <FormHelperText htmlFor="form-selector" error={!!errors.name}>
+                    {errors.name}
+                  </FormHelperText>
+                )}
+                <OutlinedInput
                   type="email"
-                  label="E-mail"
+                  placeholder="E-mail"
                   name="email"
                   size="small"
                   className="mt-12"
                   fullWidth
                   error={Boolean(errors?.email)}
-                  helperText={errors?.email}
                   onChange={handleChange}
                 />
+                {errors && (
+                  <FormHelperText htmlFor="form-selector" error={!!errors.email}>
+                    {errors.email}
+                  </FormHelperText>
+                )}
                 <FormControl sx={{ width: '100%' }} variant="outlined">
-                  <InputLabel sx={{ padding: '5px 3px' }} htmlFor="outlined-adornment-password">Password</InputLabel>
+                  {/* <InputLabel sx={{ padding: '5px 3px' }} htmlFor="outlined-adornment-password">Password</InputLabel> */}
                   <OutlinedInput
                     id="outlined-adornment-password"
                     size="small" fullWidth
                     className="mt-12" name='password'
                     type={showPassword.password ? 'text' : 'password'}
-                    label="Password" onChange={handleChange}
+                    placeholder="Password" onChange={handleChange}
                     error={Boolean(errors?.password)}
-                    helperText={errors?.password}
                     endAdornment={
                       <InputAdornment position="end">
                         <IconButton
@@ -179,13 +186,12 @@ const SignUpComponent = () => {
                   </FormHelperText>
                 )}
                 <FormControl sx={{ width: '100%' }} variant="outlined">
-                  <InputLabel sx={{ padding: '5px 3px' }} htmlFor="outlined-adornment-password">Confirm Password</InputLabel>
+                  {/* <InputLabel sx={{ padding: '5px 3px' }} htmlFor="outlined-adornment-password">Confirm Password</InputLabel> */}
                   <OutlinedInput
-                    id="outlined-adornment-password"
+                    id="outlined-adornment-password" placeholder="Confirm Password"
                     size="small" fullWidth name='confirm_password'
                     className="mt-12" onChange={handleChange}
                     error={Boolean(errors?.confirm_password)}
-                    helperText={errors?.confirm_password}
                     type={showPassword.confirm_password ? 'text' : 'password'}
                     endAdornment={
                       <InputAdornment position="end">
@@ -212,29 +218,31 @@ const SignUpComponent = () => {
                   <PrimaryText>I accept &nbsp;<PrimaryColorText><b>Terms & Conditions </b> &nbsp;</PrimaryColorText> and <PrimaryColorText>&nbsp; Privacy Policy </PrimaryColorText></PrimaryText>
                 </FlexDivRow>
                 <FlexCenterColumn>
-                  <PrimaryButton sx={{ mt: 2, width: '50%', margin: 'auto' }} onClick={handleSubmit}>Sign up</PrimaryButton>
+                  <Grid item className="login_button" sx={{ mt: 2, width: '50%', margin: 'auto' }} onClick={handleSubmit}>Sign up</Grid>
                 </FlexCenterColumn>
-                <Grid sx={{ mt: 2 }} >
-                  <PrimaryText className="or_signup_text" item xs={4}>or signup with </PrimaryText>
+                <Grid sx={{ mt: 3 }} >
+                  <Grid className="or_signup_text" item >or signup with </Grid>
                 </Grid>
-                <Grid sx={{ mt: 2 , mb:2 }}>
-                  <Grid item xs={12} sx={{display:'flex',justifyContent:'center'}}>
-                    <GoogleButton
-                      label="Continue with Google"
-                      style={{
-                        backgroundColor: "white",
-                        color: "#3C3C3C",
-                        fontSize: "16px",
-                        fontWeight: "400",
+                <Grid sx={{ mt: 3 }}>
+                  <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center' }} className='login-div'>
+                    <GoogleLogin
+                      text='continue_with'
+                      className='google_login_button_class'
+                      onSuccess={credentialResponse => {
+                        console.log('credentialResponse', credentialResponse);
+                      }}
+                      onError={() => {
+                        console.log('Login Failed');
                       }}
                     />
                   </Grid>
                 </Grid>
 
                 <Grid component='div' item sx={{
-                  display: 'flex', justifyContent: 'center',
+                  fontWeight: '400', fontSize: '16px',
+                  display: 'flex', justifyContent: 'center', mt: '36px'
                 }}>
-                  <PrimaryText >Already Have an Account?</PrimaryText>
+                  <Grid item component='span' >Already Have an Account?</Grid>
                 </Grid>
                 <Grid item>
                   <Button
@@ -242,8 +250,9 @@ const SignUpComponent = () => {
                     onClick={handleRedirect}
                     sx={{
                       width: "50%", margin: 'auto',
-                      color: "#424242", borderColor: "#424242",
-                      display: 'flex', justifyContent: 'center'
+                      color: "#3C3C3C", borderColor: "#3C3C3C",
+                      display: 'flex', justifyContent: 'center',
+                      fontSize: '18px'
                     }}>
                     Log in
                   </Button>

@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import {
-  Button, FormControl, TextField, InputLabel, Box, Container,
+  Button, FormControl, InputLabel, Box, Container,
   OutlinedInput, InputAdornment, IconButton, FormHelperText
 } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import logo from "../../Assets/Images/project_logo_svg.svg";
-import GoogleButton from "react-google-button";
+import { GoogleLogin } from '@react-oauth/google';
 import { useNavigate } from "react-router-dom";
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { FlexCenterColumn, PrimaryButton, PrimaryText, FlexDivRow, PrimaryColorText } from "../../Utils/Common/component";
 import HttpService from "../../Services/Http.service";
 import { toast } from "react-toastify";
-import './index.scss'
 import { api_base_url } from "../../Utils/Common/urls";
+import '../index.scss';
 
 const LoginComponent = () => {
   const navigate = useNavigate();
@@ -53,29 +53,29 @@ const LoginComponent = () => {
       }
       console.log('userPayload', userPayload)
     } else {
-       try {
-          const result = await HttpService.post(api_base_url + '/user/login', userPayload);
-          if (result.data && result.data.token) {
-            localStorage.setItem('access_token', result.data.token);
-            toast['success']('Logged in successfully!')
-            setTimeout(() => {
-              navigate('/')
-            }, 2000)
-          }
-
-        } catch (err) {
-          if (!!err.response && err.response.data && err.response.data.error) {
-            const errArray = err.response && err.response.data && err.response.data.message
-            if (typeof (errArray) == 'string') {
-              toast['error'](errArray)
-            } else {
-              for (let error of errArray) {
-                toast['error'](error)
-              }
-            }
-
-          }
+      try {
+        const result = await HttpService.post(api_base_url + '/user/login', userPayload);
+        if (result.data && result.data.token) {
+          localStorage.setItem('access_token', result.data.token);
+          toast['success']('Logged in successfully!')
+          setTimeout(() => {
+            navigate('/')
+          }, 2000)
         }
+
+      } catch (err) {
+        if (!!err.response && err.response.data && err.response.data.error) {
+          const errArray = err.response && err.response.data && err.response.data.message
+          if (typeof (errArray) == 'string') {
+            toast['error'](errArray)
+          } else {
+            for (let error of errArray) {
+              toast['error'](error)
+            }
+          }
+
+        }
+      }
     }
   }
 
@@ -87,34 +87,34 @@ const LoginComponent = () => {
     <>
       <Grid container
         sx={{ mt: 0, paddingLeft: 0, height: { lg: '100vh', md: '100vh' }, flexDirection: { lg: 'row', md: 'row', sm: 'column' } }}>
-        <Grid item xs={12} sm={12} md={5} lg={5} xl={5}
+        <Grid item xs={12} sm={12} md={6} lg={6} xl={6}
           className="logo_container" sx={{ justifyContent: { xs: 'center', sm: 'center', md: 'end', } }}
         >
           <Box
-            sx={{ width: { lg: '50%', md: '60%', sm: '30%', xs: '30%' }, padding: { md: '0px', sm: '50px', xs: '10px' } }}
+            sx={{ paddingRight: { lg: '50px' }, width: { lg: '43%', md: '60%', sm: '30%', xs: '30%' }, padding: { md: '0px', sm: '50px', xs: '10px' } }}
             component="img"
             className=""
             alt="The MODA VASTRA Logo"
             src={logo}
           />
         </Grid>
-        <Grid item xs={12} sm={12} md={7} lg={7} xl={7} sx={{
+        <Grid item xs={12} sm={12} md={6} lg={6} xl={6} sx={{
           display: 'flex', alignItems: 'center'
         }}>
-          <Container component="main" maxWidth="xs">
+          <Container component="main" maxWidth="xs" sx={{ ml: 0 }}>
             <FlexCenterColumn>
               <Box
                 component="form"
                 noValidate
                 sx={{ mt: 1 }}
               >
-                <TextField
+                <OutlinedInput
                   type="email"
-                  label="E-mail"
+                  placeholder="E-mail"
                   name="email"
                   size="small"
                   className="mt-12"
-                  fullWidth
+                  fullWidth sx={{ '& legend': { display: 'none' } }}
                   error={Boolean(errors?.email)}
                   onChange={handleChange}
                 />
@@ -124,13 +124,12 @@ const LoginComponent = () => {
                   </FormHelperText>
                 )}
                 <FormControl sx={{ width: '100%' }} variant="outlined">
-                  <InputLabel sx={{ padding: '5px 3px' }} htmlFor="outlined-adornment-password">Password</InputLabel>
                   <OutlinedInput
-                    id="outlined-adornment-password"
                     size="small" fullWidth
+                    variant='outlined' sx={{ '& legend': { display: 'none' } }}
                     className="mt-12" name='password'
                     type={showPassword ? 'text' : 'password'}
-                    label="Password" onChange={handleChange}
+                    placeholder="Password" onChange={handleChange}
                     error={Boolean(errors?.password)}
                     endAdornment={
                       <InputAdornment position="end">
@@ -151,23 +150,25 @@ const LoginComponent = () => {
                     {errors.password}
                   </FormHelperText>
                 )}
-                <Grid item sx={{ mb: 2, textAlign: 'end' }}>
+                <Grid item sx={{ mb: '12px', mt: '12px', textAlign: 'end' }}>
                   <PrimaryColorText className="forgot_text" onClick={() => navigate('/recover-password')}>Forgot Password?</PrimaryColorText>
                 </Grid>
                 <FlexCenterColumn>
-                  <PrimaryButton sx={{ mt: 5, width: '50%', margin: 'auto' }} onClick={handleSubmit}>Sign up</PrimaryButton>
+                  <Grid item className="login_button" sx={{ mt: 5, width: '50%', margin: 'auto' }} onClick={handleSubmit}>Log in</Grid>
                 </FlexCenterColumn>
                 <Grid sx={{ mt: 3 }} >
-                  <PrimaryText className="or_signup_text" item xs={4}>or login with </PrimaryText>
+                  <Grid className="or_signup_text" item >or login with </Grid>
                 </Grid>
                 <Grid sx={{ mt: 3 }}>
-                  <Grid item xs={12} sx={{ ml: 9, mb: 2 }}>
-                    <GoogleButton
-                      label="Continue with Google"
-                      style={{
-                        backgroundColor: "white",
-                        color: "black",
-                        fontWeight: "900",
+                  <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center' }} className='login-div'>
+                    <GoogleLogin
+                      text='continue_with'
+                      className='google_login_button_class'
+                      onSuccess={credentialResponse => {
+                        console.log('credentialResponse', credentialResponse);
+                      }}
+                      onError={() => {
+                        console.log('Login Failed');
                       }}
                     />
                   </Grid>
@@ -175,7 +176,7 @@ const LoginComponent = () => {
 
                 <Grid component='div' item sx={{
                   fontWeight: '400', fontSize: '16px',
-                  display: 'flex', justifyContent: 'center', mt: 3
+                  display: 'flex', justifyContent: 'center', mt: '36px'
                 }}>
                   <Grid item component='span' >New here?</Grid>
                 </Grid>
@@ -185,8 +186,9 @@ const LoginComponent = () => {
                     onClick={handleRedirect}
                     sx={{
                       width: "50%", margin: 'auto',
-                      color: "#424242", borderColor: "#424242",
-                      display: 'flex', justifyContent: 'center'
+                      color: "#3C3C3C", borderColor: "#3C3C3C",
+                      display: 'flex', justifyContent: 'center',
+                      fontSize: '18px'
                     }}>
                     Create Account
                   </Button>

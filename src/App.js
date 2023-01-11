@@ -2,6 +2,7 @@ import "./App.css";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import MasterComponent from "./Routes/MainRoute";
 import { BrowserRouter } from 'react-router-dom';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const font = "'Poppins', sans-serif";
 
@@ -11,7 +12,7 @@ function App() {
       primary: {
         main: "#A484BD",
       },
-  
+
       secondary: {
         main: "#A484BD",
       },
@@ -24,7 +25,9 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
-          <MasterComponent />
+          <GoogleOAuthProvider clientId="<your_client_id>">
+            <MasterComponent />
+          </GoogleOAuthProvider>
         </BrowserRouter>
       </ThemeProvider>
     </>

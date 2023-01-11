@@ -5,12 +5,13 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PublicRoute from "../Routes/Public";
 import PrivateRoute from "../Routes/Private"
-import Login from '../Components/Login';
-import Profile from '../Components/Profile';
-import SignUpComponent from '../Components/SignUp';
-import RecoverComponent from '../Components/Login/RecoverPassword';
-import Home from '../Components/Home';
-import ConfirmPassword from '../Components/Login/ConfirmPassword';
+
+const Login = lazy(() => import('../Components/Login'))
+const Profile = lazy(() => import('../Components/Profile'))
+const SignUpComponent = lazy(() => import('../Components/SignUp'))
+const RecoverComponent = lazy(() => import('../Components/Login/RecoverPassword'))
+const Home = lazy(() => import('../Components/Home'))
+const ConfirmPassword = lazy(() => import('../Components/Login/ConfirmPassword'))
 
 const masterComponent = () => {
     return (
