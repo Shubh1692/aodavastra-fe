@@ -22,15 +22,12 @@ const Address = () => {
     document.getElementById(
       "currentAddress"
     ).innerText = `${address1} ${address2} ${city} ${state} ${zip}`;
-    return (
-      <>
-        document.getElementById("address1").value = "",
-        document.getElementById("address2").value = "",
-        document.getElementById("city").value = "",
-        document.getElementById("state").value = "",
-        document.getElementById("zip").value = "",
-      </>
-    );
+
+    document.getElementById("address1").value = "";
+    document.getElementById("address2").value = "";
+    document.getElementById("city").value = "";
+    document.getElementById("state").value = "";
+    document.getElementById("zip").value = "";
   };
   return (
     <>
@@ -159,21 +156,22 @@ const Address = () => {
                     position: "relative",
                   }}
                 >
-                  <p id="currentAddress"></p>
-                  <Button
-                    variant="outlined"
-                    sx={{
-                      color: "black",
-                      borderColor: "black",
-                      position: "relative",
-                      top: "100px",
-                      left: "330px",
-                      pl: 8,
-                      pr: 8,
-                    }}
-                  >
-                    Edit
-                  </Button>
+                  <p id="currentAddress">
+                    <Button
+                      variant="outlined"
+                      sx={{
+                        color: "black",
+                        borderColor: "black",
+                        position: "relative",
+                        top: "100px",
+                        left: "330px",
+                        pl: 8,
+                        pr: 8,
+                      }}
+                    >
+                      Edit
+                    </Button>
+                  </p>
                 </Box>
               </Grid>
               <Grid
@@ -249,6 +247,7 @@ const Address = () => {
                       margin: "auto",
                       marginLeft: "330px",
                     }}
+                    type={"submit"}
                     onClick={saveAddress}
                   >
                     Add New Address
