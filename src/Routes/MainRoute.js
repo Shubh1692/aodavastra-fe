@@ -6,12 +6,16 @@ import 'react-toastify/dist/ReactToastify.css';
 import PublicRoute from "../Routes/Public";
 import PrivateRoute from "../Routes/Private"
 
-const Login = lazy(() => import('../Components/Login'))
-const Profile = lazy(() => import('../Components/Profile'))
 const SignUpComponent = lazy(() => import('../Components/SignUp'))
+const Login = lazy(() => import('../Components/Login'))
 const RecoverComponent = lazy(() => import('../Components/Login/RecoverPassword'))
-const Home = lazy(() => import('../Components/Home'))
 const ConfirmPassword = lazy(() => import('../Components/Login/ConfirmPassword'))
+const Home = lazy(() => import('../Components/Home'))
+const Profile = lazy(() => import('../Components/Profile'))
+const Orders = lazy(() => import('../Components/Orders'));
+const UpdatePassword = lazy(() => import('../Components/Profile/updatePassword'));
+const Addresses = lazy(() => import('../Components/Addresses'));
+const Wishlist = lazy(() => import('../Components/Wishlist'));
 
 const masterComponent = () => {
     return (
@@ -24,6 +28,10 @@ const masterComponent = () => {
                     <Route path='/recover-password' element={<PublicRoute component={<RecoverComponent />} />}></Route>
                     <Route path='/password-reset-confirm/:token' element={<PublicRoute component={<ConfirmPassword />} />}></Route>
                     <Route path='/profile' element={<PublicRoute component={<Profile />} />}></Route>
+                    <Route path='/orders' element={<PublicRoute component={<Orders />} />}></Route>
+                    <Route path='/wishlist' element={<PublicRoute component={<Wishlist />} />}></Route>
+                    <Route path='/addresses' element={<PublicRoute component={<Addresses />} />}></Route>
+                    <Route path='/change-password' element={<PublicRoute component={<UpdatePassword />} />}></Route>
                     <Route path='/' element={<PrivateRoute component={<Home />} />}></Route>
                 </Routes>
             </Suspense>

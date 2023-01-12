@@ -10,6 +10,7 @@ import {
 
 import userLogo from '../../Assets/Images/ic_user_white.svg'
 import Layout from "../Layout";
+import { LeftNavbar } from "../Leftbar";
 const Profile = () => {
   const theme = useTheme()
   return (
@@ -30,7 +31,8 @@ const Profile = () => {
         >
           <Grid container columnSpacing={2} sx={{ flexDirection: { xs: 'column-reverse', md: 'row' }, display: { xs: 'none', sm: 'none', md: 'flex' } }}>
             <Grid item lg={4} sx={{display:'flex', justifyContent:'end' ,pr: 4}}>
-              <Stack spacing={2} textAlign='left'>
+          <LeftNavbar/>
+              {/* <Stack spacing={2} textAlign='left'>
                 <Typography sx={{ fontSize: '24px', fontWeight: '500', color: '#3C3C3C', cursor: 'pointer'}}>Your Information</Typography>
                 <Typography sx={{ fontSize: '16px', fontWeight: '500', color: '#3C3C3C', cursor: 'pointer', opacity:'0.7' }}>Your Orders</Typography>
                 <Typography sx={{ fontSize: '16px', fontWeight: '400', color: '#3C3C3C', cursor: 'pointer', opacity:'0.7' }}>Wishlist</Typography>
@@ -41,7 +43,7 @@ const Profile = () => {
                 <Typography sx={{ color: '#D83B3B' }}>
                   Log Out
                 </Typography>
-              </Stack>
+              </Stack> */}
 
             </Grid>
             <Grid item lg={8} sx={{ borderLeft: 1 }}>

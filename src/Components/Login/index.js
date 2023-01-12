@@ -91,7 +91,7 @@ const LoginComponent = () => {
           className="logo_container" sx={{ justifyContent: { xs: 'center', sm: 'center', md: 'end', } }}
         >
           <Box
-            sx={{ paddingRight: { lg: '50px' }, width: { lg: '43%', md: '60%', sm: '30%', xs: '30%' }, padding: { md: '0px', sm: '50px', xs: '10px' } }}
+            sx={{ paddingRight: { lg: '50px' },  width: '320px', height:'127px', padding: { md: '0px', sm: '50px', xs: '10px' } }}
             component="img"
             className=""
             alt="The MODA VASTRA Logo"
@@ -188,7 +188,7 @@ const LoginComponent = () => {
                       width: "50%", margin: 'auto',
                       color: "#3C3C3C", borderColor: "#3C3C3C",
                       display: 'flex', justifyContent: 'center',
-                      fontSize: '18px'
+                      fontSize: '18px', textTransform: 'inherit'
                     }}>
                     Create Account
                   </Button>

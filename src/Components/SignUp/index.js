@@ -116,7 +116,7 @@ const SignUpComponent = () => {
           className="logo_container" sx={{ justifyContent: { xs: 'center', sm: 'center', md: 'end', } }}
         >
           <Box
-            sx={{ paddingRight: { lg: '50px' }, width: { lg: '43%', md: '60%', sm: '30%', xs: '30%' }, padding: { md: '0px', sm: '50px', xs: '10px' } }}
+            sx={{ paddingRight: { lg: '50px' }, width: '320px', height:'127px', padding: { md: '0px', sm: '50px', xs: '10px' } }}
             component="img"
             className=""
             alt="The MODA VASTRA Logo"
@@ -128,7 +128,7 @@ const SignUpComponent = () => {
         }}>
           <Container component="main" maxWidth="xs" sx={{ ml: 0 }}>
             <FlexCenterColumn>
-              <Box>
+              <Box sx={{width: '467px'}}>
                 <OutlinedInput
                   fullWidth
                   placeholder="Full Name"
@@ -198,14 +198,13 @@ const SignUpComponent = () => {
                         <IconButton
                           aria-label="toggle password visibility"
                           onClick={() => handleClickShowPassword('confirm_password')}
-                          // onMouseDown={handleMouseDownPassword}
+                          onMouseDown={(e) => e.preventDefault()}
                           edge="end"
                         >
                           {showPassword.confirm_password ? <VisibilityOff /> : <Visibility />}
                         </IconButton>
                       </InputAdornment>
                     }
-                    label="Password"
                   />
                 </FormControl>
                 {errors && (

@@ -25,8 +25,8 @@ export const Layout = (WrappedComponent) => {
           open={isLoading}
         >
           <CircularProgress />
-          </Backdrop>
-          <LayoutContainer>
+        </Backdrop>
+        <LayoutContainer>
           <Header />
           <WrappedComponent {...props} setLoading={setLoadingState} />
         </LayoutContainer>

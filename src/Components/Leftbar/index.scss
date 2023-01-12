@@ -1,0 +1,36 @@
+@import "../../Assets/Styles/theme.scss";
+.nav-menu {
+  display: flex;
+  position: fixed;
+
+  .active {
+    font-family: $fontFamily;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    color: $primaryColor;
+  }
+
+  .nav-text {
+    display: flex;
+    padding: 0px 0px 8px 0px;
+
+    a {
+      text-decoration: none !important;
+      color: #3c3c3c !important;
+      opacity: 0.7;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 27px;
+    }
+    .active {
+      font-family: $fontFamily;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 36px;
+      color: $primaryColor !important;
+    }
+  }
+}

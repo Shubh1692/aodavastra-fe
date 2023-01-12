@@ -6,14 +6,15 @@ import {
 import Grid from "@mui/material/Grid";
 import logo from "../../Assets/Images/project_logo_svg.svg";
 import GoogleButton from "react-google-button";
-import { useNavigate ,useParams} from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 // import { AvForm, AvField } from 'availity-reactstrap-validation';
-import { FlexCenterColumn, PrimaryButton} from "../../Utils/Common/component";
+import { FlexCenterColumn, PrimaryButton } from "../../Utils/Common/component";
 import HttpService from "../../Services/Http.service";
 import { toast } from "react-toastify";
 import { api_base_url } from "../../Utils/Common/urls";
+import '../index.scss'
 
 const ConfirmPassword = () => {
     const navigate = useNavigate();
@@ -61,8 +62,8 @@ const ConfirmPassword = () => {
         else {
             try {
                 const payload = {
-                   ...userPayload,
-                    passwordResetToken:token
+                    ...userPayload,
+                    passwordResetToken: token
                 }
                 const result = await HttpService.post(api_base_url + '/user/reset-password', payload);
                 if (result.data && result.data.token) {
@@ -92,26 +93,26 @@ const ConfirmPassword = () => {
         <>
             <Grid container
                 sx={{ mt: 0, paddingLeft: 0, height: { lg: '100vh', md: '100vh' }, flexDirection: { lg: 'row', md: 'row', sm: 'column' } }}>
-                <Grid item xs={12} sm={12} md={5} lg={5} xl={5}
+                <Grid item xs={12} sm={12} md={6} lg={6} xl={6}
                     className="logo_container" sx={{ justifyContent: { xs: 'center', sm: 'center', md: 'end', } }}
                 >
                     <Box
-                        sx={{ width: { lg: '50%', md: '60%', sm: '30%', xs: '30%' }, padding: { md: '0px', sm: '50px', xs: '10px' } }}
+                        sx={{ paddingRight: { lg: '50px' }, width: '320px', height: '127px', padding: { md: '0px', sm: '50px', xs: '10px' } }}
                         component="img"
                         className=""
                         alt="The MODA VASTRA Logo"
                         src={logo}
                     />
                 </Grid>
-                <Grid item xs={12} sm={12} md={7} lg={7} xl={7} sx={{
+                <Grid item xs={12} sm={12} md={6} lg={6} xl={6} sx={{
                     display: 'flex', alignItems: 'center'
                 }}>
                     <Container component="main" maxWidth="xs">
                         <FlexCenterColumn>
                             <Box>
-                                <TextField
+                                <OutlinedInput
                                     type="email"
-                                    label="E-mail"
+                                    placeholder="E-mail"
                                     name="email"
                                     size="small"
                                     className="mt-12"
@@ -125,13 +126,12 @@ const ConfirmPassword = () => {
                                     </FormHelperText>
                                 )}
                                 <FormControl sx={{ width: '100%' }} variant="outlined">
-                                    <InputLabel sx={{ padding: '5px 3px' }} htmlFor="outlined-adornment-password">Password</InputLabel>
                                     <OutlinedInput
                                         id="outlined-adornment-password"
                                         size="small" fullWidth
                                         className="mt-12" name='password'
                                         type={showPassword.password ? 'text' : 'password'}
-                                        label="Password" onChange={handleChange}
+                                        onChange={handleChange} placeholder="Password"
                                         error={Boolean(errors?.password)}
                                         helperText={errors?.password}
                                         endAdornment={
@@ -153,9 +153,8 @@ const ConfirmPassword = () => {
                                         {errors.password}
                                     </FormHelperText>
                                 )}
-
                                 <FlexCenterColumn>
-                                    <PrimaryButton sx={{ mt: 5, width: '50%', margin: 'auto' }} onClick={handleSubmit}>Update Password</PrimaryButton>
+                                    <Grid item className="login_button" sx={{ mt: 5, width: '50%', margin: 'auto' }} onClick={handleSubmit}>Update Password</Grid>
                                 </FlexCenterColumn>
 
                             </Box>

@@ -9,6 +9,7 @@ import { FlexCenterColumn, PrimaryButton, PrimaryText, FlexDivRow, PrimaryColorT
 import HttpService from "../../Services/Http.service";
 import { toast } from "react-toastify";
 import { api_base_url } from "../../Utils/Common/urls";
+import '../index.scss';
 
 const RecoverComponent = () => {
     const navigate = useNavigate();
@@ -52,18 +53,18 @@ const RecoverComponent = () => {
         <>
             <Grid container
                 sx={{ mt: 0, paddingLeft: 0, height: { lg: '100vh', md: '100vh' }, flexDirection: { lg: 'row', md: 'row', sm: 'column' } }}>
-                <Grid item xs={12} sm={12} md={5} lg={5} xl={5}
+                <Grid item xs={12} sm={12} md={6} lg={6} xl={6}
                     className="logo_container" sx={{ justifyContent: { xs: 'center', sm: 'center', md: 'end', } }}
                 >
                     <Box
-                        sx={{ width: { lg: '50%', md: '60%', sm: '30%', xs: '30%' }, padding: { md: '0px', sm: '50px', xs: '10px' } }}
+                        sx={{ paddingRight: { lg: '50px' }, width: '320px', height: '127px', padding: { md: '0px', sm: '50px', xs: '10px' } }}
                         component="img"
                         className=""
                         alt="The MODA VASTRA Logo"
                         src={logo}
                     />
                 </Grid>
-                <Grid item xs={12} sm={12} md={7} lg={7} xl={7} sx={{
+                <Grid item xs={12} sm={12} md={6} lg={6} xl={6} sx={{
                     display: 'flex', alignItems: 'center'
                 }}>
                     <Container component="main" maxWidth="xs">
@@ -87,18 +88,9 @@ const RecoverComponent = () => {
                                         {error}
                                     </FormHelperText>
                                 )}
-                                <Grid item sx={{ mt: 3 }}>
-                                    <Button
-                                        variant="outlined"
-                                        onClick={handleSubmit}
-                                        sx={{
-                                            width: "50%", margin: 'auto',
-                                            color: "#424242", borderColor: "#424242",
-                                            display: 'flex', justifyContent: 'center'
-                                        }}>
-                                        Send Mail
-                                    </Button>
-                                </Grid>
+                                  <FlexCenterColumn>
+                                    <Grid item className="login_button" sx={{ mt: 5, width: '50%', margin: 'auto' }} onClick={handleSubmit}>Send mail</Grid>
+                                </FlexCenterColumn>
                             </Box>
                         </FlexCenterColumn>
                     </Container>
