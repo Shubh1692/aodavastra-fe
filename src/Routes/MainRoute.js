@@ -49,7 +49,7 @@ const masterComponent = () => {
           ></Route>
           <Route
             path="/address"
-            element={<PrivateRoute component={<Address />} />}
+            element={<PublicRoute component={<Address />} />}
           ></Route>
         </Routes>
       </Suspense>

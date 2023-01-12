@@ -1,5 +1,13 @@
 import React from "react";
-import { Box, Typography, Stack, Grid, useTheme, Button } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Stack,
+  Grid,
+  useTheme,
+  Button,
+  Paper,
+} from "@mui/material";
 import { TextField } from "@mui/material";
 // import FormControl from "@mui/material";
 // import { FormControlLabel } from "@mui/material";
@@ -7,7 +15,8 @@ import { TextField } from "@mui/material";
 import { FlexCenterColumn } from "../../Utils/Common/component";
 import { PrimaryButton } from "../../Utils/Common/component";
 import Layout from "../Layout";
-// import userLogo from "../../Assets/Images/ic_user_white.svg";
+import { flexbox } from "@mui/system";
+import userLogo from "../../Assets/Images/ic_user_white.svg";
 // import Layout from "../Layout";
 const Address = () => {
   const theme = useTheme();
@@ -57,7 +66,7 @@ const Address = () => {
               item
               lg={4}
               sx={{
-                display: "flex",
+                display: { xs: "none", sm: "none", md: "flex" },
                 justifyContent: "end",
                 pr: 4,
                 borderRight: 2,
@@ -143,10 +152,12 @@ const Address = () => {
                 <Typography sx={{ color: "#D83B3B" }}>Log Out</Typography>
               </Stack>
             </Grid>
-            <Grid item lg={8} sm={12}>
+            <Grid item lg={8} sm={12} sx={{ width: "100vw", height: "100vh" }}>
               <Grid item lg={8} sm={12}>
-                <Typography variant="h6">Current Address</Typography>
-                <Box
+                <Typography variant="h6" sx={{ margin: "10px" }}>
+                  Current Address
+                </Typography>
+                <Paper
                   sx={{
                     width: "500px",
                     height: "150px",
@@ -156,23 +167,24 @@ const Address = () => {
                     position: "relative",
                   }}
                 >
-                  <p id="currentAddress">
+                  <Box
+                    component={"div"}
+                    sx={{ display: "flex", justifyContent: "space-between" }}
+                  >
+                    <p id="currentAddress"></p>
                     <Button
                       variant="outlined"
                       sx={{
                         color: "black",
+                        alignSelf: "flex-end",
                         borderColor: "black",
-                        position: "relative",
-                        top: "100px",
-                        left: "330px",
-                        pl: 8,
-                        pr: 8,
+                        px: 8,
                       }}
                     >
                       Edit
                     </Button>
-                  </p>
-                </Box>
+                  </Box>
+                </Paper>
               </Grid>
               <Grid
                 item
@@ -194,6 +206,12 @@ const Address = () => {
                       fullWidth
                       autoComplete="shipping address-line1"
                       variant="outlined"
+                      sx={{
+                        width: "500px",
+                        height: "20px",
+                        margin: "10px",
+                        padding: "0px",
+                      }}
                     />
                   </Grid>
                   <Grid item xs={10}>
@@ -205,6 +223,7 @@ const Address = () => {
                       required
                       autoComplete="shipping address-line2"
                       variant="outlined"
+                      sx={{ width: "500px", height: "20px", margin: "10px" }}
                     />
                   </Grid>
                   <Grid item xs={5}>
@@ -216,6 +235,14 @@ const Address = () => {
                       fullWidth
                       autoComplete="shipping address-level2"
                       variant="outlined"
+                      sx={{
+                        width: "240px",
+                        height: "20px",
+                        marginTop: "10px",
+                        marginLeft: "10px",
+                        marginRight: "0px",
+                        marginBottom: "10px",
+                      }}
                     />
                   </Grid>
                   <Grid item xs={5}>
@@ -225,6 +252,12 @@ const Address = () => {
                       name="state"
                       label="State"
                       fullWidth
+                      sx={{
+                        width: "237px",
+                        height: "20px",
+                        marginTop: "10px",
+                        marginLeft: "0px",
+                      }}
                       variant="outlined"
                     />
                   </Grid>
@@ -237,6 +270,7 @@ const Address = () => {
                       fullWidth
                       autoComplete="shipping postal-code"
                       variant="outlined"
+                      sx={{ width: "240px", height: "20px", margin: "10px" }}
                     />
                   </Grid>
                 </Grid>
@@ -244,8 +278,8 @@ const Address = () => {
                   <PrimaryButton
                     sx={{
                       width: "30%",
-                      margin: "auto",
-                      marginLeft: "330px",
+                      marginTop: "30px",
+                      marginLeft: "320px",
                     }}
                     type={"submit"}
                     onClick={saveAddress}
@@ -254,6 +288,152 @@ const Address = () => {
                   </PrimaryButton>
                 </FlexCenterColumn>
               </Grid>
+            </Grid>
+          </Grid>
+          <Grid
+            container
+            rowSpacing={3}
+            p={0}
+            sx={{
+              flexDirection: { xs: "column-reverse", md: "row" },
+              display: { xs: "flex", sm: "flex", md: "none" },
+            }}
+          >
+            <Grid item lg={12}>
+              <Grid item lg={8} sm={12} sx={{ margin: "1rem" }}>
+                <Typography variant="h6" sx={{ ml: "7vw" }}>
+                  Current Address
+                </Typography>
+                <Paper
+                  sx={{
+                    width: "80vw",
+                    height: "15vh",
+                    background: "#f9f9f9",
+                    boxShadow: 3,
+                    m: "auto",
+                    p: 1,
+                    position: "relative",
+                  }}
+                >
+                  <Box
+                    component={"div"}
+                    sx={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      position: "relative",
+                    }}
+                  >
+                    <p id="currentAddress"></p>
+                    <Button
+                      variant="outlined"
+                      sx={{
+                        color: "black",
+                        borderColor: "black",
+                        px: 6,
+                        position: "absolute",
+                        top: "10vh",
+                        left: "40vw",
+                      }}
+                    >
+                      Edit
+                    </Button>
+                  </Box>
+                </Paper>
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                md={12}
+                gridRow
+                sx={{ position: "relative", top: "0vh", left: "10vw" }}
+              >
+                <Typography variant="h6" gutterBottom>
+                  Enter New Address
+                </Typography>
+              </Grid>
+              <Grid container spacing={0} sx={{ ml: "8vw" }} rowSpacing={0}>
+                <Grid item xs={12} sx={{ p: 0 }} spacing={0}>
+                  <TextField
+                    required
+                    id="address1"
+                    name="address1"
+                    label="Address(House No, Building, Street,Area)"
+                    fullWidth
+                    autoComplete="shipping address-line1"
+                    variant="outlined"
+                    sx={{
+                      width: "83vw",
+                      height: "10vh",
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={10}>
+                  <TextField
+                    id="address2"
+                    name="address2"
+                    label="Locality/Town"
+                    fullWidth
+                    required
+                    autoComplete="shipping address-line2"
+                    variant="outlined"
+                    sx={{ width: "83vw", height: "10vh" }}
+                  />
+                </Grid>
+                <Grid item xs={5}>
+                  <TextField
+                    required
+                    id="city"
+                    name="city"
+                    label="City"
+                    fullWidth
+                    autoComplete="shipping address-level2"
+                    variant="outlined"
+                    sx={{
+                      width: "41vw",
+                      height: "10vh",
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={5}>
+                  <TextField
+                    required
+                    id="state"
+                    name="state"
+                    label="State"
+                    fullWidth
+                    sx={{
+                      width: "41vw",
+                      height: "10vh",
+                      ml: "1vw",
+                    }}
+                    variant="outlined"
+                  />
+                </Grid>
+                <Grid item xs={5}>
+                  <TextField
+                    required
+                    id="zip"
+                    name="zip"
+                    label="Pin code"
+                    fullWidth
+                    autoComplete="shipping postal-code"
+                    variant="outlined"
+                    sx={{ width: "41vw", height: "10vh" }}
+                  />
+                </Grid>
+              </Grid>
+              <FlexCenterColumn>
+                <PrimaryButton
+                  sx={{
+                    width: "50vw",
+                    margin: "auto",
+                  }}
+                  type={"submit"}
+                  onClick={saveAddress}
+                >
+                  Add New Address
+                </PrimaryButton>
+              </FlexCenterColumn>
             </Grid>
           </Grid>
         </Stack>

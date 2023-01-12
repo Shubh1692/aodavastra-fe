@@ -25,7 +25,7 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
-          <Address />
+          <MasterComponent />
         </BrowserRouter>
       </ThemeProvider>
     </>
