@@ -5,7 +5,7 @@ import {
 import Grid from "@mui/material/Grid";
 import { useNavigate } from "react-router-dom";
 import logo from "../../Assets/Images/project_logo_svg.svg";
-import { FlexCenterColumn, PrimaryButton, PrimaryText, FlexDivRow, PrimaryColorText } from "../../Utils/Common/component";
+import { FlexCenterColumn } from "../../Utils/Common/component";
 import HttpService from "../../Services/Http.service";
 import { toast } from "react-toastify";
 import { api_base_url } from "../../Utils/Common/urls";
@@ -88,7 +88,7 @@ const RecoverComponent = () => {
                                         {error}
                                     </FormHelperText>
                                 )}
-                                  <FlexCenterColumn>
+                                <FlexCenterColumn>
                                     <Grid item className="login_button" sx={{ mt: 5, width: '50%', margin: 'auto' }} onClick={handleSubmit}>Send mail</Grid>
                                 </FlexCenterColumn>
                             </Box>

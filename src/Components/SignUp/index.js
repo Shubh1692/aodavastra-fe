@@ -116,7 +116,7 @@ const SignUpComponent = () => {
           className="logo_container" sx={{ justifyContent: { xs: 'center', sm: 'center', md: 'end', } }}
         >
           <Box
-            sx={{ paddingRight: { lg: '50px' }, width: '320px', height:'127px', padding: { md: '0px', sm: '50px', xs: '10px' } }}
+            sx={{ paddingRight: { lg: '50px' }, width: '320px', height: '127px', padding: { md: '0px', sm: '50px', xs: '10px' } }}
             component="img"
             className=""
             alt="The MODA VASTRA Logo"
@@ -128,7 +128,7 @@ const SignUpComponent = () => {
         }}>
           <Container component="main" maxWidth="xs" sx={{ ml: 0 }}>
             <FlexCenterColumn>
-              <Box sx={{width: '467px'}}>
+              <Box sx={{ width: '467px' }}>
                 <OutlinedInput
                   fullWidth
                   placeholder="Full Name"
@@ -212,12 +212,18 @@ const SignUpComponent = () => {
                     {errors.confirm_password}
                   </FormHelperText>
                 )}
-                <FlexDivRow>
-                  <Checkbox sx={{ pl: 0 }} name='tc' onChange={(e) => setPayload({ ...userPayload, tc: e.target.checked })} />
-                  <PrimaryText>I accept &nbsp;<PrimaryColorText><b>Terms & Conditions </b> &nbsp;</PrimaryColorText> and <PrimaryColorText>&nbsp; Privacy Policy </PrimaryColorText></PrimaryText>
+                <FlexDivRow className="mt-12">
+                  <Checkbox className="term-checkbox" sx={{
+                    pl: 0,
+                    '& .MuiSvgIcon-root': {
+                      fontSize: 10,
+                      borderRadius: 20
+                    }
+                  }} name='tc' onChange={(e) => setPayload({ ...userPayload, tc: e.target.checked })} />
+                  <PrimaryText>I accept <PrimaryColorText>Terms & Conditions </PrimaryColorText> and <PrimaryColorText>Privacy Policy </PrimaryColorText></PrimaryText>
                 </FlexDivRow>
                 <FlexCenterColumn>
-                  <Grid item className="login_button" sx={{ mt: 2, width: '50%', margin: 'auto' }} onClick={handleSubmit}>Sign up</Grid>
+                  <Grid item className="register_button" sx={{ mt: 2, width: '50%', margin: 'auto' }} onClick={handleSubmit}>Sign up</Grid>
                 </FlexCenterColumn>
                 <Grid sx={{ mt: 3 }} >
                   <Grid className="or_signup_text" item >or signup with </Grid>
@@ -243,18 +249,13 @@ const SignUpComponent = () => {
                 }}>
                   <Grid item component='span' >Already Have an Account?</Grid>
                 </Grid>
-                <Grid item>
-                  <Button
-                    variant="outlined"
-                    onClick={handleRedirect}
-                    sx={{
-                      width: "50%", margin: 'auto',
-                      color: "#3C3C3C", borderColor: "#3C3C3C",
-                      display: 'flex', justifyContent: 'center',
-                      fontSize: '18px'
-                    }}>
-                    Log in
-                  </Button>
+                <Grid item className="semi-outlined-button"
+                  variant="outlined"
+                  onClick={handleRedirect}
+                  sx={{
+                    width: "50%", margin: 'auto',
+                  }}>
+                  Log in
                 </Grid>
               </Box>
             </FlexCenterColumn>

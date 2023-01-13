@@ -8,6 +8,11 @@ const font = "'Poppins', sans-serif";
 
 function App() {
   const theme = createTheme({
+    input: {
+      "&::placeholder": {
+        opacity: 1,
+      },
+    },
     palette: {
       primary: {
         main: "#A484BD",

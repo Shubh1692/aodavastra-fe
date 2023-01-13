@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {
   Button, FormControl, InputLabel, Box, Container,
-  OutlinedInput, InputAdornment, IconButton, FormHelperText
+  OutlinedInput, InputAdornment, IconButton, FormHelperText, Typography
 } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import logo from "../../Assets/Images/project_logo_svg.svg";
@@ -9,7 +9,7 @@ import { GoogleLogin } from '@react-oauth/google';
 import { useNavigate } from "react-router-dom";
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { FlexCenterColumn, PrimaryButton, PrimaryText, FlexDivRow, PrimaryColorText } from "../../Utils/Common/component";
+import { FlexCenterColumn, PrimaryButton, FlexDivRow, PrimaryColorText } from "../../Utils/Common/component";
 import HttpService from "../../Services/Http.service";
 import { toast } from "react-toastify";
 import { api_base_url } from "../../Utils/Common/urls";
@@ -91,7 +91,7 @@ const LoginComponent = () => {
           className="logo_container" sx={{ justifyContent: { xs: 'center', sm: 'center', md: 'end', } }}
         >
           <Box
-            sx={{ paddingRight: { lg: '50px' },  width: '320px', height:'127px', padding: { md: '0px', sm: '50px', xs: '10px' } }}
+            sx={{ paddingRight: { lg: '50px' }, width: '320px', height: '127px', padding: { md: '0px', sm: '50px', xs: '10px' } }}
             component="img"
             className=""
             alt="The MODA VASTRA Logo"
@@ -151,7 +151,7 @@ const LoginComponent = () => {
                   </FormHelperText>
                 )}
                 <Grid item sx={{ mb: '12px', mt: '12px', textAlign: 'end' }}>
-                  <PrimaryColorText className="forgot_text" onClick={() => navigate('/recover-password')}>Forgot Password?</PrimaryColorText>
+                  <Typography className="forgot_text" onClick={() => navigate('/recover-password')}>Forgot Password?</Typography>
                 </Grid>
                 <FlexCenterColumn>
                   <Grid item className="login_button" sx={{ mt: 5, width: '50%', margin: 'auto' }} onClick={handleSubmit}>Log in</Grid>
@@ -180,18 +180,14 @@ const LoginComponent = () => {
                 }}>
                   <Grid item component='span' >New here?</Grid>
                 </Grid>
-                <Grid item>
-                  <Button
-                    variant="outlined"
-                    onClick={handleRedirect}
-                    sx={{
-                      width: "50%", margin: 'auto',
-                      color: "#3C3C3C", borderColor: "#3C3C3C",
-                      display: 'flex', justifyContent: 'center',
-                      fontSize: '18px', textTransform: 'inherit'
-                    }}>
-                    Create Account
-                  </Button>
+                <Grid item
+                  className="semi-outlined-button"
+                  variant="outlined"
+                  onClick={handleRedirect}
+                  sx={{
+                    width: "50%", margin: 'auto',
+                  }}>
+                  Create Account
                 </Grid>
               </Box>
             </FlexCenterColumn>

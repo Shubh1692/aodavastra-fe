@@ -1,3 +1,4 @@
+@import "../Assets/Styles/theme.scss";
 .mt-12 {
   margin-top: 12px !important;
 }
@@ -37,17 +38,49 @@
   top: 50%;
   position: absolute;
 }
+
+.register_button {
+  width: 229.25px;
+  height: 50.81px;
+  background: $secondPrimaryColor;
+  border-radius: 5.3px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19.1;
+  line-height: 29px;
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+}
+.semi-outlined-button {
+  width: 229.25px;
+  height: 48.81px;
+  color: #3c3c3c;
+  border: 1px solid #3c3c3c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19.1045px;
+  line-height: 29px;
+  text-transform: inherit;
+}
+
 // login
 .login_button {
   width: 229.25px;
   height: 48.81px;
-  background: #a484bd;
+  background: $secondPrimaryColor;
   border-radius: 5px;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 27px;
-  color: #ffffff;
+  color: $white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,7 +95,7 @@
   border-radius: 4px;
 }
 
-.login-div> div {
+.login-div > div {
   height: 100% !important;
 }
 
@@ -79,8 +112,49 @@
   font-family: "Poppins";
 }
 .forgot_text {
+  color: $primaryColor;
   font-style: normal;
+  font-weight: 600;
   font-size: 14px;
   line-height: 21px;
   cursor: pointer;
+}
+
+.term-checkbox .MuiSvgIcon-root {
+  width: 36.8px;
+  height: 36.8px;
+  // border: 2.12273px solid #3C3C3C;
+}
+
+// profile
+
+.become_creator {
+  background: $becomeRadientColor;
+  width: 100%;
+  height: 55.96px;
+  border-radius: 9.5102px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  p {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22.8245px;
+    line-height: 34px;
+    text-align: center;
+    color: $white;
+  }
+}
+.save_changes {
+  width: 100%;
+  height: 48px;
+  background: $primaryColor;
+  font-weight: 400;
+  font-size: 27.98px;
+  line-height: 42px;
+  color: $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

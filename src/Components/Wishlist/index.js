@@ -21,7 +21,7 @@ const Wishlist = () => {
                 }}
             >
                 <Grid container columnSpacing={2} sx={{ flexDirection: { xs: 'column-reverse', md: 'row' }, display: { xs: 'none', sm: 'none', md: 'flex' } }}>
-                    <Grid item lg={4} sx={{ display: 'flex', justifyContent: 'end', pr: 4 }}>
+                    <Grid item md={4} lg={4} sx={{ display: 'flex', justifyContent: 'end', pr: 4 }}>
                         <LeftNavbar />
                     </Grid>
                 </Grid>

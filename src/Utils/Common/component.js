@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
 import styled from "styled-components";
-
+import theme from '../../Assets/Styles/theme'
 
 export const FlexDivRow = styled.div`
   display: flex;
@@ -26,13 +26,11 @@ export const PrimaryText = styled.span`
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    font-size: 15px;
-    // line-height: 29px;
-    display: flex;
-    align-items: center;
+    font-size: 19.1045px;
+    line-height: 29px;
     color: #3C3C3C;
 `
 export const PrimaryColorText = styled.span`
-    color: #A484BD !important;
-    font-weight: 600 !important;
+    color: ${theme.primaryColor} !important;
+    font-weight: 500 !important;
 `

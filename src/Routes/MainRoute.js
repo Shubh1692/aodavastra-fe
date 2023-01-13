@@ -5,6 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PublicRoute from "../Routes/Public";
 import PrivateRoute from "../Routes/Private"
+import { Grid } from '@mui/material';
 
 const SignUpComponent = lazy(() => import('../Components/SignUp'))
 const Login = lazy(() => import('../Components/Login'))
@@ -19,9 +20,13 @@ const Wishlist = lazy(() => import('../Components/Wishlist'));
 
 const masterComponent = () => {
     return (
-        <div>
+        <>
             {/* <ErrorSnackbar ref={r => ToasterService._ref = r} /> */}
-            <Suspense fallback={<CircularProgress color="secondary" size={200} thickness={1} />}>
+            <Suspense fallback={
+                <Grid sx={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <CircularProgress color="secondary" size={200} thickness={1} />
+                </Grid>
+            }>
                 <Routes>
                     <Route path='/register' element={<PublicRoute component={<SignUpComponent />} />}></Route>
                     <Route path='/login' element={<PublicRoute component={<Login />} />}></Route>
@@ -36,7 +41,7 @@ const masterComponent = () => {
                 </Routes>
             </Suspense>
             <ToastContainer />
-        </div>
+        </>
     )
 }
 export default masterComponent;
