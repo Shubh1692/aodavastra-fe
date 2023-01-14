@@ -167,9 +167,7 @@ const EditAddress = () => {
                         margin: "10px",
                         padding: "0px",
                       }}
-                    >
-                      Name
-                    </TextField>
+                    />
                   </Grid>
                   <Grid item xs={10}>
                     <TextField
