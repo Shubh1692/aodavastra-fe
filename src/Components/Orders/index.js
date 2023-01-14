@@ -14,7 +14,7 @@ const Orders = () => {
         <>
             <Box
                 sx={{
-                    marginTop: "8pc",
+                    margin: '8pc',
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",

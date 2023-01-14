@@ -1,1 +1,1 @@
-export const api_base_url = 'http://3.15.227.218'
+export const api_base_url = 'https://test-app-jxbj.onrender.com'

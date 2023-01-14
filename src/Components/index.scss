@@ -46,7 +46,7 @@
   border-radius: 5.3px;
   font-style: normal;
   font-weight: 400;
-  font-size: 19.1;
+  font-size: 19.1px;
   line-height: 29px;
   color: $white;
   display: flex;
@@ -72,6 +72,7 @@
 
 // login
 .login_button {
+  cursor: pointer;
   width: 229.25px;
   height: 48.81px;
   background: $secondPrimaryColor;
@@ -126,33 +127,88 @@
   // border: 2.12273px solid #3C3C3C;
 }
 
+// navbar
+
+.nav_container {
+  ::before {
+    content: "";
+    width: 376px;
+    height: 0px;
+    border: 2px solid #3c3c3c;
+    transform: rotate(90deg) !important;
+  }
+}
+
+.container_div {
+  margin-top: 8pc;
+  // height: calc(100vh - 1pc);
+}
+
 // profile
 
 .become_creator {
   background: $becomeRadientColor;
-  width: 100%;
+  width: 450px;
   height: 55.96px;
   border-radius: 9.5102px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  position: absolute;
+  bottom: 30px;
   p {
     font-family: "Poppins";
     font-style: normal;
     font-weight: 400;
-    font-size: 22.8245px;
+    font-size: 22px;
     line-height: 34px;
     text-align: center;
     color: $white;
   }
 }
+.profile_div {
+}
 .save_changes {
-  width: 100%;
+  width: 450px;
   height: 48px;
   background: $primaryColor;
   font-weight: 400;
   font-size: 27.98px;
   line-height: 42px;
+  color: $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 30px;
+}
+
+.follwer_user {
+  width: calc(100% - 113.2px);
+}
+.unfollow_button {
+  width: 130.74px;
+  height: 41.42px;
+  background: $primaryColor;
+  border-radius: 3.9px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15.5333px;
+  line-height: 23px;
+  color: $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.save_password {
+  width: 466px;
+  height: 48px;
+  background: $thirdPrimaryColor;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 36px;
+  margin-top: 56px;
   color: $white;
   display: flex;
   justify-content: center;

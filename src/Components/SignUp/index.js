@@ -130,10 +130,16 @@ const SignUpComponent = () => {
             <FlexCenterColumn>
               <Box sx={{ width: '467px' }}>
                 <OutlinedInput
-                  fullWidth
-                  placeholder="Full Name"
-                  name="name"
-                  size="small"
+                  fullWidth placeholder="Full Name"
+                  name="name" size="small"
+                  inputProps={{
+                    sx: {
+                      "&::placeholder": {
+                        opacity: 0.8,
+                        fontSize: "18px",
+                      },
+                    },
+                  }}
                   error={Boolean(errors?.name)}
                   onChange={handleChange}
                 />
@@ -143,12 +149,18 @@ const SignUpComponent = () => {
                   </FormHelperText>
                 )}
                 <OutlinedInput
-                  type="email"
-                  placeholder="E-mail"
-                  name="email"
-                  size="small"
+                  type="email" placeholder="E-mail"
+                  name="email" size="small"
                   className="mt-12"
                   fullWidth
+                  inputProps={{
+                    sx: {
+                      "&::placeholder": {
+                        opacity: 0.8,
+                        fontSize: "18px",
+                      },
+                    },
+                  }}
                   error={Boolean(errors?.email)}
                   onChange={handleChange}
                 />
@@ -158,14 +170,20 @@ const SignUpComponent = () => {
                   </FormHelperText>
                 )}
                 <FormControl sx={{ width: '100%' }} variant="outlined">
-                  {/* <InputLabel sx={{ padding: '5px 3px' }} htmlFor="outlined-adornment-password">Password</InputLabel> */}
                   <OutlinedInput
                     id="outlined-adornment-password"
-                    size="small" fullWidth
-                    className="mt-12" name='password'
+                    size="small" fullWidth className="mt-12" name='password'
                     type={showPassword.password ? 'text' : 'password'}
                     placeholder="Password" onChange={handleChange}
                     error={Boolean(errors?.password)}
+                    inputProps={{
+                      sx: {
+                        "&::placeholder": {
+                          opacity: 0.8,
+                          fontSize: "18px",
+                        },
+                      },
+                    }}
                     endAdornment={
                       <InputAdornment position="end">
                         <IconButton
@@ -186,11 +204,18 @@ const SignUpComponent = () => {
                   </FormHelperText>
                 )}
                 <FormControl sx={{ width: '100%' }} variant="outlined">
-                  {/* <InputLabel sx={{ padding: '5px 3px' }} htmlFor="outlined-adornment-password">Confirm Password</InputLabel> */}
                   <OutlinedInput
                     id="outlined-adornment-password" placeholder="Confirm Password"
                     size="small" fullWidth name='confirm_password'
                     className="mt-12" onChange={handleChange}
+                    inputProps={{
+                      sx: {
+                        "&::placeholder": {
+                          opacity: 0.8,
+                          fontSize: "18px",
+                        },
+                      },
+                    }}
                     error={Boolean(errors?.confirm_password)}
                     type={showPassword.confirm_password ? 'text' : 'password'}
                     endAdornment={
@@ -223,7 +248,7 @@ const SignUpComponent = () => {
                   <PrimaryText>I accept <PrimaryColorText>Terms & Conditions </PrimaryColorText> and <PrimaryColorText>Privacy Policy </PrimaryColorText></PrimaryText>
                 </FlexDivRow>
                 <FlexCenterColumn>
-                  <Grid item className="register_button" sx={{ mt: 2, width: '50%', margin: 'auto' }} onClick={handleSubmit}>Sign up</Grid>
+                  <Grid item className="register_button" sx={{ mt: 2, width: '50%', margin: 'auto',cursor:'pointer' }} onClick={handleSubmit}>Sign up</Grid>
                 </FlexCenterColumn>
                 <Grid sx={{ mt: 3 }} >
                   <Grid className="or_signup_text" item >or signup with </Grid>
@@ -253,7 +278,7 @@ const SignUpComponent = () => {
                   variant="outlined"
                   onClick={handleRedirect}
                   sx={{
-                    width: "50%", margin: 'auto',
+                    width: "50%", margin: 'auto',cursor:'pointer'
                   }}>
                   Log in
                 </Grid>

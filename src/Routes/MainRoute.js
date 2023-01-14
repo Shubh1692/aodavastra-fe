@@ -32,11 +32,11 @@ const masterComponent = () => {
                     <Route path='/login' element={<PublicRoute component={<Login />} />}></Route>
                     <Route path='/recover-password' element={<PublicRoute component={<RecoverComponent />} />}></Route>
                     <Route path='/password-reset-confirm/:token' element={<PublicRoute component={<ConfirmPassword />} />}></Route>
-                    <Route path='/profile' element={<PublicRoute component={<Profile />} />}></Route>
-                    <Route path='/orders' element={<PublicRoute component={<Orders />} />}></Route>
-                    <Route path='/wishlist' element={<PublicRoute component={<Wishlist />} />}></Route>
-                    <Route path='/addresses' element={<PublicRoute component={<Addresses />} />}></Route>
-                    <Route path='/change-password' element={<PublicRoute component={<UpdatePassword />} />}></Route>
+                    <Route path='/profile' element={<PrivateRoute component={<Profile />} />}></Route>
+                    <Route path='/orders' element={<PrivateRoute component={<Orders />} />}></Route>
+                    <Route path='/wishlist' element={<PrivateRoute component={<Wishlist />} />}></Route>
+                    <Route path='/addresses' element={<PrivateRoute component={<Addresses />} />}></Route>
+                    <Route path='/change-password' element={<PrivateRoute component={<UpdatePassword />} />}></Route>
                     <Route path='/' element={<PrivateRoute component={<Home />} />}></Route>
                 </Routes>
             </Suspense>

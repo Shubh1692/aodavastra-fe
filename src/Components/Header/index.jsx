@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  Box,
-  AppBar,
-  Link,
-  Grid,
-  Stack,
-} from "@mui/material";
+import { Box, AppBar, Link, Grid, Stack } from "@mui/material";
 
 import headerLogo from "../../Assets/Images/ModavastraLogo_Black 2.svg";
 import SearchImage from "../../Assets/Images/search.svg";
@@ -45,11 +39,13 @@ const Header = (props) => {
             }}
           >
             <Grid item lg={6}>
-              <img onClick={()=>navigate('/')}
+              <img
+                onClick={() => navigate("/")}
                 src={headerLogo}
                 alt="header_logo"
                 width="104px"
-                height="41" style={{cursor:'pointer'}}
+                height="41"
+                style={{ cursor: "pointer" }}
               />
             </Grid>
             <Grid
@@ -71,13 +67,18 @@ const Header = (props) => {
                 }}
               >
                 <Link href="/">
-                  <Box sx={{cursor: "pointer" }}>
-                    <img src={SearchImage} alt="search" width="30" height="30" />
+                  <Box sx={{ cursor: "pointer" }}>
+                    <img
+                      src={SearchImage}
+                      alt="search"
+                      width="30"
+                      height="30"
+                    />
                   </Box>
                 </Link>
                 <Link href="/">
-                  <Box sx={{cursor: "pointer" }}>
-                    <img src={shopingBag} alt=""  width="28" height="30" />
+                  <Box sx={{ cursor: "pointer" }}>
+                    <img src={shopingBag} alt="" width="28" height="30" />
                   </Box>
                 </Link>
                 <Link href="/profile">

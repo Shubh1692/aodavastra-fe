@@ -111,13 +111,17 @@ const ConfirmPassword = () => {
                         <FlexCenterColumn>
                             <Box>
                                 <OutlinedInput
-                                    type="email"
-                                    placeholder="E-mail"
-                                    name="email"
-                                    size="small"
-                                    className="mt-12"
-                                    fullWidth
-                                    error={Boolean(errors?.email)}
+                                    type="email" placeholder="E-mail"
+                                    name="email" size="small" className="mt-12"
+                                    fullWidth error={Boolean(errors?.email)}
+                                    inputProps={{
+                                        sx: {
+                                            "&::placeholder": {
+                                                opacity: 0.8,
+                                                fontSize: "18px",
+                                            },
+                                        },
+                                    }}
                                     onChange={handleChange}
                                 />
                                 {errors && (
@@ -129,6 +133,14 @@ const ConfirmPassword = () => {
                                     <OutlinedInput
                                         id="outlined-adornment-password"
                                         size="small" fullWidth
+                                        inputProps={{
+                                            sx: {
+                                                "&::placeholder": {
+                                                    opacity: 0.8,
+                                                    fontSize: "18px",
+                                                },
+                                            },
+                                        }}
                                         className="mt-12" name='password'
                                         type={showPassword.password ? 'text' : 'password'}
                                         onChange={handleChange} placeholder="Password"

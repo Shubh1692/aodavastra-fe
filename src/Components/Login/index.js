@@ -102,19 +102,24 @@ const LoginComponent = () => {
           display: 'flex', alignItems: 'center'
         }}>
           <Container component="main" maxWidth="xs" sx={{ ml: 0 }}>
-            <FlexCenterColumn>
-              <Box
-                component="form"
-                noValidate
-                sx={{ mt: 1 }}
-              >
+            <Box
+              component="form"
+              noValidate
+              sx={{ mt: 1 }}
+            >
+              <FlexCenterColumn>
                 <OutlinedInput
-                  type="email"
-                  placeholder="E-mail"
-                  name="email"
-                  size="small"
-                  className="mt-12"
-                  fullWidth sx={{ '& legend': { display: 'none' } }}
+                  type="email" placeholder="E-mail"
+                  name="email" size="small"
+                  inputProps={{
+                    sx: {
+                      "&::placeholder": {
+                        opacity: 0.8,
+                        fontSize: "18px",
+                      },
+                    },
+                  }}
+                  fullWidth 
                   error={Boolean(errors?.email)}
                   onChange={handleChange}
                 />
@@ -123,28 +128,35 @@ const LoginComponent = () => {
                     {errors.email}
                   </FormHelperText>
                 )}
-                <FormControl sx={{ width: '100%' }} variant="outlined">
-                  <OutlinedInput
-                    size="small" fullWidth
-                    variant='outlined' sx={{ '& legend': { display: 'none' } }}
-                    className="mt-12" name='password'
-                    type={showPassword ? 'text' : 'password'}
-                    placeholder="Password" onChange={handleChange}
-                    error={Boolean(errors?.password)}
-                    endAdornment={
-                      <InputAdornment position="end">
-                        <IconButton
-                          aria-label="toggle password visibility"
-                          onClick={() => handleClickShowPassword('password')}
-                          onMouseDown={(e) => e.preventDefault()}
-                          edge="end"
-                        >
-                          {showPassword ? <VisibilityOff /> : <Visibility />}
-                        </IconButton>
-                      </InputAdornment>
-                    }
-                  />
-                </FormControl>
+                {/* <FormControl sx={{ width: '100%' }} variant="outlined"> */}
+                <OutlinedInput
+                  size="small" fullWidth
+                  className="mt-12" name='password'
+                  type={showPassword ? 'text' : 'password'}
+                  placeholder="Password" onChange={handleChange}
+                  error={Boolean(errors?.password)}
+                  inputProps={{
+                    sx: {
+                      "&::placeholder": {
+                        opacity: 0.8,
+                        fontSize: "18px",
+                      },
+                    },
+                  }}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={() => handleClickShowPassword('password')}
+                        onMouseDown={(e) => e.preventDefault()}
+                        edge="end"
+                      >
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                />
+                {/* </FormControl> */}
                 {errors && (
                   <FormHelperText htmlFor="form-selector" error={!!errors.password}>
                     {errors.password}
@@ -185,12 +197,12 @@ const LoginComponent = () => {
                   variant="outlined"
                   onClick={handleRedirect}
                   sx={{
-                    width: "50%", margin: 'auto',
+                    width: "50%", margin: 'auto', cursor:'pointer'
                   }}>
                   Create Account
                 </Grid>
-              </Box>
-            </FlexCenterColumn>
+              </FlexCenterColumn>
+            </Box>
           </Container>
         </Grid>
       </Grid>

@@ -75,11 +75,16 @@ const RecoverComponent = () => {
                                 sx={{ mt: 1 }}
                             >
                                 <TextField
-                                    type="email"
-                                    label="E-mail"
-                                    name="email"
-                                    size="small"
-                                    className="mt-12"
+                                    type="email" placeholder="E-mail"
+                                    name="email" size="small"
+                                    inputProps={{
+                                        sx: {
+                                            "&::placeholder": {
+                                                opacity: 0.8,
+                                                fontSize: "18px",
+                                            },
+                                        },
+                                    }} className="mt-12"
                                     fullWidth error={Boolean(error)}
                                     onChange={handleChange}
                                 />

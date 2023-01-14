@@ -2,11 +2,7 @@ import React from 'react';
 import Layout from '../Layout';
 import {
     Box,
-    Typography,
-    Stack,
     Grid,
-    useTheme
-
 } from "@mui/material";
 import { LeftNavbar } from '../Leftbar';
 const AddressComponent = () => {
@@ -14,7 +10,7 @@ const AddressComponent = () => {
         <>
             <Box
                 sx={{
-                    marginTop: "8pc",
+                    margin:'8pc',
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",

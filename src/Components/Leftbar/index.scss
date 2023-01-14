@@ -3,19 +3,19 @@
   display: flex;
   position: fixed;
 
-  .active {
-    font-family: $fontFamily;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 36px;
-    color: $primaryColor;
-  }
+  // .active {
+  //   font-family: $fontFamily;
+  //   font-style: normal;
+  //   font-weight: 400;
+  //   font-size: 24px;
+  //   line-height: 36px;
+  //   color: $primaryColor;
+  // }
 
   .nav-text {
     display: flex;
     padding: 0px 0px 8px 0px;
-
+    
     a {
       text-decoration: none !important;
       color: #3c3c3c !important;
