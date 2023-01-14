@@ -12,6 +12,8 @@ import RecoverComponent from "../Components/Login/recoverPassword";
 import Home from "../Components/Home";
 import ConfirmPassword from "../Components/Login/ConfirmPassword";
 import Address from "../Components/Address";
+import AddressNew from "../Components/Address/AddressNew";
+import EditAddress from "../Components/Address/EditAddress";
 
 const masterComponent = () => {
   return (
@@ -46,6 +48,14 @@ const masterComponent = () => {
           <Route
             path="/"
             element={<PrivateRoute component={<Home />} />}
+          ></Route>
+          <Route
+            path="/addAddress"
+            element={<PublicRoute component={<AddressNew />} />}
+          ></Route>
+          <Route
+            path="/editAddress"
+            element={<PublicRoute component={<EditAddress />} />}
           ></Route>
           <Route
             path="/address"
