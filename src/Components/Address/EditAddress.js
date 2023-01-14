@@ -153,6 +153,7 @@ const EditAddress = () => {
                 </Typography>
                 <Grid container spacing={3}>
                   <Grid item xs={10}>
+                    <h4 sx={{ marginBottom: 0 }}>Name</h4>
                     <TextField
                       required
                       id="Name"
@@ -164,12 +165,13 @@ const EditAddress = () => {
                       sx={{
                         width: "500px",
                         height: "20px",
-                        margin: "10px",
+                        margin: "0px",
                         padding: "0px",
                       }}
                     />
                   </Grid>
                   <Grid item xs={10}>
+                    <h4 sx={{ marginBottom: 0 }}>Mobile</h4>
                     <TextField
                       required
                       id="mobile"
@@ -181,12 +183,13 @@ const EditAddress = () => {
                       sx={{
                         width: "500px",
                         height: "20px",
-                        margin: "10px",
+                        margin: "0px",
                         padding: "0px",
                       }}
                     />
                   </Grid>
                   <Grid item xs={5}>
+                    <h4 sx={{ marginBottom: 0 }}>Pin</h4>
                     <TextField
                       required
                       id="pin"
@@ -198,14 +201,15 @@ const EditAddress = () => {
                       sx={{
                         width: "240px",
                         height: "20px",
-                        marginTop: "10px",
-                        marginLeft: "10px",
+                        marginTop: "0px",
+                        marginLeft: "0px",
                         marginRight: "0px",
                         marginBottom: "10px",
                       }}
                     />
                   </Grid>
                   <Grid item xs={5}>
+                    <h4 sx={{ marginBottom: 0 }}>State</h4>
                     <TextField
                       required
                       id="state"
@@ -215,13 +219,14 @@ const EditAddress = () => {
                       sx={{
                         width: "237px",
                         height: "20px",
-                        marginTop: "10px",
-                        marginLeft: "3px",
+                        marginTop: "0px",
+                        marginLeft: "-10px",
                       }}
                       variant="outlined"
                     />
                   </Grid>
                   <Grid item xs={10}>
+                    <h4 sx={{ marginBottom: 0 }}>Address Line 1</h4>
                     <TextField
                       required
                       id="address1"
@@ -233,12 +238,13 @@ const EditAddress = () => {
                       sx={{
                         width: "500px",
                         height: "20px",
-                        margin: "10px",
+                        margin: "0px",
                         padding: "0px",
                       }}
                     />
                   </Grid>
                   <Grid item xs={10}>
+                    <h4 sx={{ marginBottom: 0 }}>Address Line 2</h4>
                     <TextField
                       id="address2"
                       name="address2"
@@ -247,11 +253,14 @@ const EditAddress = () => {
                       required
                       autoComplete="shipping address-line2"
                       variant="outlined"
-                      sx={{ width: "500px", height: "20px", margin: "10px" }}
+                      sx={{ width: "500px", height: "20px", margin: "0px" }}
                     />
                   </Grid>
 
                   <Grid item xs={5}>
+                    <h4 sx={{ marginBottom: 0, fontWeight: "lighter" }}>
+                      City/District
+                    </h4>
                     <TextField
                       required
                       id="city"
@@ -260,7 +269,7 @@ const EditAddress = () => {
                       fullWidth
                       autoComplete="city"
                       variant="outlined"
-                      sx={{ width: "500px", height: "20px", margin: "10px" }}
+                      sx={{ width: "500px", height: "20px", margin: "0px" }}
                     />
                   </Grid>
                 </Grid>
