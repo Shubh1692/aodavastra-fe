@@ -17,8 +17,8 @@ import nextButton from "../../Assets/Images/next_button.svg";
 import post1 from "../../Assets/Images/post-1.png";
 import post2 from "../../Assets/Images/post-2.png";
 import post3 from "../../Assets/Images/post-3.png";
-
 import "../index.scss";
+
 const Profile = () => {
   const theme = useTheme();
   const [disabled, setDisabled] = useState(true);

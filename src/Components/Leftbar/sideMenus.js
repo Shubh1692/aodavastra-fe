@@ -14,6 +14,16 @@ export const SidebarData=[
         path:'/wishlist',
         cName:'nav-text'
     },
+    // {
+    //     title:'Shopping Bag',
+    //     path:'/shopping-bag',
+    //     cName:'nav-text'
+    // },
+    // {
+    //     title:'Payment Settings',
+    //     path:'/payment-settings',
+    //     cName:'nav-text'
+    // },
     {
         title:'Addresses',
         path:'/address',

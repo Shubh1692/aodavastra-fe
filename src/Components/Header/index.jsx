@@ -107,7 +107,7 @@ const Header = (props) => {
             </Grid>
           </Grid>
           <Grid
-            container
+            container border={1}
             sx={{
               flexGrow: 1,
               display: {
