@@ -67,7 +67,7 @@ const Header = (props) => {
                 }}
               >
                 <Link href="/">
-                  <Box sx={{ cursor: "pointer" }}>
+                  <Box sx={{ cursor: "pointer", display: "flex" }}>
                     <img
                       src={SearchImage}
                       alt="search"
@@ -77,7 +77,7 @@ const Header = (props) => {
                   </Box>
                 </Link>
                 <Link href="/">
-                  <Box sx={{ cursor: "pointer" }}>
+                  <Box sx={{ cursor: "pointer", display: "flex" }}>
                     <img src={shopingBag} alt="" width="28" height="30" />
                   </Box>
                 </Link>
@@ -107,7 +107,8 @@ const Header = (props) => {
             </Grid>
           </Grid>
           <Grid
-            container border={1}
+            container
+            border={1}
             sx={{
               flexGrow: 1,
               display: {

@@ -34,3 +34,55 @@ export const PrimaryColorText = styled.span`
     color: ${theme.primaryColor} !important;
     font-weight: 500 !important;
 `
+
+export const OrderConatiner = styled.div`
+    background: #F9F9F9;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+    padding: 12px;
+`
+export const PurpleText = styled.span`
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    color: ${theme.purple};
+`
+
+export const BoldText = styled.span`
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    color: ${theme.lightBlack};
+`
+
+export const SemiLightText = styled.span`
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: ${theme.lightBlack};
+`
+
+export const LightText = styled.span`
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: ${theme.lightBlack};
+`
+export const Heading = styled.span`
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    color:${theme.lightBlack};
+`
+
+export const BoldHeading = styled.span`
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+    color:${theme.lightBlack};
+`

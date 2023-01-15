@@ -14,11 +14,11 @@ const ConfirmPassword = lazy(() => import('../Components/Login/confirmPassword')
 const Home = lazy(() => import('../Components/Home'))
 const Profile = lazy(() => import('../Components/Profile'))
 const Orders = lazy(() => import('../Components/Orders'));
+const OrdersDetails = lazy(() => import('../Components/Orders/ordersDetails'));
 const UpdatePassword = lazy(() => import('../Components/Profile/updatePassword'));
 const AddressAction = lazy(() => import('../Components/Addresses/addressAction'));
 const Wishlist = lazy(() => import('../Components/Wishlist'));
 const Address = lazy(() => import("../Components/Addresses"));
-
 
 const masterComponent = () => {
   return (
@@ -41,6 +41,7 @@ const masterComponent = () => {
           <Route path='/change-password' element={<PrivateRoute component={<UpdatePassword />} />}></Route>
           <Route path="/address/add" element={<PrivateRoute component={<AddressAction />} />}></Route>
           <Route path="/address/edit/:id" element={<PrivateRoute component={<AddressAction />} />}></Route>
+          <Route path='/orders/:orderId' element={<PrivateRoute component={<OrdersDetails />} />}></Route>
           <Route path='/' element={<PrivateRoute component={<Home />} />}></Route>
         </Routes>
       </Suspense>

@@ -1,0 +1,20 @@
+@import "../../Assets/Styles/theme.scss";
+
+.order_status {
+  width: 89.63px;
+  height: 24.45px;
+  padding: 0px 4px;
+  border-radius: 14.2596px;
+  display: flex;
+  align-items: center;
+  .status_icon {
+    width: 19.01px;
+    height: 19.01px;
+    background-color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    margin-right: 4px;
+  }
+}
