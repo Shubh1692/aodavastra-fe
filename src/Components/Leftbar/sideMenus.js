@@ -16,7 +16,7 @@ export const SidebarData=[
     },
     {
         title:'Addresses',
-        path:'/addresses',
+        path:'/address',
         cName:'nav-text'
     },
     {

@@ -1,0 +1,106 @@
+@import "../../Assets/Styles/theme.scss";
+.field_label {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 36px;
+  color: $lightBlack;
+  margin-bottom: 6px;
+}
+.add_btn {
+  width: 224px;
+  height: 37.73px;
+  background-color: $primaryColor;
+  cursor: pointer;
+  span {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    height: 100%;
+    font-size: 18.8632px;
+    line-height: 28px;
+    color: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.address_container {
+  width: 466px;
+  height: 191.83px;
+  background: $boxContainer;
+  border-radius: 5.36585px;
+  .address_name {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+  }
+  .address_add {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13.5px;
+    line-height: 20px;
+    width: 261px;
+    color: #3c3c3c;
+    flex-wrap: wrap;
+    opacity: 0.7;
+  }
+  .action_section {
+    display: flex;
+    height: 56px;
+    width: 100%;
+    border-top: 1.34px solid $gray;
+    position: relative;
+    bottom: 0;
+    .adress_action {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      span {
+        color: $darkGray;
+        font-weight: 400;
+        font-size: 21.4634px;
+        line-height: 32px;
+      }
+      :hover {
+        color: $primaryColor;
+      }
+    }
+  }
+}
+.make_default {
+  width: 466px;
+  background: $boxContainer;
+  border-radius: 5.3px;
+  label {
+    padding: 19px 16px;
+
+    .add_checkbox {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18.7595px;
+      line-height: 28px;
+      color: #3c3c3c;
+      opacity: 0.7;
+      padding: 0px 0px 0px 10px;
+    }
+  }
+}
+.save_changes_add {
+  width: 466px;
+  height: 48px;
+  background: $primaryColor;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 36px;
+  color: $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 56px;
+}

@@ -22,7 +22,7 @@ const UpdatePassword = () => {
         <>
             <Box
                 sx={{
-                    margin: '8pc',
+                    marginTop: '8pc',
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
@@ -37,11 +37,11 @@ const UpdatePassword = () => {
                             <Typography sx={{ fontWeight: '400', fontSize: '24px', padding: '0px 0px 18px 36px' }}>Current Password</Typography>
                         </Box>
                         <Box>
-                            <Typography sx={{ fontWeight: '400', fontSize: '24px', marginBottom: '6px' }}>Change Password</Typography>
+                            <Typography className="field_label">Change Password</Typography>
                             <FormControl sx={{ width: '100%' }} variant="outlined">
                                 <OutlinedInput
                                     id="outlined-adornment-password"
-                                    size="small" fullWidth name='password'
+                                    size="medium" fullWidth name='password'
                                     type='password' placeholder="Enter Old Password" onChange={handleChange}
                                     error={Boolean(errors?.password)}
                                     inputProps={{
@@ -61,11 +61,11 @@ const UpdatePassword = () => {
                             )}
                         </Box>
                         <Box sx={{ marginTop: '18.6px' }}>
-                            <Typography sx={{ fontWeight: '400', fontSize: '24px', marginBottom: '6px' }}>New Password</Typography>
+                            <Typography className="field_label">New Password</Typography>
                             <FormControl sx={{ width: '100%' }} variant="outlined">
                                 <OutlinedInput
                                     id="outlined-adornment-password"
-                                    size="small" fullWidth name='password'
+                                    size="medium" fullWidth name='password'
                                     type='password' placeholder="Enter New Password" onChange={handleChange}
                                     error={Boolean(errors?.password)}
                                     inputProps={{
@@ -86,11 +86,11 @@ const UpdatePassword = () => {
                             )}
                         </Box>
                         <Box sx={{ marginTop: '18.6px' }}>
-                            <Typography sx={{ fontWeight: '400', fontSize: '24px', marginBottom: '6px' }}>Confirm Password</Typography>
+                            <Typography className="field_label">Confirm Password</Typography>
                             <FormControl sx={{ width: '100%' }} variant="outlined">
                                 <OutlinedInput
                                     id="outlined-adornment-password"
-                                    size="small" fullWidth name='password'
+                                    size="medium" fullWidth name='password'
                                     type='password' placeholder="Confirm New Password" onChange={handleChange}
                                     error={Boolean(errors?.password)}
                                     inputProps={{

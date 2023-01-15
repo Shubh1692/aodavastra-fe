@@ -45,7 +45,7 @@ const Profile = () => {
       <Box
         className="container_div"
         sx={{
-          margin: '8pc',
+          marginTop: "8pc",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",

@@ -14,7 +14,7 @@ const Wishlist = () => {
         <>
             <Box
                 sx={{
-                    margin: '8pc',
+                    marginTop: '8pc',
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
