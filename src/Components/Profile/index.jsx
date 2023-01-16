@@ -59,7 +59,6 @@ const Profile = () => {
         >
           <Grid
             container
-            columnSpacing={2}
             sx={{
               flexDirection: { xs: "column-reverse", md: "row" },
               display: { xs: "none", sm: "none", md: "flex", lg: "flex" },
@@ -70,7 +69,7 @@ const Profile = () => {
               md={4}
               lg={4}
               className="profile_div"
-              sx={{ display: "flex", justifyContent: "end", pr: 4 }}
+              sx={{ display: "flex", justifyContent: "end"}}
             >
               <LeftNavbar />
             </Grid>

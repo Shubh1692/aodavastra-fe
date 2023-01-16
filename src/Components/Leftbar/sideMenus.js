@@ -37,6 +37,6 @@ export const SidebarData=[
     {
         title:'Log Out',
         path:'/logout',
-        cName:'nav-text'
+        cName:'nav-text text-danger'
     }
 ]

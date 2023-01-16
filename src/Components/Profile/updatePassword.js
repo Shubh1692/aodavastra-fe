@@ -28,8 +28,8 @@ const UpdatePassword = () => {
                     alignItems: "center",
                 }}
             >
-                <Grid container columnSpacing={2} sx={{ flexDirection: { xs: 'column-reverse', md: 'row' }, display: { xs: 'none', sm: 'none', md: 'flex' } }}>
-                    <Grid item md={4} lg={4} sx={{ display: 'flex', justifyContent: 'end', pr: 4 }}>
+                <Grid container sx={{ flexDirection: { xs: 'column-reverse', md: 'row' }, display: { xs: 'none', sm: 'none', md: 'flex' } }}>
+                    <Grid item md={4} lg={4} sx={{ display: 'flex', justifyContent: 'end'}}>
                         <LeftNavbar />
                     </Grid>
                     <Grid sx={{ width: '466px' }}>

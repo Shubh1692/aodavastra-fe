@@ -23,8 +23,8 @@ const AddressComponent = () => {
                     alignItems: "center",
                 }}
             >
-                <Grid container columnSpacing={2} sx={{ flexDirection: { xs: 'column-reverse', md: 'row' }, display: { xs: 'none', sm: 'flex', md: 'flex' } }}>
-                    <Grid item md={4} lg={4} sx={{ display: 'flex', justifyContent: 'end', pr: 4 }}>
+                <Grid container sx={{ flexDirection: { xs: 'column-reverse', md: 'row' }, display: { xs: 'none', sm: 'flex', md: 'flex' } }}>
+                    <Grid item md={4} lg={4} sx={{ display: 'flex', justifyContent: 'end'}}>
                         <LeftNavbar />
                     </Grid>
                     <Grid item md={8} lg={8}>

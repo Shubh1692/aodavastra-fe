@@ -47,8 +47,8 @@ const AddressAction = () => {
                     alignItems: "center",
                 }}
             >
-                <Grid container columnSpacing={2} sx={{ flexDirection: { xs: 'column-reverse', md: 'row' }, display: { xs: 'none', sm: 'flex' } }}>
-                    <Grid item sm={4} md={4} lg={4} sx={{ display: 'flex', justifyContent: 'end', pr: 4 }}>
+                <Grid container sx={{ flexDirection: { xs: 'column-reverse', md: 'row' }, display: { xs: 'none', sm: 'flex' } }}>
+                    <Grid item sm={4} md={4} lg={4} sx={{ display: 'flex', justifyContent: 'end' }}>
                         <LeftNavbar />
                     </Grid>
                     <Grid item sm={8} md={8} lg={6}>

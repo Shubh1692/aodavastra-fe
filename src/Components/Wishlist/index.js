@@ -26,12 +26,11 @@ const Wishlist = () => {
                     alignItems: "center",
                 }}
             >
-                <Grid container columnSpacing={2} >
-                    <Grid item md={4} lg={4} sx={{ display: { xs: 'none', sm: 'none', md: 'flex' }, justifyContent: { xs: 'flex-start', md: 'flex-end' }, pr: { xs: 0, md: 4 } }}>
+                <Grid container>
+                    <Grid item md={4} lg={4} sx={{ display: { xs: 'none', sm: 'none', md: 'flex' }, justifyContent: { xs: 'flex-start', md: 'flex-end' } }}>
                         <LeftNavbar />
                     </Grid>
                     <Grid item xs={12} md={8} lg={8} sx={{
-                        borderLeft: 1,
                         borderColor: "#000",
                         height: '300px',
                     }}>

@@ -16,7 +16,7 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 27px;
-  color: #3c3c3c;
+  color: $lightBlack;
 }
 .or_signup_text:before {
   content: "";
@@ -57,8 +57,8 @@
 .semi-outlined-button {
   width: 229.25px;
   height: 48.81px;
-  color: #3c3c3c;
-  border: 1px solid #3c3c3c;
+  color: $lightBlack;
+  border: 1px solid $lightBlack;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -124,7 +124,7 @@
 .term-checkbox .MuiSvgIcon-root {
   width: 36.8px;
   height: 36.8px;
-  // border: 2.12273px solid #3C3C3C;
+  // border: 2.12273px solid $lightBlack;
 }
 
 // navbar
@@ -134,7 +134,7 @@
     content: "";
     width: 376px;
     height: 0px;
-    border: 2px solid #3c3c3c;
+    border: 2px solid $lightBlack;
     transform: rotate(90deg) !important;
   }
 }
@@ -236,7 +236,6 @@
     height: 31px;
     cursor: pointer;
     span {
-      
       font-style: normal;
       font-weight: 400;
       font-size: 13.95px;
