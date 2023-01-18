@@ -204,7 +204,7 @@ const EmptyBag = () => {
               width: "200px",
               height: "40px",
               left: "35vw",
-              top: "75vh",
+              top: "80vh",
               color: "#FFFFFF",
               fontWeight: "400",
               fontSize: "14px",
