@@ -14,7 +14,7 @@ const RecoverComponent = lazy(() =>
   import("../Components/Login/recoverPassword")
 );
 const ConfirmPassword = lazy(() =>
-  import("../Components/Login/confirmPassword")
+  import("../Components/Login/ConfirmPassword")
 );
 const Home = lazy(() => import("../Components/Home"));
 const Profile = lazy(() => import("../Components/Profile"));
@@ -65,6 +65,10 @@ const masterComponent = () => {
             element={<PublicRoute component={<ConfirmPassword />} />}
           ></Route>
           <Route
+            path="/emptybag"
+            element={<PublicRoute component={<EmptyBag />} />}
+          ></Route>
+          <Route
             path="/profile"
             element={<PrivateRoute component={<Profile />} />}
           ></Route>
@@ -95,10 +99,6 @@ const masterComponent = () => {
           <Route
             path="/orders/:orderId"
             element={<PrivateRoute component={<OrdersDetails />} />}
-          ></Route>
-          <Route
-            path="/emptybag"
-            element={<PrivateRoute component={<EmptyBag />} />}
           ></Route>
           <Route
             path="/"
