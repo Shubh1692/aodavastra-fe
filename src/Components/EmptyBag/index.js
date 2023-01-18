@@ -107,6 +107,7 @@ const EmptyBag = () => {
           }}
         >
           <Button
+            variant="contained"
             sx={{
               backgroundColor: "#A585C1",
               position: "absolute",
@@ -198,6 +199,7 @@ const EmptyBag = () => {
           }}
         >
           <Button
+            variant="contained"
             sx={{
               backgroundColor: "#A585C1",
               position: "absolute",

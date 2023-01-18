@@ -98,7 +98,7 @@ const masterComponent = () => {
           ></Route>
           <Route
             path="/emptybag"
-            element={<PrivateRoute component={<EmptyBag />} />}
+            element={<PublicRoute component={<EmptyBag />} />}
           ></Route>
           <Route
             path="/"
