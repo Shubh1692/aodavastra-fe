@@ -98,6 +98,7 @@ const Profile = () => {
                         display: "flex",
                         width: "50%",
                         justifyContent: "center",
+                        cursor: "pointer",
                       }}
                     >
                       <Typography
@@ -121,7 +122,7 @@ const Profile = () => {
                         Following
                       </Typography>
                     </Box>
-                    <Box onClick={handlePosts} sx={{ display: "flex" }}>
+                    <Box onClick={handlePosts} sx={{ display: "flex",cursor: "pointer", }}>
                       <Typography
                         sx={{
                           fontSize: "24px",
