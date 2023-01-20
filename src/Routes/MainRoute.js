@@ -7,6 +7,7 @@ import PublicRoute from "../Routes/Public";
 import PrivateRoute from "../Routes/Private";
 import { Grid } from "@mui/material";
 import EmptyBag from "../Components/EmptyBag";
+import JewelleryProduct from "../Components/JewelleryProducts";
 
 const SignUpComponent = lazy(() => import("../Components/SignUp"));
 const Login = lazy(() => import("../Components/Login"));
@@ -63,6 +64,10 @@ const masterComponent = () => {
           <Route
             path="/password-reset-confirm/:token"
             element={<PublicRoute component={<ConfirmPassword />} />}
+          ></Route>
+          <Route
+            path="/jewellery"
+            element={<PublicRoute component={<JewelleryProduct />} />}
           ></Route>
           <Route
             path="/emptybag"

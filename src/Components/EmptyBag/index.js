@@ -147,7 +147,7 @@ const EmptyBag = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            width: "50px",
+            // width: "50px",
           }}
         >
           <Box
