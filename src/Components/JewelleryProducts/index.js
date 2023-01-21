@@ -120,7 +120,7 @@ const JewelleryProduct = () => {
               height: "80vh",
             }}
           >
-            <Grid item xs={12} sm={6} md={3} xl={3} spacing={3}>
+            <Grid item xs={12} sm={6} md={4} xl={3} spacing={3}>
               <Card
                 sx={{
                   // maxWidth: 345,
@@ -189,7 +189,7 @@ const JewelleryProduct = () => {
                 </CardActionArea>
               </Card>
             </Grid>
-            <Grid item xs={12} sm={6} md={3} xl={3}>
+            <Grid item xs={12} sm={6} md={4} xl={3}>
               <Card
                 sx={{
                   // maxWidth: 345,
@@ -258,7 +258,7 @@ const JewelleryProduct = () => {
                 </CardActionArea>
               </Card>
             </Grid>
-            <Grid item xs={12} sm={6} md={3} xl={3}>
+            <Grid item xs={12} sm={6} md={4} xl={3}>
               <Card
                 sx={{
                   // maxWidth: 345,
@@ -327,7 +327,7 @@ const JewelleryProduct = () => {
                 </CardActionArea>
               </Card>
             </Grid>
-            <Grid item xs={12} sm={6} md={3} xl={3}>
+            <Grid item xs={12} sm={6} md={4} xl={3}>
               <Card
                 sx={{
                   // maxWidth: 345,
@@ -396,7 +396,7 @@ const JewelleryProduct = () => {
                 </CardActionArea>
               </Card>
             </Grid>
-            <Grid item xs={12} sm={6} md={3} xl={3}>
+            <Grid item xs={12} sm={6} md={4} xl={3}>
               <Card
                 sx={{
                   // maxWidth: 345,
@@ -465,7 +465,7 @@ const JewelleryProduct = () => {
                 </CardActionArea>
               </Card>
             </Grid>
-            <Grid item xs={12} sm={6} md={3} xl={3}>
+            <Grid item xs={12} sm={6} md={4} xl={3}>
               <Card
                 sx={{
                   // maxWidth: 345,
@@ -534,7 +534,7 @@ const JewelleryProduct = () => {
                 </CardActionArea>
               </Card>
             </Grid>
-            <Grid item xs={12} sm={6} md={3} xl={3}>
+            <Grid item xs={12} sm={6} md={4} xl={3}>
               <Card
                 sx={{
                   // maxWidth: 345,
@@ -603,7 +603,7 @@ const JewelleryProduct = () => {
                 </CardActionArea>
               </Card>
             </Grid>
-            <Grid item xs={12} sm={6} md={3} xl={3}>
+            <Grid item xs={12} sm={6} md={4} xl={3}>
               <Card
                 sx={{
                   // maxWidth: 345,
@@ -672,7 +672,7 @@ const JewelleryProduct = () => {
                 </CardActionArea>
               </Card>
             </Grid>
-            <Grid item xs={12} sm={6} md={3} xl={3}>
+            <Grid item xs={12} sm={6} md={4} xl={3}>
               <Card
                 sx={{
                   // maxWidth: 345,
@@ -741,7 +741,7 @@ const JewelleryProduct = () => {
                 </CardActionArea>
               </Card>
             </Grid>
-            <Grid item xs={12} sm={6} md={3} xl={3}>
+            <Grid item xs={12} sm={6} md={4} xl={3}>
               <Card
                 sx={{
                   // maxWidth: 345,
@@ -810,7 +810,7 @@ const JewelleryProduct = () => {
                 </CardActionArea>
               </Card>
             </Grid>
-            <Grid item xs={12} sm={6} md={3} xl={3}>
+            <Grid item xs={12} sm={6} md={4} xl={3}>
               <Card
                 sx={{
                   // maxWidth: 345,
@@ -879,7 +879,7 @@ const JewelleryProduct = () => {
                 </CardActionArea>
               </Card>
             </Grid>
-            <Grid item xs={12} sm={6} md={3} xl={3}>
+            <Grid item xs={12} sm={6} md={4} xl={3}>
               <Card
                 sx={{
                   // maxWidth: 345,
