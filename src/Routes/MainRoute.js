@@ -7,6 +7,7 @@ import PublicRoute from "../Routes/Public";
 import PrivateRoute from "../Routes/Private";
 import { Grid } from "@mui/material";
 import EmptyBag from "../Components/EmptyBag";
+import JewelleryProduct from "../Components/JewelleryProducts";
 
 const SignUpComponent = lazy(() => import("../Components/SignUp"));
 const Login = lazy(() => import("../Components/Login"));
@@ -14,7 +15,7 @@ const RecoverComponent = lazy(() =>
   import("../Components/Login/recoverPassword")
 );
 const ConfirmPassword = lazy(() =>
-  import("../Components/Login/confirmPassword")
+  import("../Components/Login/ConfirmPassword")
 );
 const Home = lazy(() => import("../Components/Home"));
 const Profile = lazy(() => import("../Components/Profile"));
@@ -65,6 +66,14 @@ const masterComponent = () => {
             element={<PublicRoute component={<ConfirmPassword />} />}
           ></Route>
           <Route
+            path="/jewellery"
+            element={<PublicRoute component={<JewelleryProduct />} />}
+          ></Route>
+          <Route
+            path="/emptybag"
+            element={<PublicRoute component={<EmptyBag />} />}
+          ></Route>
+          <Route
             path="/profile"
             element={<PrivateRoute component={<Profile />} />}
           ></Route>
@@ -95,10 +104,6 @@ const masterComponent = () => {
           <Route
             path="/orders/:orderId"
             element={<PrivateRoute component={<OrdersDetails />} />}
-          ></Route>
-          <Route
-            path="/emptybag"
-            element={<PrivateRoute component={<EmptyBag />} />}
           ></Route>
           <Route
             path="/"

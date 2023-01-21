@@ -2,7 +2,8 @@ import { Button, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import Layout from "../Layout";
-import bag from "../../Assets/Images/Asset 17@2x 1.svg";
+import bag from "../../Assets/Images/Empty_bag.svg";
+import bagMobile from "../../Assets/Images/Empty_bag_mobile.jpeg";
 const EmptyBag = () => {
   return (
     <>
@@ -13,6 +14,9 @@ const EmptyBag = () => {
         sx={{
           flexDirection: { xs: "column-reverse", md: "row" },
           display: { xs: "none", sm: "flex", md: "flex" },
+          alignItems: "center",
+          justifyContent: "center",
+          margin: 0,
           //   mt: "20vh",
         }}
       >
@@ -143,20 +147,21 @@ const EmptyBag = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            // width: "50px",
           }}
         >
           <Box
             sx={{
               //   background: "url(Asset 17@2x.png)",
               position: "absolute",
-              width: "348px",
-              height: "318px",
+              width: "50px",
+              height: "50px",
               left: "40vw",
               top: "30vh",
               //   backgroundImage: { bag },
             }}
           >
-            <img src={bag} alt="emptybag"></img>
+            <img src={bagMobile} alt="emptybag"></img>
           </Box>
         </Grid>
         <Grid
