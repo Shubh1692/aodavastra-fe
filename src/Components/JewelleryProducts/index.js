@@ -45,6 +45,7 @@ const JewelleryProduct = () => {
               height: "30vh",
               width: "60vw",
               pl: 0,
+              mt: "5vh",
               // textAlign: "center",
             }}
           >
