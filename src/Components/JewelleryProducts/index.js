@@ -27,8 +27,8 @@ const JewelleryProduct = () => {
           justifyContent: "center",
           alignItems: "center",
           mt: "5vh",
-          ml: "100px",
-          mr: "100px",
+          //   ml: "100px",
+          //   mr: "100px",
           //   ml: "0vh",
           //   alignSelf: "center",
         }}
@@ -41,8 +41,8 @@ const JewelleryProduct = () => {
               // alignItems: "center",
               // justifyContent: "center",
               backgroundColor: "#F6EEFD",
-              height: "200px",
-              width: "750px",
+              height: "30vh",
+              width: "60vw",
               pl: 0,
               // textAlign: "center",
             }}
@@ -115,6 +115,8 @@ const JewelleryProduct = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              width: "60vw",
+              height: "80vh",
             }}
           >
             <Grid item xs={12} sm={12} md={3} xl={3}>
