@@ -61,7 +61,7 @@ const JewelleryProduct = () => {
                 alt="green jwel"
                 sx={{
                   width: "200px",
-                  height: "170px",
+                  height: "200px",
                   position: "absolute",
                   left: "20px",
                 }}
