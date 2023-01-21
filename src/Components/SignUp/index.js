@@ -15,10 +15,12 @@ import HttpService from "../../Services/Http.service";
 import { api_base_url } from "../../Utils/Common/urls";
 import { toast } from "react-toastify";
 import "../index.scss";
+import { EmailVerification } from "../Dialog/emailVerification";
 
 
 const SignUpComponent = () => {
   const navigate = useNavigate();
+  const [modelOpen, setModelOpen] = useState(false)
   const [showPassword, setShowPassword] = useState({
     password: false,
     confirm_password: false
@@ -83,7 +85,8 @@ const SignUpComponent = () => {
             localStorage.setItem('access_token', result.data.token);
             toast['success']('User created successfully!')
             setTimeout(() => {
-              navigate('/')
+              setModelOpen(true)
+              // navigate('/')
             }, 2000)
           }
 
@@ -131,7 +134,7 @@ const SignUpComponent = () => {
               <Box sx={{ width: '467px' }}>
                 <OutlinedInput
                   fullWidth placeholder="Full Name"
-                  name="name" size="small"
+                  name="name" size="medium"
                   inputProps={{
                     sx: {
                       "&::placeholder": {
@@ -150,7 +153,7 @@ const SignUpComponent = () => {
                 )}
                 <OutlinedInput
                   type="email" placeholder="E-mail"
-                  name="email" size="small"
+                  name="email" size="medium"
                   className="mt-12"
                   fullWidth
                   inputProps={{
@@ -172,7 +175,7 @@ const SignUpComponent = () => {
                 <FormControl sx={{ width: '100%' }} variant="outlined">
                   <OutlinedInput
                     id="outlined-adornment-password"
-                    size="small" fullWidth className="mt-12" name='password'
+                    size="medium" fullWidth className="mt-12" name='password'
                     type={showPassword.password ? 'text' : 'password'}
                     placeholder="Password" onChange={handleChange}
                     error={Boolean(errors?.password)}
@@ -206,7 +209,7 @@ const SignUpComponent = () => {
                 <FormControl sx={{ width: '100%' }} variant="outlined">
                   <OutlinedInput
                     id="outlined-adornment-password" placeholder="Confirm Password"
-                    size="small" fullWidth name='confirm_password'
+                    size="medium" fullWidth name='confirm_password'
                     className="mt-12" onChange={handleChange}
                     inputProps={{
                       sx: {
@@ -248,7 +251,7 @@ const SignUpComponent = () => {
                   <PrimaryText>I accept <PrimaryColorText>Terms & Conditions </PrimaryColorText> and <PrimaryColorText>Privacy Policy </PrimaryColorText></PrimaryText>
                 </FlexDivRow>
                 <FlexCenterColumn>
-                  <Grid item className="register_button" sx={{ mt: 2, width: '50%', margin: 'auto',cursor:'pointer' }} onClick={handleSubmit}>Sign up</Grid>
+                  <Grid item className="register_button" sx={{ mt: 2, width: '50%', margin: 'auto', cursor: 'pointer' }} onClick={handleSubmit}>Sign up</Grid>
                 </FlexCenterColumn>
                 <Grid sx={{ mt: 3 }} >
                   <Grid className="or_signup_text" item >or signup with </Grid>
@@ -278,7 +281,7 @@ const SignUpComponent = () => {
                   variant="outlined"
                   onClick={handleRedirect}
                   sx={{
-                    width: "50%", margin: 'auto',cursor:'pointer'
+                    width: "50%", margin: 'auto', cursor: 'pointer'
                   }}>
                   Log in
                 </Grid>
@@ -287,6 +290,7 @@ const SignUpComponent = () => {
           </Container>
         </Grid>
       </Grid>
+      <EmailVerification open={modelOpen} handleClose={() => setModelOpen(false)} />
     </>
   );
 };

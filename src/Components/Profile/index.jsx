@@ -226,7 +226,7 @@ const Profile = () => {
                   </Grid>
 
                   {!isEdit ? (
-                    <Grid className="become_creator" onClick={()=>setBecomeInfluencer(true)}>
+                    <Grid className="become_creator" sx={{cursor:'pointer'}} onClick={()=>setBecomeInfluencer(true)}>
                       <img
                         src={closet}
                         width="38"

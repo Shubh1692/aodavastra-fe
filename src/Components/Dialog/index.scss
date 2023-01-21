@@ -16,3 +16,47 @@
     text-align: center;
   }
 }
+.email_dialog_text {
+  padding: 24px 221px 14px 221px;
+  .email_text_content span {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+  }
+  .resend_button {
+    width: 309px;
+    height: 37.08px;
+    border: 0.7725px solid $lightBlack;
+    margin: 24px auto;
+    span {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 27px;
+      color: $lightBlack;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .login_button_dialog {
+    width: 400px;
+    height: 48px;
+    margin: auto;
+    background-color: $primaryColor;
+    span {
+      height: 100%;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 36px;
+      color: $white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

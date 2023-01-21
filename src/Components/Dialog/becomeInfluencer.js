@@ -26,15 +26,16 @@ export const BecomeInfluencer = ({ open, handleClose }) => {
           <Box sx={{ textAlign: 'center', width: '100%' }}>
             Become a ModaVastra Creator
           </Box>
-          <IconButton sx={{ position: 'absolute', left: '91%' ,top:'9%'}} onClick={handleClose}>
+          <IconButton sx={{ position: 'absolute', left: '91%', top: '9%' }} onClick={handleClose}>
             <CloseIcon sx={{ fontSize: '37px', color: 'black' }} className='close_icon' />
           </IconButton>
         </Box>
       </DialogTitle>
-      <DialogContent sx={{padding:'0px 27px 41px 27px'}}>
+      <DialogContent sx={{ padding: '0px 27px 41px 27px' }}>
         <DialogContentText sx={{ width: '464px' }} className='creator_text'>
           <Typography variant='span' sx={{ color: theme.primaryColor, fontWeight: 600 }}> Hi Anjali! </Typography>
-          <Typography variant='span' sx={{ color: theme.lightBlack, fontWeight: 400 }}>to begin your journey with us please download our App Now.</Typography>
+          <Typography variant='span' sx={{ color: theme.lightBlack, fontWeight: 400 }}>to begin your journey with us</Typography>
+          <Typography variant='span' sx={{ color: theme.lightBlack, fontWeight: 400, display: 'flex', justifyContent: 'center' }}> please download our App Now.</Typography>
         </DialogContentText>
         <Box sx={{ width: '532.36px', display: 'flex', justifyContent: 'space-between', margin: 'auto' }}>
           <Box component="img" sx={{ width: 252.89, height: 74.62 }} src={google_play} alt='google_play' />
