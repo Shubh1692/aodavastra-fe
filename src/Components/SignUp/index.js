@@ -134,9 +134,10 @@ const SignUpComponent = () => {
               <Box sx={{ width: '467px' }}>
                 <OutlinedInput
                   fullWidth placeholder="Full Name"
-                  name="name" size="medium"
+                  name="name"
                   inputProps={{
                     sx: {
+                      height: 18,
                       "&::placeholder": {
                         opacity: 0.8,
                         fontSize: "18px",
@@ -153,11 +154,11 @@ const SignUpComponent = () => {
                 )}
                 <OutlinedInput
                   type="email" placeholder="E-mail"
-                  name="email" size="medium"
-                  className="mt-12"
+                  name="email" className="mt-12"
                   fullWidth
                   inputProps={{
                     sx: {
+                      height: 18,
                       "&::placeholder": {
                         opacity: 0.8,
                         fontSize: "18px",
@@ -175,12 +176,13 @@ const SignUpComponent = () => {
                 <FormControl sx={{ width: '100%' }} variant="outlined">
                   <OutlinedInput
                     id="outlined-adornment-password"
-                    size="medium" fullWidth className="mt-12" name='password'
+                    fullWidth className="mt-12" name='password'
                     type={showPassword.password ? 'text' : 'password'}
                     placeholder="Password" onChange={handleChange}
                     error={Boolean(errors?.password)}
                     inputProps={{
                       sx: {
+                        height: 18,
                         "&::placeholder": {
                           opacity: 0.8,
                           fontSize: "18px",
@@ -209,10 +211,11 @@ const SignUpComponent = () => {
                 <FormControl sx={{ width: '100%' }} variant="outlined">
                   <OutlinedInput
                     id="outlined-adornment-password" placeholder="Confirm Password"
-                    size="medium" fullWidth name='confirm_password'
+                    fullWidth name='confirm_password'
                     className="mt-12" onChange={handleChange}
                     inputProps={{
                       sx: {
+                        height: 18,
                         "&::placeholder": {
                           opacity: 0.8,
                           fontSize: "18px",

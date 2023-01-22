@@ -175,8 +175,8 @@ const Profile = () => {
                     {!isEdit && (
                       <Typography
                         sx={{
-                          fontSize: "14.8",
-                          fontWeight: "600",
+                          fontSize: "14.8px",
+                          fontWeight: 600,
                           textDecorationLine: "underline",
                           color: themes.primaryColor,
                           cursor: "pointer",

@@ -110,16 +110,16 @@ const LoginComponent = () => {
               <FlexCenterColumn>
                 <OutlinedInput
                   type="email" placeholder="E-mail"
-                  name="email" size="small"
-                  inputProps={{
+                  name="email" inputProps={{
                     sx: {
+                      height: 18,
                       "&::placeholder": {
                         opacity: 0.8,
                         fontSize: "18px",
                       },
                     },
                   }}
-                  fullWidth 
+                  fullWidth
                   error={Boolean(errors?.email)}
                   onChange={handleChange}
                 />
@@ -129,14 +129,14 @@ const LoginComponent = () => {
                   </FormHelperText>
                 )}
                 {/* <FormControl sx={{ width: '100%' }} variant="outlined"> */}
-                <OutlinedInput
-                  size="small" fullWidth
+                <OutlinedInput fullWidth
                   className="mt-12" name='password'
                   type={showPassword ? 'text' : 'password'}
                   placeholder="Password" onChange={handleChange}
                   error={Boolean(errors?.password)}
                   inputProps={{
                     sx: {
+                      height: 18,
                       "&::placeholder": {
                         opacity: 0.8,
                         fontSize: "18px",
@@ -197,7 +197,7 @@ const LoginComponent = () => {
                   variant="outlined"
                   onClick={handleRedirect}
                   sx={{
-                    width: "50%", margin: 'auto', cursor:'pointer'
+                    width: "50%", margin: 'auto', cursor: 'pointer'
                   }}>
                   Create Account
                 </Grid>

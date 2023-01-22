@@ -2,6 +2,7 @@ const theme = {
     white: '#ffffff',
     headerHeight: '80px',
     primaryColor: '#A585C1',
+    lighterPink: '#F6EEFD',
     rounded: '50px',
     secondPrimaryColor: '#A484BD',
     thirdPrimaryColor: '#C5AFDA',
@@ -14,8 +15,9 @@ const theme = {
     orangeDark: '#FF7C61',
     purple: '#7A628F',
     redPrimary: "#D83B3B",
-    grayText:'#4E4E4E',
-    black : '#1E1E1E'
+    grayText: '#4E4E4E',
+    lightGray: '#A4A4A4',
+    black: '#1E1E1E'
 }
 
 export default theme

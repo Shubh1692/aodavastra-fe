@@ -15,9 +15,10 @@ const RecoverComponent = lazy(() =>
   import("../Components/Login/recoverPassword")
 );
 const ConfirmPassword = lazy(() =>
-  import("../Components/Login/ConfirmPassword")
+  import("../Components/Login/confirmPassword")
 );
 const Home = lazy(() => import("../Components/Home"));
+const Feed = lazy(()=> import('../Components/Feed'))
 const Profile = lazy(() => import("../Components/Profile"));
 const Orders = lazy(() => import("../Components/Orders"));
 const OrdersDetails = lazy(() => import("../Components/Orders/ordersDetails"));
@@ -67,11 +68,11 @@ const masterComponent = () => {
           ></Route>
           <Route
             path="/jewellery"
-            element={<PublicRoute component={<JewelleryProduct />} />}
+            element={<PrivateRoute component={<JewelleryProduct />} />}
           ></Route>
           <Route
             path="/emptybag"
-            element={<PublicRoute component={<EmptyBag />} />}
+            element={<PrivateRoute component={<EmptyBag />} />}
           ></Route>
           <Route
             path="/profile"
@@ -107,7 +108,7 @@ const masterComponent = () => {
           ></Route>
           <Route
             path="/"
-            element={<PrivateRoute component={<Home />} />}
+            element={<PrivateRoute component={<Feed />} />}
           ></Route>
         </Routes>
       </Suspense>

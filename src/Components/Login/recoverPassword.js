@@ -76,9 +76,9 @@ const RecoverComponent = () => {
                             >
                                 <TextField
                                     type="email" placeholder="E-mail"
-                                    name="email" size="small"
-                                    inputProps={{
+                                    name="email" inputProps={{
                                         sx: {
+                                            height:18,
                                             "&::placeholder": {
                                                 opacity: 0.8,
                                                 fontSize: "18px",

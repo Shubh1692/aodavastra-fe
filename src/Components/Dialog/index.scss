@@ -60,3 +60,59 @@
     }
   }
 }
+.dialog_follow_button {
+  width: 101px !important;
+  height: 32px;
+  background: $primaryColor;
+  border-radius: 3px;
+  font-style: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  color: $white;
+}
+
+.comment_conatiner {
+  width: 411.64px;
+  background: $lightBackground;
+  border-radius: 5.14819px;
+  padding: 10.65px 0px 16.48px 9.36px;
+  display: flex;
+  margin-bottom: 8.33px;
+  img {
+    width: 42.1px;
+    height: 42.1px;
+    border-radius: 50px;
+    margin-right: 15.6px;
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.comment_conatiner_field {
+  width: 465px;
+  height: 72px;
+  background: $lightBackground;
+  border-radius: 5.14819px;
+  margin-top: 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // padding: 15px 9.3px 14.5px ;
+  .comment_child_div {
+    width: 98%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .user_img {
+      width: 42.1px;
+      height: 42.1px;
+      border-radius: 50px;
+      margin: 0px 14px 0px 9.3px;
+    }
+  }
+}

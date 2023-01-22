@@ -5,12 +5,11 @@ import {
     Checkbox,
     Grid,
     Typography,
-    FormControl, OutlinedInput, FormHelperText, FormControlLabel
+    FormControl, OutlinedInput, FormControlLabel
 } from "@mui/material";
 import { LeftNavbar } from '../Leftbar';
 import './index.scss';
 import { useParams } from 'react-router-dom';
-import theme from '../../Assets/Styles/theme';
 
 const userDetails = [
     { heading: 'Name', type: 'text', placeholder: 'Anjali Verma', name: 'name' },
@@ -61,11 +60,11 @@ const AddressAction = () => {
                                     <Typography className='field_label'>{field.heading}</Typography>
                                     <FormControl sx={{ width: '100%' }} variant="outlined">
                                         <OutlinedInput
-                                            id="outlined-adornment-password"
-                                            size="medium" fullWidth name={field.name}
+                                            id="outlined-adornment-password"  name={field.name}
                                             type={field.type} placeholder={field.placeholder} onChange={handleChange}
                                             inputProps={{
                                                 sx: {
+                                                    height:21,
                                                     "&::placeholder": {
                                                         opacity: 0.8,
                                                         fontSize: "18.7px",
@@ -81,11 +80,11 @@ const AddressAction = () => {
                                     <Typography className='field_label'>{field.heading}</Typography>
                                     <FormControl sx={{ width: '100%' }} variant="outlined">
                                         <OutlinedInput
-                                            id="outlined-adornment-password"
-                                            size="medium" fullWidth name={field.name}
+                                            id="outlined-adornment-password" fullWidth name={field.name}
                                             type={field.type} placeholder={field.placeholder} onChange={handleChange}
                                             inputProps={{
                                                 sx: {
+                                                    height:21,
                                                     "&::placeholder": {
                                                         opacity: 0.8,
                                                         fontSize: "18.7px",
@@ -101,11 +100,11 @@ const AddressAction = () => {
                                     <Typography className='field_label'>{field.heading}</Typography>
                                     <FormControl sx={{ width: '100%' }} variant="outlined">
                                         <OutlinedInput
-                                            id="outlined-adornment-password"
-                                            size="medium" fullWidth name={field.name}
+                                            id="outlined-adornment-password" fullWidth name={field.name}
                                             type={field.type} placeholder={field.placeholder} onChange={handleChange}
                                             inputProps={{
                                                 sx: {
+                                                    height:21,
                                                     "&::placeholder": {
                                                         opacity: 0.8,
                                                         fontSize: "18.7px",

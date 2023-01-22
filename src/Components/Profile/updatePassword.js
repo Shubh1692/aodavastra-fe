@@ -29,7 +29,7 @@ const UpdatePassword = () => {
                 }}
             >
                 <Grid container sx={{ flexDirection: { xs: 'column-reverse', md: 'row' }, display: { xs: 'none', sm: 'none', md: 'flex' } }}>
-                    <Grid item md={4} lg={4} sx={{ display: 'flex', justifyContent: 'end'}}>
+                    <Grid item md={4} lg={4} sx={{ display: 'flex', justifyContent: 'end' }}>
                         <LeftNavbar />
                     </Grid>
                     <Grid sx={{ width: '466px' }}>
@@ -40,12 +40,12 @@ const UpdatePassword = () => {
                             <Typography className="field_label">Change Password</Typography>
                             <FormControl sx={{ width: '100%' }} variant="outlined">
                                 <OutlinedInput
-                                    id="outlined-adornment-password"
-                                    size="medium" fullWidth name='password'
+                                    id="outlined-adornment-password" fullWidth name='password'
                                     type='password' placeholder="Enter Old Password" onChange={handleChange}
                                     error={Boolean(errors?.password)}
                                     inputProps={{
                                         sx: {
+                                            height: 21,
                                             "&::placeholder": {
                                                 opacity: 0.8,
                                                 fontSize: "18.7px",
@@ -64,12 +64,12 @@ const UpdatePassword = () => {
                             <Typography className="field_label">New Password</Typography>
                             <FormControl sx={{ width: '100%' }} variant="outlined">
                                 <OutlinedInput
-                                    id="outlined-adornment-password"
-                                    size="medium" fullWidth name='password'
+                                    id="outlined-adornment-password" fullWidth name='password'
                                     type='password' placeholder="Enter New Password" onChange={handleChange}
                                     error={Boolean(errors?.password)}
                                     inputProps={{
                                         sx: {
+                                            height: 21,
                                             "&::placeholder": {
                                                 opacity: 0.8,
                                                 fontSize: "18px",
@@ -89,12 +89,12 @@ const UpdatePassword = () => {
                             <Typography className="field_label">Confirm Password</Typography>
                             <FormControl sx={{ width: '100%' }} variant="outlined">
                                 <OutlinedInput
-                                    id="outlined-adornment-password"
-                                    size="medium" fullWidth name='password'
+                                    id="outlined-adornment-password" fullWidth name='password'
                                     type='password' placeholder="Confirm New Password" onChange={handleChange}
                                     error={Boolean(errors?.password)}
                                     inputProps={{
                                         sx: {
+                                            height: 21,
                                             "&::placeholder": {
                                                 opacity: 0.8,
                                                 fontSize: "18px",

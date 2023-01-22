@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 import {
-    Button, FormControl, TextField, InputLabel, Box, Container,
-    OutlinedInput, InputAdornment, IconButton, Checkbox, FormHelperText
+    FormControl, Box, Container,
+    OutlinedInput, InputAdornment, IconButton, FormHelperText
 } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import logo from "../../Assets/Images/project_logo_svg.svg";
-import GoogleButton from "react-google-button";
 import { useNavigate, useParams } from "react-router-dom";
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-// import { AvForm, AvField } from 'availity-reactstrap-validation';
-import { FlexCenterColumn, PrimaryButton } from "../../Utils/Common/component";
+import { FlexCenterColumn } from "../../Utils/Common/component";
 import HttpService from "../../Services/Http.service";
 import { toast } from "react-toastify";
 import { api_base_url } from "../../Utils/Common/urls";

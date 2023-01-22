@@ -1,0 +1,55 @@
+@import "../../Assets/Styles/theme.scss";
+.unfollow_button_feed {
+  width: 170.29px;
+  height: 48px;
+  background: $primaryColor;
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $white;
+}
+.feed_text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20.4589px;
+  line-height: 31px;
+  color: $lightBlack;
+  margin: 18.19px 0px 25px 0px;
+}
+
+.tag_container {
+  height: 79px;
+  width: 400px;
+  background: $lightBackground;
+  border-radius: 3.57778px;
+  padding: 7px 8px 7.6px 8px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  img {
+    width: 64.4px;
+    height: 64.4px;
+    border-radius: 7.1px;
+    margin-right: 16px;
+  }
+  div {
+    display: flex;
+    width: inherit;
+    flex-direction: column;
+    .tag_link {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 18px;
+      text-decoration-line: underline;
+      color: $primaryColor;
+      display: flex;
+      justify-content: end;
+    }
+  }
+}
