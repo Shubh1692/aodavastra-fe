@@ -35,7 +35,7 @@ const EmptyBag = () => {
               width: "260px",
               height: "51px",
               position: "absolute",
-              top: "15vh",
+              top: "14vh",
               left: "40vw",
               color: "#7A628F",
               fontFamily: "poppins",
@@ -65,7 +65,7 @@ const EmptyBag = () => {
               width: "348px",
               height: "318px",
               left: "36vw",
-              top: "30vh",
+              top: "24vh",
               //   backgroundImage: { bag },
             }}
           >
@@ -87,7 +87,7 @@ const EmptyBag = () => {
               width: "466px",
               height: "36px",
               position: "absolute",
-              top: "80vh",
+              top: "83vh",
               left: "33vw",
               color: "#3C3C3C",
               fontFamily: "poppins",
