@@ -34,7 +34,14 @@ const JewelleryProduct = () => {
           //   alignSelf: "center",
         }}
       >
-        <Grid item sm={12} md={12} lg={12} xl={12}>
+        <Grid
+          item
+          sm={12}
+          md={12}
+          lg={12}
+          xl={12}
+          sx={{ display: "flex", flexDirection: { xs: "column", md: "row" } }}
+        >
           <Card
             sx={{
               // maxWidth: 345,
@@ -62,8 +69,8 @@ const JewelleryProduct = () => {
                 image={jwel}
                 alt="green jwel"
                 sx={{
-                  width: "200px",
-                  height: "200px",
+                  width: "30%",
+                  height: "80%",
                   position: "absolute",
                   left: "20px",
                 }}
@@ -71,13 +78,16 @@ const JewelleryProduct = () => {
               <CardContent
                 sx={{
                   position: "absolute",
-                  left: "230px",
+                  left: "32%",
                   top: "5px",
                   fontFamily: "Poppins",
                 }}
               >
                 <Typography gutterBottom variant="h5" component="div">
-                  Jewellry<span style={{ color: "#C5AFDA" }}>(166)</span>
+                  Jewellry
+                  <span style={{ color: "#C5AFDA", textAlign: "center" }}>
+                    (166)
+                  </span>
                 </Typography>
                 <Typography
                   variant="h6"
@@ -949,7 +959,20 @@ const JewelleryProduct = () => {
                 </CardActionArea>
               </Card>
             </Grid>
-            <Button variant="outlined">Load more</Button>
+            <Button
+              variant="outlined"
+              sx={{
+                borderColor: "#3C3C3C",
+                color: "#3C3C3C",
+                fontFamily: "Poppins",
+                fontWeight: "400",
+                fontSize: "18px",
+                lineHeight: "27px",
+                px: 8,
+              }}
+            >
+              Load more
+            </Button>
           </Grid>
         </Grid>
       </Grid>
