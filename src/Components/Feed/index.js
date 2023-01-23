@@ -35,10 +35,10 @@ const Feed = () => {
             >
                 <Grid container sx={{ width: '945px', marginBottom: '36px' }}>
                     <Grid sx={{ width: '50%', height: '699px', display: 'flex', flexDirection: 'column', background: theme.lighterPink }}>
-                        <Box component="img" sx={{ height: 651, width: '100%' }} src={post1} alt='feed_image' />
+                        <Box component="img" sx={{ height: 651, width: '100%',objectFit:'cover' }} src={post1} alt='feed_image' />
                         <Box sx={{ height: '100%', display: 'flex' }}>
                             <Box sx={{ width: '33.3%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                <Box component="img" sx={{ height: 22.7, width: 19.75, cursor: 'pointer' }}
+                                <Box component="img" sx={{ width: 22.7, height: 19.75, cursor: 'pointer' }}
                                     onClick={() => setLiked(!liked)}
                                     src={liked ? like : unlike} alt='feed_image'></Box>
                                 <FeedText>146</FeedText>

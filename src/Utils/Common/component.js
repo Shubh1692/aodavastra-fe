@@ -127,3 +127,10 @@ export const CommentMessage = styled.span`
     line-height: 23px;
     color: ${theme.lightBlack};
 `
+
+export const DesignerContainer = styled.div`
+    width: 160px;
+    height: 160px;
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.2));
+    border-radius: 10px;
+`

@@ -2,32 +2,24 @@ import React, { Suspense, lazy } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import PublicRoute from "../Routes/Public";
 import PrivateRoute from "../Routes/Private";
 import { Grid } from "@mui/material";
 import EmptyBag from "../Components/EmptyBag";
 import JewelleryProduct from "../Components/JewelleryProducts";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignUpComponent = lazy(() => import("../Components/SignUp"));
 const Login = lazy(() => import("../Components/Login"));
-const RecoverComponent = lazy(() =>
-  import("../Components/Login/recoverPassword")
-);
-const ConfirmPassword = lazy(() =>
-  import("../Components/Login/confirmPassword")
-);
+const RecoverComponent = lazy(() =>import("../Components/Login/recoverPassword"));
+const ConfirmPassword = lazy(() =>import("../Components/Login/confirmPassword"));
 const Home = lazy(() => import("../Components/Home"));
-const Feed = lazy(()=> import('../Components/Feed'))
+const Feed = lazy(() => import('../Components/Feed'))
 const Profile = lazy(() => import("../Components/Profile"));
 const Orders = lazy(() => import("../Components/Orders"));
 const OrdersDetails = lazy(() => import("../Components/Orders/ordersDetails"));
-const UpdatePassword = lazy(() =>
-  import("../Components/Profile/updatePassword")
-);
-const AddressAction = lazy(() =>
-  import("../Components/Addresses/addressAction")
-);
+const UpdatePassword = lazy(() =>import("../Components/Profile/updatePassword"));
+const AddressAction = lazy(() =>import("../Components/Addresses/addressAction"));
 const Wishlist = lazy(() => import("../Components/Wishlist"));
 const Address = lazy(() => import("../Components/Addresses"));
 
@@ -107,8 +99,12 @@ const masterComponent = () => {
             element={<PrivateRoute component={<OrdersDetails />} />}
           ></Route>
           <Route
-            path="/"
+            path="/feed"
             element={<PrivateRoute component={<Feed />} />}
+          ></Route>
+          <Route
+            path="/"
+            element={<PrivateRoute component={<Home />} />}
           ></Route>
         </Routes>
       </Suspense>
