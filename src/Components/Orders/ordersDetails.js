@@ -7,7 +7,7 @@ import {
 import { LeftNavbar } from '../Leftbar';
 import theme from '../../Assets/Styles/theme';
 import { Ordered } from '../../Utils/Common/orderStatus';
-import { BoldText, Heading, LightText, OrderConatiner, PurpleText, SemiLightText } from '../../Utils/Common/component';
+import { BoldText, Heading, LightText, OrderConatiner, PurpleText, SemiLightText } from '../../Utils/Common/styledComponent';
 import cash_on_delivery from '../../Assets/Images/cash_on_delivery.svg'
 import post1 from '../../Assets/Images/post-1.png'
 import './index.scss';

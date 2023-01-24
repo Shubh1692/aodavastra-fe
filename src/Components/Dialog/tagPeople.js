@@ -11,7 +11,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import user from '../../Assets/Images/jwel_main.png';
 import '../Feed/index.scss';
 import './index.scss';
-import { BolderText, TagPrize } from '../../Utils/Common/component';
+import { BolderText, TagPrize } from '../../Utils/Common/styledComponent';
 
 const TagPeople = ({ open, handleClose }) => {
     return (

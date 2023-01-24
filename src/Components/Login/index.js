@@ -9,7 +9,7 @@ import { GoogleLogin } from '@react-oauth/google';
 import { useNavigate } from "react-router-dom";
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { FlexCenterColumn, PrimaryButton, FlexDivRow, PrimaryColorText } from "../../Utils/Common/component";
+import { FlexCenterColumn, PrimaryButton, FlexDivRow, PrimaryColorText } from "../../Utils/Common/styledComponent";
 import HttpService from "../../Services/Http.service";
 import { toast } from "react-toastify";
 import { api_base_url } from "../../Utils/Common/urls";

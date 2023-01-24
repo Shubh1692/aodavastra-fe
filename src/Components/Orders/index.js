@@ -11,7 +11,7 @@ import { LeftNavbar } from '../Leftbar';
 import theme from '../../Assets/Styles/theme';
 import { Delivered } from '../../Utils/Common/orderStatus';
 import { useNavigate } from 'react-router-dom';
-import { BoldHeading, BoldText, Heading, LightText } from '../../Utils/Common/component';
+import { BoldHeading, BoldText, Heading, LightText } from '../../Utils/Common/styledComponent';
 import './index.scss';
 
 const Orders = () => {

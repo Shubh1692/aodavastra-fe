@@ -11,7 +11,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import user from '../../Assets/Images/jwel_main.png';
 import add_comment from '../../Assets/Images/add_comment.svg'
 import './index.scss';
-import { BolderText, CommentMessage } from '../../Utils/Common/component';
+import { BolderText, CommentMessage } from '../../Utils/Common/styledComponent';
 
 export const CommentDialog = ({ open, handleClose }) => {
     return (

@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 // import { AvForm, AvField } from 'availity-reactstrap-validation';
-import { FlexCenterColumn, PrimaryButton, PrimaryText, FlexDivRow, PrimaryColorText } from "../../Utils/Common/component";
+import { FlexCenterColumn, PrimaryButton, PrimaryText, FlexDivRow, PrimaryColorText } from "../../Utils/Common/styledComponent";
 import HttpService from "../../Services/Http.service";
 import { api_base_url } from "../../Utils/Common/urls";
 import { toast } from "react-toastify";

@@ -4,6 +4,7 @@ const theme = {
     primaryColor: '#A585C1',
     lighterPink: '#F6EEFD',
     rounded: '50px',
+    darkPurple: '#7a628f',
     secondPrimaryColor: '#A484BD',
     thirdPrimaryColor: '#C5AFDA',
     lighterPrimary: '#eedcff',

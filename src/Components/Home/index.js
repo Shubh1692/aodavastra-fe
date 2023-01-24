@@ -2,25 +2,11 @@ import React from 'react';
 import Layout from '../Layout';
 import logo from '../../Assets/Images/project_logo_svg.svg';
 import user from '../../Assets/Images/post-1.png';
-import design1 from '../../Assets/Images/design1.svg';
-import design2 from '../../Assets/Images/design2.svg';
-import design3 from '../../Assets/Images/design3.svg';
-import design4 from '../../Assets/Images/design4.svg';
-import design5 from '../../Assets/Images/design5.svg';
-import design6 from '../../Assets/Images/design6.svg';
 
-import {
-    Box,
-    Typography,
-    Stack,
-    Grid,
-    useTheme,
-    Button
-
-} from "@mui/material";
+import { Box, Typography, Grid, Button } from "@mui/material";
 import './index.scss';
-import { DesignerContainer, LightText } from '../../Utils/Common/component';
-import theme from '../../Assets/Styles/theme';
+import { LightText, BorderDesignerText } from '../../Utils/Common/styledComponent';
+import { DesignerComponent } from '../../Utils/Common/component';
 
 const Home = () => {
     return (
@@ -104,15 +90,8 @@ const Home = () => {
                             <Button variant="contained">Follow</Button>
                         </Grid>
                     </Grid>
-                    <Typography className='welcome_text' sx={{ borderBottom: '2px solid rgba(238, 187, 204, 0.7)' }}>Designers on ModaVastra</Typography>
-                    <Grid sx={{width:'1275px',display:'flex', justifyContent:'space-between'}}>
-                        <DesignerContainer><Box component={'img'} src={design6} /></DesignerContainer>
-                        <DesignerContainer><Box component={'img'} src={design5} /></DesignerContainer>
-                        <DesignerContainer><Box component={'img'} src={design4} /></DesignerContainer>
-                        <DesignerContainer><Box component={'img'} src={design3} /></DesignerContainer>
-                        <DesignerContainer><Box component={'img'} src={design2} /></DesignerContainer>
-                        <DesignerContainer><Box component={'img'} src={design1} /></DesignerContainer>
-                    </Grid>
+                    <BorderDesignerText>Designers on ModaVastra</BorderDesignerText>
+                    <DesignerComponent />
                 </Grid>
             </Box>
         </>

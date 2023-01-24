@@ -14,7 +14,7 @@ import unlike from '../../Assets/Images/un_like.svg';
 import comment from '../../Assets/Images/comment.svg';
 import tagged from '../../Assets/Images/tagged.svg';
 import './index.scss';
-import { BolderText, BoldHeading, FeedText, TagPrize, TimeSection } from '../../Utils/Common/component';
+import { BolderText, BoldHeading, FeedText, TagPrize, TimeSection } from '../../Utils/Common/styledComponent';
 import theme from '../../Assets/Styles/theme';
 import TagPeople from '../Dialog/tagPeople';
 import { CommentDialog } from '../Dialog/commentDialog';

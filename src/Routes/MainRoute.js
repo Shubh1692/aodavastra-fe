@@ -8,18 +8,19 @@ import { Grid } from "@mui/material";
 import EmptyBag from "../Components/EmptyBag";
 import JewelleryProduct from "../Components/JewelleryProducts";
 import "react-toastify/dist/ReactToastify.css";
+import Dashboard from "../Components/Home/dashboard";
 
 const SignUpComponent = lazy(() => import("../Components/SignUp"));
 const Login = lazy(() => import("../Components/Login"));
-const RecoverComponent = lazy(() =>import("../Components/Login/recoverPassword"));
-const ConfirmPassword = lazy(() =>import("../Components/Login/confirmPassword"));
+const RecoverComponent = lazy(() => import("../Components/Login/recoverPassword"));
+const ConfirmPassword = lazy(() => import("../Components/Login/confirmPassword"));
 const Home = lazy(() => import("../Components/Home"));
 const Feed = lazy(() => import('../Components/Feed'))
 const Profile = lazy(() => import("../Components/Profile"));
 const Orders = lazy(() => import("../Components/Orders"));
 const OrdersDetails = lazy(() => import("../Components/Orders/ordersDetails"));
-const UpdatePassword = lazy(() =>import("../Components/Profile/updatePassword"));
-const AddressAction = lazy(() =>import("../Components/Addresses/addressAction"));
+const UpdatePassword = lazy(() => import("../Components/Profile/updatePassword"));
+const AddressAction = lazy(() => import("../Components/Addresses/addressAction"));
 const Wishlist = lazy(() => import("../Components/Wishlist"));
 const Address = lazy(() => import("../Components/Addresses"));
 
@@ -102,6 +103,12 @@ const masterComponent = () => {
             path="/feed"
             element={<PrivateRoute component={<Feed />} />}
           ></Route>
+
+          <Route
+            path="/dashboard"
+            element={<PrivateRoute component={<Dashboard />} />}
+          ></Route>
+
           <Route
             path="/"
             element={<PrivateRoute component={<Home />} />}
