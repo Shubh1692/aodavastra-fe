@@ -1,19 +1,57 @@
 $white: #ffffff;
 $headerHeight: 80px;
 $darkPurple: #7a628f;
-$primaryColor: #A585C1;
-$secondPrimaryColor :#A484BD;
-$thirdPrimaryColor:#C5AFDA;
-$lighterPrimary:#eedcff;
-$lighterPink: #F6EEFD;
+$primaryColor: #a585c1;
+$secondPrimaryColor: #a484bd;
+$thirdPrimaryColor: #c5afda;
+$lighterPrimary: #eedcff;
+$lighterPink: #f6eefd;
 $rounded: 50px;
 $fontFamily: "Poppins";
-$becomeRadientColor:radial-gradient(39.66% 257.5% at 87.04% 131.25%, #C5AFDA 0%, rgba(197, 175, 218, 0) 100%) , radial-gradient(29.47% 233.75% at 55.86% 110%, #EEBBCC 0%, rgba(238, 187, 204, 0) 100%), radial-gradient(76.54% 700.12% at -1.85% 0%, #A585C1 0%, rgba(165, 133, 193, 0) 100%);
-$lightBackground:#F9F9F9;
-$boxContainer:#f9f9f9;
+$lightBackground: #f9f9f9;
+$boxContainer: #f9f9f9;
 $gray: #c4c4c4;
-$darkGray:#A4A4A4;
-$lightBlack:#3c3c3c;
-$orangeLight:#FFBFB2;
-$orangeDark: #FF7C61;
-$redPrimary : #D83B3B;
+$darkGray: #a4a4a4;
+$lightBlack: #3c3c3c;
+$black:#000000;
+$orangeLight: #ffbfb2;
+$orangeDark: #ff7c61;
+$redPrimary: #d83b3b;
+
+// gradient colors
+$becomeRadientColor: radial-gradient(
+    39.66% 257.5% at 87.04% 131.25%,
+    #c5afda 0%,
+    rgba(197, 175, 218, 0) 100%
+  ),
+  radial-gradient(
+    29.47% 233.75% at 55.86% 110%,
+    #eebbcc 0%,
+    rgba(238, 187, 204, 0) 100%
+  ),
+  radial-gradient(
+    76.54% 700.12% at -1.85% 0%,
+    #a585c1 0%,
+    rgba(165, 133, 193, 0) 100%
+  );
+
+$radientDivColor: radial-gradient(
+    26.88% 75.28% at 19.87% -7.77%,
+    #eebbcc 0%,
+    rgba(238, 187, 204, 0) 100%
+  ),
+  radial-gradient(
+    56.75% 147.55% at 88.81% -13.01%,
+    #ffd5cc 0%,
+    rgba(255, 213, 204, 0) 100%
+  ),
+  radial-gradient(
+    37.5% 127.32% at 78.5% 90.88%,
+    #c5afda 0%,
+    rgba(197, 175, 218, 0) 100%
+  ),
+  radial-gradient(
+    62.45% 207.83% at 13.91% 103.21%,
+    #a585c1 0%,
+    rgba(165, 133, 193, 0) 100%
+  );

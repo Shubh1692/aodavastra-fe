@@ -19,15 +19,19 @@ import post2 from "../../Assets/Images/post-2.png";
 import post3 from "../../Assets/Images/post-3.png";
 import "../index.scss";
 import { BecomeInfluencer } from "../Dialog/becomeInfluencer";
+import { useEffect } from "react";
+import { ProfileService } from "../../Services";
+import { toast } from "react-toastify";
 
 const Profile = () => {
   const theme = useTheme();
   const [disabled, setDisabled] = useState(true);
+  const [user, setUser] = useState({});
   const [isEdit, setIsEdit] = useState(false);
   const [isProfile, setProfile] = useState(true);
   const [isFollowing, setFollowing] = useState(false);
   const [isPosts, setPosts] = useState(false);
-  const [isBecomeInfluencer, setBecomeInfluencer]=useState(false)
+  const [isBecomeInfluencer, setBecomeInfluencer] = useState(false);
 
   const handleFollower = () => {
     setFollowing(true);
@@ -41,6 +45,23 @@ const Profile = () => {
     setIsEdit(true);
     setDisabled(false);
   };
+
+  const profile = () => {
+    ProfileService.user()
+      .then((result) => {
+        console.log("-------------->", result.data.user);
+        setUser(result.data.user);
+      })
+      .catch((err) => {
+        if (err.response?.data?.message) {
+          toast.error(err.response.data.message)
+        }
+      });
+  };
+
+  useEffect(() => {
+    profile();
+  }, []);
 
   return (
     <>
@@ -71,7 +92,7 @@ const Profile = () => {
               md={4}
               lg={4}
               className="profile_div"
-              sx={{ display: "flex", justifyContent: "end"}}
+              sx={{ display: "flex", justifyContent: "end" }}
             >
               <LeftNavbar />
             </Grid>
@@ -111,7 +132,7 @@ const Profile = () => {
                           color: "#3C3C3C",
                         }}
                       >
-                        157
+                        {user?.following}
                       </Typography>
                       <Typography
                         sx={{
@@ -124,7 +145,10 @@ const Profile = () => {
                         Following
                       </Typography>
                     </Box>
-                    <Box onClick={handlePosts} sx={{ display: "flex",cursor: "pointer", }}>
+                    <Box
+                      onClick={handlePosts}
+                      sx={{ display: "flex", cursor: "pointer" }}
+                    >
                       <Typography
                         sx={{
                           fontSize: "24px",
@@ -158,6 +182,14 @@ const Profile = () => {
                       cursor: "pointer",
                     }}
                   >
+                    <input
+                      color="primary"
+                      accept="image/*"
+                      type="file"
+                      // onChange={onChange}
+                      id="icon-button-file"
+                      style={{ display: "none" }}
+                    />
                     Change Picture
                   </Grid>
                 )}
@@ -189,7 +221,8 @@ const Profile = () => {
                   </Grid>
                   <OutlinedInput
                     disabled={disabled}
-                    placeholder="Anjali Verma"
+                    placeholder="Name"
+                    value={user?.name}
                     size="small"
                     fullWidth
                     name="name"
@@ -207,8 +240,9 @@ const Profile = () => {
                       Bio
                     </Typography>
                     <OutlinedInput
-                      placeholder="In a world where you can be anyone, be yourself 👑"
+                      placeholder="Bio"
                       size="small"
+                      value={user?.bio}
                       disabled={disabled}
                       fullWidth
                       name="bio"
@@ -226,7 +260,11 @@ const Profile = () => {
                   </Grid>
 
                   {!isEdit ? (
-                    <Grid className="become_creator" sx={{cursor:'pointer'}} onClick={()=>setBecomeInfluencer(true)}>
+                    <Grid
+                      className="become_creator"
+                      sx={{ cursor: "pointer" }}
+                      onClick={() => setBecomeInfluencer(true)}
+                    >
                       <img
                         src={closet}
                         width="38"
@@ -271,7 +309,12 @@ const Profile = () => {
                       padding: "10.35px",
                     }}
                   >
-                    <img src={userLogo} alt="demo_img" height={"100%"} />
+                    <Box
+                      component={"img"}
+                      src={userLogo}
+                      alt="demo_img"
+                      height={"100%"}
+                    />
                   </Box>
                   <Box className="follwer_user">
                     <Grid
@@ -405,7 +448,10 @@ const Profile = () => {
           </Grid>
         </Stack>
       </Box>
-      <BecomeInfluencer open={isBecomeInfluencer} handleClose={()=>setBecomeInfluencer(false)}/>
+      <BecomeInfluencer
+        open={isBecomeInfluencer}
+        handleClose={() => setBecomeInfluencer(false)}
+      />
     </>
   );
 };

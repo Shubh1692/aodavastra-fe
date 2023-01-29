@@ -1,10 +1,12 @@
 import axios from 'axios';
 import ToasterService from './Toaster.service.ts';
+const token = localStorage.getItem('access_token')
 
 const HttpService = axios.create({
   baseURL: process.env.REACT_APP_BASE_URL,
   headers: {
     "content-type": "application/json",
+    "Authorization": `Bearer ${localStorage.getItem('access_token')}`
   }
 });
 

@@ -38,6 +38,7 @@ const SignUpComponent = () => {
     email: '',
     password: '',
     confirm_password: '',
+    tc: ''
   })
 
   const handleClickShowPassword = (key) => setShowPassword({ ...showPassword, [key]: !showPassword[key] });
@@ -47,38 +48,45 @@ const SignUpComponent = () => {
     setPayload({ ...userPayload, [e.target.name]: e.target.value })
   }
 
+  const handleTerms = (e) => {
+    setPayload({ ...userPayload, tc: e.target.checked })
+    setErrors({ ...errors, [e.target.name]: '' })
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (userPayload?.email === '' || userPayload?.password === '' || userPayload?.name === '' || userPayload?.confirm_password === '') {
-      if (userPayload?.email === '' && userPayload?.password === '' && userPayload?.confirm_password === '' && userPayload?.name === '') {
+    if (userPayload?.email === '' || userPayload?.password === '' || userPayload?.name === '' || userPayload?.confirm_password === '' || !userPayload.tc) {
+      if (userPayload?.email === '' && userPayload?.password === '' && userPayload?.confirm_password === '' && userPayload?.name === '' && !userPayload?.tc) {
         setErrors({
-          email: 'Email is required field',
-          password: 'Password is required field',
-          name: 'Name is required field',
-          confirm_password: 'Confirm password is required field'
+          email: 'Email is required field.',
+          password: 'Password is required field.',
+          name: 'Name is required field.',
+          confirm_password: 'Confirm password is required field.',
+          tc: 'Accept term and condition.'
         })
       }
       else {
         if (userPayload?.email === '') {
-          setErrors({ email: 'Email required field' })
+          setErrors({ email: 'Email required field.' })
         }
         else if (userPayload?.name === '') {
-          setErrors({ name: 'Name required field' })
+          setErrors({ name: 'Name required field.' })
         }
         else if (userPayload?.password === '') {
-          setErrors({ password: 'Password required field' })
+          setErrors({ password: 'Password required field.' })
         }
         else if (userPayload?.confirm_password === '') {
-          setErrors({ confirm_password: 'Confirm password required field' })
+          setErrors({ confirm_password: 'Confirm password required field.' })
+        } else if (!userPayload?.tc) {
+          setErrors({ tc: 'Accept term and condition.' })
         }
       }
     }
     else {
       if (userPayload?.password !== userPayload?.confirm_password) {
-        setErrors({ confirm_password: 'Confirm password not matched' })
+        setErrors({ confirm_password: 'Confirm password not matched.' })
 
-      }
-      else {
+      } else {
         try {
           const result = await HttpService.post(api_base_url + '/user/signup', userPayload);
           if (result.data && result.data.token) {
@@ -131,7 +139,7 @@ const SignUpComponent = () => {
         }}>
           <Container component="main" maxWidth="xs" sx={{ ml: 0 }}>
             <FlexCenterColumn>
-              <Box sx={{ width: '467px' }}>
+              <Box sx={{ width: '467px' }} component={'form'} noValidate onSubmit={handleSubmit} >
                 <OutlinedInput
                   fullWidth placeholder="Full Name"
                   name="name"
@@ -147,11 +155,13 @@ const SignUpComponent = () => {
                   error={Boolean(errors?.name)}
                   onChange={handleChange}
                 />
+
                 {errors && (
                   <FormHelperText htmlFor="form-selector" error={!!errors.name}>
                     {errors.name}
                   </FormHelperText>
                 )}
+
                 <OutlinedInput
                   type="email" placeholder="E-mail"
                   name="email" className="mt-12"
@@ -168,11 +178,13 @@ const SignUpComponent = () => {
                   error={Boolean(errors?.email)}
                   onChange={handleChange}
                 />
+
                 {errors && (
                   <FormHelperText htmlFor="form-selector" error={!!errors.email}>
                     {errors.email}
                   </FormHelperText>
                 )}
+
                 <FormControl sx={{ width: '100%' }} variant="outlined">
                   <OutlinedInput
                     id="outlined-adornment-password"
@@ -203,11 +215,13 @@ const SignUpComponent = () => {
                     }
                   />
                 </FormControl>
+
                 {errors && (
                   <FormHelperText htmlFor="form-selector" error={!!errors.password}>
                     {errors.password}
                   </FormHelperText>
                 )}
+
                 <FormControl sx={{ width: '100%' }} variant="outlined">
                   <OutlinedInput
                     id="outlined-adornment-password" placeholder="Confirm Password"
@@ -238,11 +252,13 @@ const SignUpComponent = () => {
                     }
                   />
                 </FormControl>
+
                 {errors && (
                   <FormHelperText htmlFor="form-selector" error={!!errors.confirm_password}>
                     {errors.confirm_password}
                   </FormHelperText>
                 )}
+
                 <FlexDivRow className="mt-12">
                   <Checkbox className="term-checkbox" sx={{
                     pl: 0,
@@ -250,11 +266,16 @@ const SignUpComponent = () => {
                       fontSize: 10,
                       borderRadius: 20
                     }
-                  }} name='tc' onChange={(e) => setPayload({ ...userPayload, tc: e.target.checked })} />
+                  }} name='tc' onChange={handleTerms} />
                   <PrimaryText>I accept <PrimaryColorText>Terms & Conditions </PrimaryColorText> and <PrimaryColorText>Privacy Policy </PrimaryColorText></PrimaryText>
                 </FlexDivRow>
+                {errors && (
+                  <FormHelperText htmlFor="form-selector" error={!!errors.tc}>
+                    {errors.tc}
+                  </FormHelperText>
+                )}
                 <FlexCenterColumn>
-                  <Grid item className="register_button" sx={{ mt: 2, width: '50%', margin: 'auto', cursor: 'pointer' }} onClick={handleSubmit}>Sign up</Grid>
+                  <Button variant="contained" type='submit' className="register_button" sx={{ mt: 2, width: '50%', margin: 'auto' }}>Sign up</Button>
                 </FlexCenterColumn>
                 <Grid sx={{ mt: 3 }} >
                   <Grid className="or_signup_text" item >or signup with </Grid>

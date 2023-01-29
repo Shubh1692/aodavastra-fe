@@ -9,6 +9,7 @@ import v2 from '../../Assets/Images/verticle2.svg';
 import { BorderDesignerText, SemiDarkText } from '../../Utils/Common/styledComponent';
 import Layout from '../Layout';
 import './index.scss';
+import { DesignerComponent } from '../../Utils/Common/component';
 
 const Dashboard = () => {
     return (
@@ -23,30 +24,61 @@ const Dashboard = () => {
                 <BorderDesignerText>BEST SELLERS</BorderDesignerText>
                 <Grid sx={{ width: '956px', display: 'flex', justifyContent: 'space-between' }}>
                     <Box sx={{ height: '360px', width: '224px' }}>
-                        <Box component={'img'} src={s1} sx={{ height: '304px', borderRadius: '10px' }} />
+                        <Box component={'img'} alt="product_image" src={s1} sx={{ height: '304px', borderRadius: '10px' }} />
                         <SemiDarkText className='semi_text'>Gorgeous Designer Saree ₹ 2,599.00</SemiDarkText>
                     </Box>
                     <Box sx={{ height: '360px', width: '224px' }}>
-                        <Box component={'img'} src={s2} sx={{ height: '304px', borderRadius: '10px' }} />
+                        <Box component={'img'} alt="product_image" src={s2} sx={{ height: '304px', borderRadius: '10px' }} />
                         <SemiDarkText className='semi_text'>Traditional Saree <br />₹ 2,599.00</SemiDarkText>
                     </Box>
                     <Box sx={{ height: '360px', width: '224px' }}>
-                        <Box component={'img'} src={s3} sx={{ height: '304px', borderRadius: '10px' }} />
+                        <Box component={'img'} alt="product_image" src={s3} sx={{ height: '304px', borderRadius: '10px' }} />
                         <SemiDarkText className='semi_text'>Net Multi Work Saree <br />₹ 2,599.00</SemiDarkText>
                     </Box>
                     <Box sx={{ height: '360px', width: '224px' }}>
-                        <Box component={'img'} src={s4} sx={{ height: '304px', borderRadius: '10px' }} />
+                        <Box component={'img'} alt="product_image" src={s4} sx={{ height: '304px', borderRadius: '10px' }} />
                         <SemiDarkText className='semi_text'>Silk Saree <br />₹ 2,599.00</SemiDarkText>
                     </Box>
                 </Grid>
-                <Grid sx={{ width: '90%', display: 'flex', justifyContent: 'space-between' }}>
-                    <Box sx={{ width: '49%', height: '373.33px' ,position:'relative'}}>
+                <Grid sx={{ width: '1362px', margin: '48px 0px 7px', display: 'flex', justifyContent: 'space-between' }}>
+                    <Box sx={{ width: '49.35%', height: '373.33px', position: 'relative' }}>
                         <Box className='img_content'>Accessories</Box>
-                        <Box component={'img'} src={v1} alt='img' sx={{}} />
+                        <Box component={'img'} alt="product_image" src={v1} sx={{ height: 'auto', maxWidth: '100%' }} />
                     </Box>
-                    <Box sx={{ width: '49%', height: '373.33px' ,position:'relative'}}>
+                    <Box sx={{ width: '49.35%', height: '373.33px', position: 'relative' }}>
                         <Box className='img_content'>CLOTHING</Box>
-                        <Box component={'img'} src={v2} alt='img' sx={{}} />
+                        <Box component={'img'} src={v2} alt='img' sx={{ height: 'auto', maxWidth: '100%' }} />
+                    </Box>
+                </Grid>
+                <BorderDesignerText>Designers on ModaVastra</BorderDesignerText>
+
+                <DesignerComponent />
+
+                <Box className='view_all_button'>View All</Box>
+
+                <BorderDesignerText>our creative partners</BorderDesignerText>
+                <Grid className='partner_container'>
+                    <Box component={'img'} src={v1} alt='partner_img' />
+                    <Box component={'img'} src={v2} alt='partner_img' />
+                    <Box component={'img'} src={v1} alt='partner_img' />
+                    <Box component={'img'} src={v2} alt='partner_img' />
+                    <Box component={'img'} src={v1} alt='partner_img' />
+                    <Box component={'img'} src={v2} alt='partner_img' />
+                    <Box component={'img'} src={v1} alt='partner_img' />
+                    <Box component={'img'} src={v2} alt='partner_img' />
+                    <Box component={'img'} src={v1} alt='partner_img' />
+                    <Box component={'img'} src={v2} alt='partner_img' />
+                    <Box component={'img'} src={v1} alt='partner_img' />
+                    <Box component={'img'} src={v2} alt='partner_img' />
+                    <Box component={'img'} src={v1} alt='partner_img' />
+                    <Box component={'img'} src={v2} alt='partner_img' />
+                    <Box component={'img'} src={v1} alt='partner_img' />
+                    <Box component={'img'} src={v2} alt='partner_img' />
+                </Grid>
+                <Grid className='become_creator_container'>
+                    <Box sx={{ width: '417px' }}>
+                        <Typography className='become_text'>Join Our Community of Growing Creators!</Typography>
+                        <Box className='become_button'>Become a Creator!</Box>
                     </Box>
                 </Grid>
             </Box>

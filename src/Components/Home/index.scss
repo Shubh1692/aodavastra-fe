@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: column !important;
   .welcome_text {
     font-style: normal;
     font-weight: 600;
@@ -82,4 +82,61 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.view_all_button {
+  margin: 35px 0px 6.6px;
+  width: 211.74px;
+  height: 42.35px;
+  border: 1.05869px solid $lightBlack;
+  border-radius: 5.29345px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19.0564px;
+  line-height: 29px;
+  color: $lightBlack;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.partner_container {
+  width: 1280px;
+  display: flex;
+  flex-wrap: wrap;
+  img {
+    height: 160px;
+    width: 160px;
+    object-fit: cover;
+  }
+}
+.become_creator_container {
+  width: 956px;
+  height: 296px;
+  background: $radientDivColor;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 48px 0px;
+  .become_text {
+    width: 100%;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 50px;
+    text-align: center;
+    color: $darkPurple;
+  }
+  .become_button {
+    width: 296px;
+    height: 48px;
+    background: $white;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: $darkPurple;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 36px auto 0px;
+  }
 }

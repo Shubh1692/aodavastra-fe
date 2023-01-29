@@ -4,9 +4,9 @@ import logo from '../../Assets/Images/project_logo_svg.svg';
 import user from '../../Assets/Images/post-1.png';
 
 import { Box, Typography, Grid, Button } from "@mui/material";
-import './index.scss';
 import { LightText, BorderDesignerText } from '../../Utils/Common/styledComponent';
 import { DesignerComponent } from '../../Utils/Common/component';
+import './index.scss';
 
 const Home = () => {
     return (
@@ -23,7 +23,7 @@ const Home = () => {
                     <Typography className='welcome_text'>WELCOME TO ModaVastra</Typography>
                     <Box component={'img'} src={logo} alt='logo' sx={{ width: '320px', height: '127px' }} />
                     <LightText>Follow some people to keep up with latest trends.</LightText>
-                    <Grid conatiner sx={{ margin: '48px 0px', width: '1092px', display: 'flex', justifyContent: 'space-between' }}>
+                    <Grid  sx={{ margin: '48px 0px', width: '1092px', display: 'flex', justifyContent: 'space-between' }}>
                         <Grid item className='request_list'>
                             <Box sx={{ paddingTop: '22.7px' }}><Box src={user} component={'img'} sx={{ width: 64, height: 64, borderRadius: '50px' }} /></Box>
                             <Typography component={'p'}>Anjali Verma</Typography>

@@ -49,6 +49,7 @@
   font-size: 19.1px;
   line-height: 29px;
   color: $white;
+  text-transform: capitalize;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,6 +75,7 @@
 .login_button {
   cursor: pointer;
   width: 229.25px;
+  text-transform: capitalize;
   height: 48.81px;
   background: $secondPrimaryColor;
   border-radius: 5px;
@@ -144,6 +146,38 @@
   // height: calc(100vh - 1pc);
 }
 
+// recover password
+
+.recover-form {
+  width: 467px;
+  .forget_heading {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+    letter-spacing: -0.02em;
+    color: $black;
+  }
+  .sub-heading {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: $darkGray;
+    margin-bottom: 37px;
+  }
+  .back-to-login {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    text-decoration-line: underline;
+    color: $primaryColor;
+    margin-top: 13px;
+    text-align: center;
+    cursor: pointer;
+  }
+}
 // profile
 
 .become_creator {

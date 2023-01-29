@@ -9,7 +9,7 @@ import { GoogleLogin } from '@react-oauth/google';
 import { useNavigate } from "react-router-dom";
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { FlexCenterColumn, PrimaryButton, FlexDivRow, PrimaryColorText } from "../../Utils/Common/styledComponent";
+import { FlexCenterColumn } from "../../Utils/Common/styledComponent";
 import HttpService from "../../Services/Http.service";
 import { toast } from "react-toastify";
 import { api_base_url } from "../../Utils/Common/urls";
@@ -18,6 +18,7 @@ import '../index.scss';
 const LoginComponent = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [userPayload, setPayload] = useState({
     email: '',
     password: ''
@@ -53,17 +54,19 @@ const LoginComponent = () => {
       }
       console.log('userPayload', userPayload)
     } else {
+      setLoading(true)
       try {
         const result = await HttpService.post(api_base_url + '/user/login', userPayload);
         if (result.data && result.data.token) {
           localStorage.setItem('access_token', result.data.token);
+          setLoading(false)
           toast['success']('Logged in successfully!')
           setTimeout(() => {
             navigate('/')
           }, 2000)
         }
-
       } catch (err) {
+        setLoading(false)
         if (!!err.response && err.response.data && err.response.data.error) {
           const errArray = err.response && err.response.data && err.response.data.message
           if (typeof (errArray) == 'string') {
@@ -106,6 +109,7 @@ const LoginComponent = () => {
               component="form"
               noValidate
               sx={{ mt: 1 }}
+              onSubmit={handleSubmit}
             >
               <FlexCenterColumn>
                 <OutlinedInput
@@ -166,7 +170,7 @@ const LoginComponent = () => {
                   <Typography className="forgot_text" onClick={() => navigate('/recover-password')}>Forgot Password?</Typography>
                 </Grid>
                 <FlexCenterColumn>
-                  <Grid item className="login_button" sx={{ mt: 5, width: '50%', margin: 'auto' }} onClick={handleSubmit}>Log in</Grid>
+                  <Button type='submit' disabled={loading} variant="contained" className="login_button" sx={{ mt: 5, width: '50%', margin: 'auto' }}>Log in</Button>
                 </FlexCenterColumn>
                 <Grid sx={{ mt: 3 }} >
                   <Grid className="or_signup_text" item >or login with </Grid>

@@ -9,6 +9,7 @@ import EmptyBag from "../Components/EmptyBag";
 import JewelleryProduct from "../Components/JewelleryProducts";
 import "react-toastify/dist/ReactToastify.css";
 import Dashboard from "../Components/Home/dashboard";
+import CreatorDashboard from "../Components/CreatorDashboard";
 
 const SignUpComponent = lazy(() => import("../Components/SignUp"));
 const Login = lazy(() => import("../Components/Login"));
@@ -43,75 +44,24 @@ const masterComponent = () => {
         }
       >
         <Routes>
-          <Route
-            path="/register"
-            element={<PublicRoute component={<SignUpComponent />} />}
-          ></Route>
-          <Route
-            path="/login"
-            element={<PublicRoute component={<Login />} />}
-          ></Route>
-          <Route
-            path="/recover-password"
-            element={<PublicRoute component={<RecoverComponent />} />}
-          ></Route>
-          <Route
-            path="/password-reset-confirm/:token"
-            element={<PublicRoute component={<ConfirmPassword />} />}
-          ></Route>
-          <Route
-            path="/jewellery"
-            element={<PrivateRoute component={<JewelleryProduct />} />}
-          ></Route>
-          <Route
-            path="/emptybag"
-            element={<PrivateRoute component={<EmptyBag />} />}
-          ></Route>
-          <Route
-            path="/profile"
-            element={<PrivateRoute component={<Profile />} />}
-          ></Route>
-          <Route
-            path="/orders"
-            element={<PrivateRoute component={<Orders />} />}
-          ></Route>
-          <Route
-            path="/wishlist"
-            element={<PrivateRoute component={<Wishlist />} />}
-          ></Route>
-          <Route
-            path="/address"
-            element={<PrivateRoute component={<Address />} />}
-          ></Route>
-          <Route
-            path="/change-password"
-            element={<PrivateRoute component={<UpdatePassword />} />}
-          ></Route>
-          <Route
-            path="/address/add"
-            element={<PrivateRoute component={<AddressAction />} />}
-          ></Route>
-          <Route
-            path="/address/edit/:id"
-            element={<PrivateRoute component={<AddressAction />} />}
-          ></Route>
-          <Route
-            path="/orders/:orderId"
-            element={<PrivateRoute component={<OrdersDetails />} />}
-          ></Route>
-          <Route
-            path="/feed"
-            element={<PrivateRoute component={<Feed />} />}
-          ></Route>
-
-          <Route
-            path="/dashboard"
-            element={<PrivateRoute component={<Dashboard />} />}
-          ></Route>
-
-          <Route
-            path="/"
-            element={<PrivateRoute component={<Home />} />}
+          <Route path="/register" element={<PublicRoute component={<SignUpComponent />} />}></Route>
+          <Route path="/login" element={<PublicRoute component={<Login />} />}></Route>
+          <Route path="/recover-password" element={<PublicRoute component={<RecoverComponent />} />}></Route>
+          <Route path="/password-reset-confirm/:token" element={<PublicRoute component={<ConfirmPassword />} />}></Route>
+          <Route path="/jewellery" element={<PrivateRoute component={<JewelleryProduct />} />}></Route>
+          <Route path="/emptybag" element={<PrivateRoute component={<EmptyBag />} />}></Route>
+          <Route path="/profile" element={<PrivateRoute component={<Profile />} />}></Route>
+          <Route path="/orders" element={<PrivateRoute component={<Orders />} />}></Route>
+          <Route path="/wishlist" element={<PrivateRoute component={<Wishlist />} />}></Route>
+          <Route path="/address" element={<PrivateRoute component={<Address />} />}></Route>
+          <Route path="/change-password" element={<PrivateRoute component={<UpdatePassword />} />}></Route>
+          <Route path="/address/add" element={<PrivateRoute component={<AddressAction />} />}></Route>
+          <Route path="/address/edit/:id" element={<PrivateRoute component={<AddressAction />} />}></Route>
+          <Route path="/orders/:orderId" element={<PrivateRoute component={<OrdersDetails />} />}></Route>
+          <Route path="/feed" element={<PrivateRoute component={<Feed />} />}></Route>
+          <Route path="/dashboard" element={<PrivateRoute component={<Dashboard />} />}></Route>
+          <Route path="/creator" element={<PrivateRoute component={<CreatorDashboard />} />}></Route>
+          <Route path="/" element={<PrivateRoute component={<Home />} />}
           ></Route>
         </Routes>
       </Suspense>

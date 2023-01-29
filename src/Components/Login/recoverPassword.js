@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import {
-    Button, FormControl, TextField, FormHelperText, Box, Container,
+    Button, FormControl, TextField, FormHelperText, Box, Container, Typography,
 } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import { useNavigate } from "react-router-dom";
 import logo from "../../Assets/Images/project_logo_svg.svg";
-import { FlexCenterColumn } from "../../Utils/Common/styledComponent";
+import { FlexCenterColumn, LightText } from "../../Utils/Common/styledComponent";
 import HttpService from "../../Services/Http.service";
 import { toast } from "react-toastify";
 import { api_base_url } from "../../Utils/Common/urls";
@@ -67,37 +67,39 @@ const RecoverComponent = () => {
                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6} sx={{
                     display: 'flex', alignItems: 'center'
                 }}>
-                    <Container component="main" maxWidth="xs">
-                        <FlexCenterColumn>
-                            <Box
-                                component="form"
-                                noValidate
-                                sx={{ mt: 1 }}
-                            >
-                                <TextField
-                                    type="email" placeholder="E-mail"
-                                    name="email" inputProps={{
-                                        sx: {
-                                            height:18,
-                                            "&::placeholder": {
-                                                opacity: 0.8,
-                                                fontSize: "18px",
-                                            },
+                    <Container component="main">
+                        <Box
+                            component="form"
+                            noValidate className="recover-form"
+                        >
+                            <Typography className='forget_heading'>Forgot Your Password</Typography>
+                            <Typography className="sub-heading">Enter the email you use to login to ModaVastra Admin Panel and we will send you a link to get you back into your account.</Typography>
+                            <TextField
+                                type="email" placeholder="E-mail"
+                                name="email" inputProps={{
+                                    sx: {
+                                        height: 16,
+                                        "&::placeholder": {
+                                            opacity: 0.8,
+                                            fontSize: "18px",
                                         },
-                                    }} className="mt-12"
-                                    fullWidth error={Boolean(error)}
-                                    onChange={handleChange}
-                                />
-                                {error && (
-                                    <FormHelperText htmlFor="form-selector" error={!!error}>
-                                        {error}
-                                    </FormHelperText>
-                                )}
-                                <FlexCenterColumn>
-                                    <Grid item className="login_button" sx={{ mt: 5, width: '50%', margin: 'auto' }} onClick={handleSubmit}>Send mail</Grid>
-                                </FlexCenterColumn>
-                            </Box>
-                        </FlexCenterColumn>
+                                    },
+                                }} className="mt-12"
+                                fullWidth error={Boolean(error)}
+                                onChange={handleChange}
+                            />
+                            {error && (
+                                <FormHelperText htmlFor="form-selector" error={!!error}>
+                                    {error}
+                                </FormHelperText>
+                            )}
+                            <FlexCenterColumn>
+                                <Button variant="contained" className="login_button" sx={{ marginTop: '58px !important', width: '50%', margin: 'auto' }} onClick={handleSubmit}>log in</Button>
+                            </FlexCenterColumn>
+                            <FlexCenterColumn>
+                                <Typography onClick={() => navigate('/login')} className="back-to-login">Back to Login</Typography>
+                            </FlexCenterColumn>
+                        </Box>
                     </Container>
                 </Grid>
             </Grid>
