@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { List, ListItem } from '@mui/material';
 import { SidebarData } from './sideMenus';
-import { Link, NavLink } from 'react-router-dom';
-import { Grid } from '@mui/material';
-import './index.scss'
-import { borderLeft, borderRight } from '@mui/system';
+import { NavLink } from 'react-router-dom';
 import theme from '../../Assets/Styles/theme';
+import './index.scss';
+import { Logout } from '../Dialog/logout';
 
 export const LeftNavbar = () => {
-    const [sidebar] = useState(true)
+    const [sidebar] = useState(true);
+    const [logout, setLogout] = useState(false)
     return (
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
             <List className='nav-menu-items' sx={{
@@ -19,10 +19,11 @@ export const LeftNavbar = () => {
                     return (
                         <ListItem key={index} className={tab.cName}>
                             <NavLink to={tab.path}>{tab.title}</NavLink>
-                        </ListItem>
-                    )
+                        </ListItem>)
                 })}
+                <ListItem className='nav-text text-danger' onClick={() => setLogout(true)} >Log Out</ListItem>
             </List>
+            <Logout open={logout} handleClose={() => setLogout(false)} />
         </nav>
     )
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   Box,
   Typography,
@@ -6,6 +6,8 @@ import {
   Grid,
   useTheme,
   OutlinedInput,
+  Button,
+  FormHelperText,
 } from "@mui/material";
 
 import Layout from "../Layout";
@@ -14,24 +16,66 @@ import themes from "../../Assets/Styles/theme";
 import userLogo from "../../Assets/Images/user_logo.png";
 import closet from "../../Assets/Images/closet.svg";
 import nextButton from "../../Assets/Images/next_button.svg";
-import post1 from "../../Assets/Images/post-1.png";
-import post2 from "../../Assets/Images/post-2.png";
-import post3 from "../../Assets/Images/post-3.png";
 import "../index.scss";
 import { BecomeInfluencer } from "../Dialog/becomeInfluencer";
 import { useEffect } from "react";
-import { ProfileService } from "../../Services";
 import { toast } from "react-toastify";
+import AuthService from "../../Services/Auth.service";
+import Following from "./following";
+import Posts from "./posts";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const theme = useTheme();
+  const fileInput = useRef();
+  const navigate = useNavigate()
   const [disabled, setDisabled] = useState(true);
   const [user, setUser] = useState({});
+  const [loading, setLoading] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
   const [isProfile, setProfile] = useState(true);
   const [isFollowing, setFollowing] = useState(false);
   const [isPosts, setPosts] = useState(false);
   const [isBecomeInfluencer, setBecomeInfluencer] = useState(false);
+  const [formValues, setFormValues] = useState({
+    name: {
+      value: "",
+      error: false,
+      errorMessage: "Name is required field.",
+    },
+    bio: {
+      value: "",
+      error: false,
+      errorMessage: "Bio is required field.",
+    },
+  });
+
+  const profile = () => {
+    AuthService.userGet()
+      .then((result) => {
+        if (result.status === 200) {
+          setFormValues({
+            name: { value: result?.data?.user?.name },
+            bio: { value: result?.data?.user?.bio },
+          });
+          setUser(result.data.user);
+        }
+      })
+      .catch((err) => {
+        console.log('------------>',err.response?.status)
+        if(err.response?.status===401){
+          localStorage.removeItem('access_token')
+          setTimeout(()=>{navigate('/login')},2000)
+        }
+        if (err.response?.data?.message) {
+          toast.error(err.response.data.message);
+        }
+      });
+  };
+
+  useEffect(() => {
+    profile();
+  }, []);
 
   const handleFollower = () => {
     setFollowing(true);
@@ -46,22 +90,98 @@ const Profile = () => {
     setDisabled(false);
   };
 
-  const profile = () => {
-    ProfileService.user()
-      .then((result) => {
-        console.log("-------------->", result.data.user);
-        setUser(result.data.user);
-      })
-      .catch((err) => {
-        if (err.response?.data?.message) {
-          toast.error(err.response.data.message)
-        }
-      });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({
+      ...formValues,
+      [name]: {
+        ...formValues[name],
+        value,
+        error: false,
+      },
+    });
+    console.log(name, value);
+  };
+  const changePicture = (e) => {
+    if (e?.target?.files[0]) {
+      let formData = new FormData();
+      formData.append("file", e?.target?.files[0]);
+      AuthService.userProfilePicture(formData)
+        .then((result) => {
+          if (result.status === 200) {
+            toast.success("Profile updated successfully!");
+            setIsEdit(false);
+            setDisabled(true);
+          }
+        })
+        .catch((err) => {
+          if (err.response?.data?.message) {
+            setLoading(false);
+            toast.error(err.response.data.message);
+          }
+        });
+    }
+    console.log("profile_img", e.target.files[0]);
   };
 
-  useEffect(() => {
-    profile();
-  }, []);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    const formFields = Object.keys(formValues);
+    let newFormValues = { ...formValues };
+    let payload = {};
+
+    for (let index = 0; index < formFields.length; index++) {
+      const currentField = formFields[index];
+      const currentValue = formValues[currentField].value;
+
+      if (currentValue === "") {
+        newFormValues = {
+          ...newFormValues,
+          [currentField]: {
+            ...newFormValues[currentField],
+            error: true,
+            errorMessage: "This is required field.",
+          },
+        };
+      }
+    }
+    if (!newFormValues.name.error && !newFormValues.bio.error) {
+      payload = {
+        ...payload,
+        name: newFormValues.name.value,
+        bio: newFormValues.bio.value,
+        email: user.email,
+      };
+
+      AuthService.userUpdate(payload)
+        .then((result) => {
+          console.log("result ------------->", result);
+          if (result.status === 200) {
+            toast.success("User updated successfully!");
+            setIsEdit(false);
+            setLoading(false);
+            setDisabled(true);
+          }
+        })
+        .catch((err) => {
+          if (err.response?.data?.message) {
+            setLoading(false);
+            toast.error(err.response.data.message);
+          }
+        });
+    }
+    setFormValues(newFormValues);
+  };
+
+  console.log(
+    "fileInput-------->",
+    fileInput,
+    fileInput?.files,
+    fileInput?.current,
+    fileInput?.current?.value,
+    fileInput?.current?.files
+  );
 
   return (
     <>
@@ -110,7 +230,7 @@ const Profile = () => {
                   }}
                 >
                   <Box sx={{ width: "144px", height: "144px", margin: "auto" }}>
-                    <img src={userLogo} alt="user_logo" />
+                    <Box component={"img"} src={userLogo} alt="user_logo" />
                   </Box>
                 </Box>
                 {!isEdit ? (
@@ -172,10 +292,10 @@ const Profile = () => {
                     </Box>
                   </Grid>
                 ) : (
-                  <Grid
-                    item
+                  <Button
                     className="semi-outlined-button"
                     variant="outlined"
+                    onClick={() => fileInput.current.click()}
                     sx={{
                       width: "50%",
                       margin: "24px auto",
@@ -183,17 +303,16 @@ const Profile = () => {
                     }}
                   >
                     <input
-                      color="primary"
                       accept="image/*"
                       type="file"
-                      // onChange={onChange}
-                      id="icon-button-file"
+                      onChange={changePicture}
+                      ref={fileInput}
                       style={{ display: "none" }}
                     />
                     Change Picture
-                  </Grid>
+                  </Button>
                 )}
-                <Grid>
+                <Box variant="form">
                   <Grid
                     sx={{
                       display: "flex",
@@ -219,15 +338,19 @@ const Profile = () => {
                       </Typography>
                     )}
                   </Grid>
+
                   <OutlinedInput
                     disabled={disabled}
                     placeholder="Name"
-                    value={user?.name}
+                    value={formValues?.name?.value}
                     size="small"
                     fullWidth
                     name="name"
+                    onChange={handleChange}
+                    error={formValues.name.error}
                     inputProps={{
                       sx: {
+                        height: 34,
                         "&::placeholder": {
                           opacity: 0.7,
                           fontSize: "19px",
@@ -235,6 +358,13 @@ const Profile = () => {
                       },
                     }}
                   />
+
+                  {formValues.name.error && (
+                    <FormHelperText error={formValues.name.error}>
+                      {formValues.name.errorMessage}
+                    </FormHelperText>
+                  )}
+
                   <Grid sx={{ marginTop: "19px" }}>
                     <Typography sx={{ fontSize: "25.4px", fontWeight: "400" }}>
                       Bio
@@ -242,10 +372,12 @@ const Profile = () => {
                     <OutlinedInput
                       placeholder="Bio"
                       size="small"
-                      value={user?.bio}
+                      value={formValues?.bio?.value}
                       disabled={disabled}
                       fullWidth
+                      onChange={handleChange}
                       name="bio"
+                      error={formValues.bio.error}
                       multiline
                       inputProps={{
                         sx: {
@@ -257,6 +389,12 @@ const Profile = () => {
                       }}
                       rows={4}
                     />
+
+                    {formValues.bio.error && (
+                      <FormHelperText error={formValues.bio.error}>
+                        {formValues.bio.errorMessage}
+                      </FormHelperText>
+                    )}
                   </Grid>
 
                   {!isEdit ? (
@@ -265,186 +403,32 @@ const Profile = () => {
                       sx={{ cursor: "pointer" }}
                       onClick={() => setBecomeInfluencer(true)}
                     >
-                      <img
+                      <Box
+                        component={"img"}
                         src={closet}
                         width="38"
                         height="24"
                         alt="become_logo"
                       />
                       <Typography>Become a ModaVastra creator</Typography>
-                      <img src={nextButton} alt="next_logo" />
+                      <Box component={"img"} src={nextButton} alt="next_logo" />
                     </Grid>
                   ) : (
-                    <Grid className="save_changes">Save Changes</Grid>
+                    <Button
+                      type="submit"
+                      variant="contained"
+                      className="save_changes"
+                      onClick={handleSubmit}
+                      disabled={loading}
+                    >
+                      Save Changes
+                    </Button>
                   )}
-                </Grid>
-              </Grid>
-            )}
-            {isFollowing && (
-              <Grid item md={4} lg={4}>
-                <Typography
-                  sx={{
-                    fontSize: "24px",
-                    fontWeight: "400",
-                    margin: "0px 0px 8px 26px",
-                  }}
-                >
-                  Followings
-                </Typography>
-                <Box
-                  sx={{
-                    width: "100%",
-                    height: "113.91px",
-                    background: themes.lightBackground,
-                    borderRadius: "5.1px",
-                    display: "flex",
-                    margin: "8.4px 0px",
-                  }}
-                >
-                  <Box
-                    sx={{
-                      width: "93px",
-                      height: "93px",
-                      borderRadius: "50px",
-                      padding: "10.35px",
-                    }}
-                  >
-                    <Box
-                      component={"img"}
-                      src={userLogo}
-                      alt="demo_img"
-                      height={"100%"}
-                    />
-                  </Box>
-                  <Box className="follwer_user">
-                    <Grid
-                      sx={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "end",
-                        padding: "10.35px",
-                      }}
-                    >
-                      <Typography
-                        sx={{
-                          fontWeight: "600",
-                          fontSize: "23.3px",
-                          lineHeight: "35px",
-                        }}
-                      >
-                        Sonali
-                      </Typography>
-                      <Box className="unfollow_button">Unfollow</Box>
-                    </Grid>
-                    <Grid
-                      sx={{
-                        fontSize: "18.1px",
-                        padding: "0px 10.35px",
-                      }}
-                    >
-                      In a world where you can be a king...
-                    </Grid>
-                  </Box>
-                </Box>
-                <Box
-                  sx={{
-                    width: "100%",
-                    height: "113.91px",
-                    background: themes.lightBackground,
-                    borderRadius: "5.1px",
-                    display: "flex",
-                    margin: "8.4px 0px",
-                  }}
-                >
-                  <Box
-                    sx={{
-                      width: "93px",
-                      height: "93px",
-                      borderRadius: "50px",
-                      padding: "10.35px",
-                    }}
-                  >
-                    <img src={userLogo} alt="demo_img" height={"100%"} />
-                  </Box>
-                  <Box className="follwer_user">
-                    <Grid
-                      sx={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "end",
-                        padding: "10.35px",
-                      }}
-                    >
-                      <Typography
-                        sx={{
-                          fontWeight: "600",
-                          fontSize: "23.3px",
-                          lineHeight: "35px",
-                        }}
-                      >
-                        Sonali
-                      </Typography>
-                      <Box className="unfollow_button">Unfollow</Box>
-                    </Grid>
-                    <Grid
-                      sx={{
-                        fontSize: "18.1px",
-                        padding: "0px 10.35px",
-                      }}
-                    >
-                      In a world where you can be a king...
-                    </Grid>
-                  </Box>
                 </Box>
               </Grid>
             )}
-            {isPosts && (
-              <Grid item md={6} lg={6}>
-                <Typography
-                  sx={{
-                    fontSize: "24px",
-                    fontWeight: "400",
-                    margin: "0px 0px 8px 26px",
-                  }}
-                >
-                  Liked Posts
-                </Typography>
-                <Box sx={{ display: "flex", flexWrap: "wrap" }}>
-                  <Grid sx={{ height: "240px", width: "240px" }}>
-                    <img
-                      height={"100%"}
-                      width={"100%"}
-                      src={post1}
-                      alt="post"
-                    />
-                  </Grid>
-                  <Grid sx={{ height: "240px", width: "240px" }}>
-                    <img
-                      height={"100%"}
-                      width={"100%"}
-                      src={post2}
-                      alt="post"
-                    />
-                  </Grid>
-                  <Grid sx={{ height: "240px", width: "240px" }}>
-                    <img
-                      height={"100%"}
-                      width={"100%"}
-                      src={post3}
-                      alt="post"
-                    />
-                  </Grid>
-                  <Grid sx={{ height: "240px", width: "240px" }}>
-                    <img
-                      height={"100%"}
-                      width={"100%"}
-                      src={post3}
-                      alt="post"
-                    />
-                  </Grid>
-                </Box>
-              </Grid>
-            )}
+            {isFollowing && <Following />}
+            {isPosts && <Posts />}
           </Grid>
         </Stack>
       </Box>

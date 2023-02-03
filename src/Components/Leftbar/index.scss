@@ -12,9 +12,8 @@
   //   color: $primaryColor;
   // }
   .text-danger {
-    a {
-      color: $redPrimary !important;
-    }
+    color: $redPrimary !important;
+    cursor: pointer;
   }
   .nav-text {
     display: flex;

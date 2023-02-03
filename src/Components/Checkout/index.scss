@@ -1,0 +1,154 @@
+@import "../../Assets/Styles/theme.scss";
+.address_container {
+  width: 466px;
+  height: 191.83px;
+  background: $boxContainer;
+  border-radius: 5.36585px;
+  .address_name {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+  }
+  .address_add {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13.5px;
+    line-height: 20px;
+    width: 261px;
+    color: $lightBlack;
+    flex-wrap: wrap;
+    opacity: 0.7;
+  }
+  .action_section {
+    display: flex;
+    height: 56px;
+    width: 100%;
+    border-top: 1.34px solid $gray;
+    position: relative;
+    bottom: 0;
+    .adress_action {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      span {
+        color: $darkGray;
+        font-weight: 400;
+        font-size: 21.4634px;
+        line-height: 32px;
+      }
+      :hover {
+        color: $primaryColor;
+      }
+    }
+  }
+}
+.address_link {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: center;
+  text-decoration-line: underline;
+  color: $primaryColor;
+}
+.coupons_code {
+  width: 258.89px;
+  height: 40px;
+  input {
+    height: 7.1px;
+    ::placeholder {
+      font-style: normal;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 24px;
+      color: rgba(60, 60, 60, 0.7);
+    }
+  }
+}
+.apply_coupon {
+  width: 207.11px;
+  height: 40px;
+  background: $thirdPrimaryColor;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  color: $lightBlack;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.coupon_section {
+  width: 120px;
+  height: 168px;
+  background: $thirdPrimaryColor;
+  border-radius: 10px;
+  margin-right: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  img {
+    margin-top: 18px;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+  }
+  span {
+    font-style: normal;
+    width: 82px;
+    height: 36px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $lightBlack;
+    margin: 6px 0px 8px 0px;
+  }
+  .apply_button {
+    width: 80px;
+    height: 20px;
+    border-radius: 10px;
+    background: $white;
+    p {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .applied {
+      color: $primaryColor;
+    }
+    .not_applied {
+      color: $lightBlack;
+    }
+  }
+}
+.order_bag_details {
+  width: 100%;
+  // padding: 13.7px 12px;
+  background: $boxContainer;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+}
+.bag_proceed {
+  width: 400px;
+  height: 48px;
+  background: $primaryColor;
+  font-style: normal;
+  font-weight: 400 !important;
+  font-size: 24px !important;
+  line-height: 36px !important;
+  text-transform: capitalize !important;
+  margin-top: 56.26px !important;
+}

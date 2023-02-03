@@ -5,6 +5,7 @@ import Layout from "../Layout";
 import bag from "../../Assets/Images/Empty_bag.svg";
 import bagMobile from "../../Assets/Images/Empty_bag_mobile.jpeg";
 import './index.scss';
+import { ShoppingHeading } from "../../Utils/Common/styledComponent";
 const EmptyBag = () => {
   return (
     <>
@@ -16,12 +17,13 @@ const EmptyBag = () => {
         marginTop: '6pc',
       }}
       >
-        <Typography className="shopping_text">Shopping Bag</Typography>
+        <ShoppingHeading>Shopping Bag</ShoppingHeading>
         <Grid item
           sx={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            marginTop: '60px'
           }}
         >
           <Box component={'img'} src={bag} alt="emptybag" />

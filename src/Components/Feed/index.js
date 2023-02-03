@@ -99,6 +99,22 @@ const Feed = () => {
                                     <Typography className='tag_link'>View Details</Typography>
                                 </Box>
                             </Box>
+                            <Box className='tag_container'>
+                                <Box component={'img'} src={user} />
+                                <Box component={'div'}>
+                                    <BolderText>Silk Saree</BolderText>
+                                    <TagPrize>₹ 2,599.00</TagPrize>
+                                    <Typography className='tag_link'>View Details</Typography>
+                                </Box>
+                            </Box>
+                            <Box className='tag_container'>
+                                <Box component={'img'} src={user} />
+                                <Box component={'div'}>
+                                    <BolderText>Silk Saree</BolderText>
+                                    <TagPrize>₹ 2,599.00</TagPrize>
+                                    <Typography className='tag_link'>View Details</Typography>
+                                </Box>
+                            </Box>
                         </Box>
                     </Grid>
                 </Grid>

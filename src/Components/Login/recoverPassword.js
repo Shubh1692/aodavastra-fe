@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import {
-    Button, FormControl, TextField, FormHelperText, Box, Container, Typography,
+    Button, TextField, FormHelperText, Box, Container, Typography,
 } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import { useNavigate } from "react-router-dom";
 import logo from "../../Assets/Images/project_logo_svg.svg";
-import { FlexCenterColumn, LightText } from "../../Utils/Common/styledComponent";
-import HttpService from "../../Services/Http.service";
+import { FlexCenterColumn } from "../../Utils/Common/styledComponent";
 import { toast } from "react-toastify";
-import { api_base_url } from "../../Utils/Common/urls";
+import AuthService from "../../Services/Auth.service";
 import '../index.scss';
 
 const RecoverComponent = () => {
@@ -24,24 +23,21 @@ const RecoverComponent = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (email === '') {
-            setError('Email required field')
+            setError('Email required field.')
         } else {
             try {
-                const result = await HttpService.post(api_base_url + '/user/forgotten-password', { email });
+                const result = await AuthService.forgotPassword({ email });
                 console.log(result, result.status)
-                if (result && result.status == '201') {
+                if (result && result.status === 201) {
                     toast['success']('Mail sent successfully!')
                 }
-
             } catch (err) {
                 if (!!err.response && err.response.data && err.response.data.error) {
                     const errArray = err.response && err.response.data && err.response.data.message
                     if (typeof (errArray) == 'string') {
                         toast['error'](errArray)
                     } else {
-                        for (let error of errArray) {
-                            toast['error'](error)
-                        }
+                        for (let error of errArray) { toast['error'](error) }
                     }
 
                 }
@@ -68,10 +64,7 @@ const RecoverComponent = () => {
                     display: 'flex', alignItems: 'center'
                 }}>
                     <Container component="main">
-                        <Box
-                            component="form"
-                            noValidate className="recover-form"
-                        >
+                        <Box component="form" noValidate className="recover-form">
                             <Typography className='forget_heading'>Forgot Your Password</Typography>
                             <Typography className="sub-heading">Enter the email you use to login to ModaVastra Admin Panel and we will send you a link to get you back into your account.</Typography>
                             <TextField
@@ -88,6 +81,7 @@ const RecoverComponent = () => {
                                 fullWidth error={Boolean(error)}
                                 onChange={handleChange}
                             />
+
                             {error && (
                                 <FormHelperText htmlFor="form-selector" error={!!error}>
                                     {error}

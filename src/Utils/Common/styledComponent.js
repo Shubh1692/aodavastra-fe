@@ -152,3 +152,12 @@ export const BorderDesignerText = styled.p`
     margin-bottom: 30px;
     border-bottom: 2px solid rgba(238, 187, 204, 0.7)
 `
+export const ShoppingHeading = styled.span`
+    font-style: normal;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 51px;
+    color: ${theme.darkPurple};
+    border-bottom: 2px solid rgba(238, 187, 204, 0.7);
+
+`

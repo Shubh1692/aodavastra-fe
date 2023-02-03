@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {
     FormControl, Box, Container,
-    OutlinedInput, InputAdornment, IconButton, FormHelperText
+    OutlinedInput, InputAdornment, IconButton, FormHelperText, Button
 } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import logo from "../../Assets/Images/project_logo_svg.svg";
@@ -13,6 +13,7 @@ import HttpService from "../../Services/Http.service";
 import { toast } from "react-toastify";
 import { api_base_url } from "../../Utils/Common/urls";
 import '../index.scss'
+import AuthService from "../../Services/Auth.service";
 
 const ConfirmPassword = () => {
     const navigate = useNavigate();
@@ -63,14 +64,13 @@ const ConfirmPassword = () => {
                     ...userPayload,
                     passwordResetToken: token
                 }
-                const result = await HttpService.post(api_base_url + '/user/reset-password', payload);
+                const result = await AuthService.resetPassword(payload);
                 if (result.data && result.data.token) {
                     toast['success']('Password updated successfully!')
                     setTimeout(() => {
                         navigate('/login')
                     }, 2000)
                 }
-
             } catch (err) {
                 if (!!err.response && err.response.data && err.response.data.error) {
                     const errArray = err.response && err.response.data && err.response.data.message
@@ -92,8 +92,7 @@ const ConfirmPassword = () => {
             <Grid container
                 sx={{ mt: 0, paddingLeft: 0, height: { lg: '100vh', md: '100vh' }, flexDirection: { lg: 'row', md: 'row', sm: 'column' } }}>
                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6}
-                    className="logo_container" sx={{ justifyContent: { xs: 'center', sm: 'center', md: 'end', } }}
-                >
+                    className="logo_container" sx={{ justifyContent: { xs: 'center', sm: 'center', md: 'end', } }}>
                     <Box
                         sx={{ paddingRight: { lg: '50px' }, width: '320px', height: '127px', padding: { md: '0px', sm: '50px', xs: '10px' } }}
                         component="img"
@@ -164,7 +163,8 @@ const ConfirmPassword = () => {
                                     </FormHelperText>
                                 )}
                                 <FlexCenterColumn>
-                                    <Grid item className="login_button" sx={{ mt: 5, width: '50%', margin: 'auto' }} onClick={handleSubmit}>Update Password</Grid>
+                                    <Button type="submit" variant="contained" className="login_button" sx={{ mt: 5, width: '50%', margin: 'auto' }}
+                                        onClick={handleSubmit}>Update Password</Button>
                                 </FlexCenterColumn>
 
                             </Box>

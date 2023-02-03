@@ -1,26 +1,24 @@
 import React, { useState } from "react";
 import {
-  Button, FormControl, OutlinedInput, InputLabel, Box, Container,
+  Grid, Button, FormControl, OutlinedInput, Box, Container,
   InputAdornment, IconButton, Checkbox, FormHelperText
 } from "@mui/material";
-import Grid from "@mui/material/Grid";
 import logo from "../../Assets/Images/project_logo_svg.svg";
 import { GoogleLogin } from '@react-oauth/google';
 import { useNavigate } from "react-router-dom";
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-// import { AvForm, AvField } from 'availity-reactstrap-validation';
-import { FlexCenterColumn, PrimaryButton, PrimaryText, FlexDivRow, PrimaryColorText } from "../../Utils/Common/styledComponent";
-import HttpService from "../../Services/Http.service";
-import { api_base_url } from "../../Utils/Common/urls";
+import { FlexCenterColumn, PrimaryText, FlexDivRow, PrimaryColorText } from "../../Utils/Common/styledComponent";
 import { toast } from "react-toastify";
-import "../index.scss";
 import { EmailVerification } from "../Dialog/emailVerification";
+import AuthService from "../../Services/Auth.service";
+import "../index.scss";
 
 
 const SignUpComponent = () => {
   const navigate = useNavigate();
-  const [modelOpen, setModelOpen] = useState(false)
+  const [modelOpen, setModelOpen] = useState(false);
+  const [loading, setLoading] = useState(false)
   const [showPassword, setShowPassword] = useState({
     password: false,
     confirm_password: false
@@ -85,20 +83,17 @@ const SignUpComponent = () => {
     else {
       if (userPayload?.password !== userPayload?.confirm_password) {
         setErrors({ confirm_password: 'Confirm password not matched.' })
-
       } else {
-        try {
-          const result = await HttpService.post(api_base_url + '/user/signup', userPayload);
+        setLoading(true)
+        AuthService.signup(userPayload).then((result) => {
+          setLoading(false)
           if (result.data && result.data.token) {
             localStorage.setItem('access_token', result.data.token);
             toast['success']('User created successfully!')
-            setTimeout(() => {
-              setModelOpen(true)
-              // navigate('/')
-            }, 2000)
+            setTimeout(() => { navigate('/') }, 2000)
           }
-
-        } catch (err) {
+        }).catch((err) => {
+          setLoading(false)
           if (!!err.response && err.response.data && err.response.data.error) {
             const errArray = err.response && err.response.data && err.response.data.message
             if (typeof (errArray) == 'string') {
@@ -110,14 +105,10 @@ const SignUpComponent = () => {
             }
 
           }
-        }
+        })
       }
     }
   };
-
-  const handleRedirect = () => {
-    navigate('/login')
-  }
 
   return (
     <>
@@ -275,7 +266,7 @@ const SignUpComponent = () => {
                   </FormHelperText>
                 )}
                 <FlexCenterColumn>
-                  <Button variant="contained" type='submit' className="register_button" sx={{ mt: 2, width: '50%', margin: 'auto' }}>Sign up</Button>
+                  <Button variant="contained" type='submit' disabled={loading} className="register_button" sx={{ mt: 2, width: '50%', margin: 'auto' }}>Sign up</Button>
                 </FlexCenterColumn>
                 <Grid sx={{ mt: 3 }} >
                   <Grid className="or_signup_text" item >or signup with </Grid>
@@ -303,7 +294,7 @@ const SignUpComponent = () => {
                 </Grid>
                 <Grid item className="semi-outlined-button"
                   variant="outlined"
-                  onClick={handleRedirect}
+                  onClick={() => navigate('/login')}
                   sx={{
                     width: "50%", margin: 'auto', cursor: 'pointer'
                   }}>

@@ -10,9 +10,8 @@ import { useNavigate } from "react-router-dom";
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { FlexCenterColumn } from "../../Utils/Common/styledComponent";
-import HttpService from "../../Services/Http.service";
 import { toast } from "react-toastify";
-import { api_base_url } from "../../Utils/Common/urls";
+import AuthService from "../../Services/Auth.service";
 import '../index.scss';
 
 const LoginComponent = () => {
@@ -41,29 +40,27 @@ const LoginComponent = () => {
     if (userPayload?.email === '' || userPayload?.password === '') {
       if (userPayload?.email === '' && userPayload?.password === '') {
         setErrors({
-          email: 'Email is required field',
-          password: 'Password is required field',
+          email: 'Email is required field.',
+          password: 'Password is required field.',
         })
       }
       else {
         if (userPayload?.email === '') {
-          setErrors({ email: 'Email required field' })
+          setErrors({ email: 'Email is required field.' })
         } else if (userPayload?.password === '') {
-          setErrors({ password: 'Password required field' })
+          setErrors({ password: 'Password is required field.' })
         }
       }
       console.log('userPayload', userPayload)
     } else {
       setLoading(true)
       try {
-        const result = await HttpService.post(api_base_url + '/user/login', userPayload);
+        const result = await AuthService.login(userPayload);
         if (result.data && result.data.token) {
           localStorage.setItem('access_token', result.data.token);
           setLoading(false)
           toast['success']('Logged in successfully!')
-          setTimeout(() => {
-            navigate('/')
-          }, 2000)
+          setTimeout(() => { navigate('/') }, 2000)
         }
       } catch (err) {
         setLoading(false)
@@ -82,10 +79,6 @@ const LoginComponent = () => {
     }
   }
 
-  const handleRedirect = () => {
-    navigate('/register')
-  }
-
   return (
     <>
       <Grid container
@@ -97,7 +90,7 @@ const LoginComponent = () => {
             sx={{ paddingRight: { lg: '50px' }, width: '320px', height: '127px', padding: { md: '0px', sm: '50px', xs: '10px' } }}
             component="img"
             className=""
-            alt="The MODA VASTRA Logo"
+            alt="The_MODA_VASTRA_Logo"
             src={logo}
           />
         </Grid>
@@ -199,7 +192,7 @@ const LoginComponent = () => {
                 <Grid item
                   className="semi-outlined-button"
                   variant="outlined"
-                  onClick={handleRedirect}
+                  onClick={() => navigate('/register')}
                   sx={{
                     width: "50%", margin: 'auto', cursor: 'pointer'
                   }}>

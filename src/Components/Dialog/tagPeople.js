@@ -31,7 +31,7 @@ const TagPeople = ({ open, handleClose }) => {
             </DialogTitle>
             <DialogContent sx={{ padding: '24px 27px 41px 27px' }}>
                 <DialogContentText sx={{ width: '464px', padding: '24px 235px' }}>
-                    <Box sx={{ height: '426px', overflowY: 'scroll' }}>
+                    <Box sx={{ height: '426px' }}>
                         <Box className='tag_container' sx={{width:'427px !important'}}>
                             <Box component={'img'} src={user} sx={{ borderRadius: '50px !important' }} />
                             <Box component={'div'}>
