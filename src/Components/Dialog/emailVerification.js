@@ -12,6 +12,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import email_image from '../../Assets/Images/undraw_mail_sent_re_0ofv.svg';
 import google_play from '../../Assets/Images/google_play.svg'
 import './index.scss';
+import { DialogHeading } from '../../Utils/Common/styledComponent';
 
 export const EmailVerification = ({ open, handleClose }) => {
   return (
@@ -22,9 +23,9 @@ export const EmailVerification = ({ open, handleClose }) => {
       aria-describedby="alert-dialog-slide-description"
     >
       <DialogTitle className='creator_title'>
-        <Box sx={{ paddingBottom: '8px', borderBottom: `1px solid ${theme.lightBlack}`, width: '100%' }}>
+        <Box sx={{ padding: '18px 0px 8px', borderBottom: `1px solid ${theme.lightBlack}`, width: '100%' }}>
           <Box sx={{ textAlign: 'center', width: '100%' }}>
-            Email Verification
+            <DialogHeading> Email Verification</DialogHeading>
           </Box>
           <IconButton sx={{ position: 'absolute', left: '91%', top: '6%' }} onClick={handleClose}>
             <CloseIcon sx={{ fontSize: '37px', color: 'black' }} className='close_icon' />
@@ -37,7 +38,7 @@ export const EmailVerification = ({ open, handleClose }) => {
             <Box component="img" sx={{ width: 152, height: 135.84 }} src={email_image} alt='google_play' />
           </Box>
           <Box className='email_text_content' sx={{ width: '464px', marginTop: '40px' }}>
-            <Typography variant='span' sx={{ color: theme.grayText, fontWeight: 400 ,marginLeft:'19px'}}>We have sent you a link on </Typography>
+            <Typography variant='span' sx={{ color: theme.grayText, fontWeight: 400, marginLeft: '19px' }}>We have sent you a link on </Typography>
             <Typography variant='span' sx={{ color: theme.primaryColor, fontWeight: 700 }}> heena@gmail.com. </Typography>
             <Typography variant='span' sx={{ color: theme.black, fontWeight: 400, display: 'flex', justifyContent: 'center' }}> Click on the link to verify the email.</Typography>
           </Box>

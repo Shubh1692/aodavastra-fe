@@ -94,6 +94,13 @@ export const Heading = styled.span`
     line-height: 36px;
     color:${theme.lightBlack};
 `
+export const HeadingWhite = styled.span`
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    color:${theme.white};
+`
 
 export const BoldHeading = styled.span`
     font-style: normal;
@@ -102,6 +109,15 @@ export const BoldHeading = styled.span`
     line-height: 36px;
     color:${theme.lightBlack};
 `
+
+export const BolderHeading = styled.span`
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    color:${theme.lightBlack};
+`
+
 export const FeedText = styled.span`
     font-style: normal;
     font-weight: 400;
@@ -111,6 +127,7 @@ export const FeedText = styled.span`
     opacity: 0.7;
     padding-left: 10px;
 `
+
 export const TimeSection = styled.span`
     font-style: normal;
     font-weight: 400;
@@ -142,6 +159,7 @@ export const DesignerContainer = styled.div`
     filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.2));
     border-radius: 10px;
 `
+
 export const BorderDesignerText = styled.p`
     font-style: normal;
     font-weight: 600;
@@ -152,6 +170,7 @@ export const BorderDesignerText = styled.p`
     margin-bottom: 30px;
     border-bottom: 2px solid rgba(238, 187, 204, 0.7)
 `
+
 export const ShoppingHeading = styled.span`
     font-style: normal;
     font-weight: 600;
@@ -159,5 +178,19 @@ export const ShoppingHeading = styled.span`
     line-height: 51px;
     color: ${theme.darkPurple};
     border-bottom: 2px solid rgba(238, 187, 204, 0.7);
+`
 
+export const DialogHeading = styled.span`
+    font-style: normal;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 51px;
+    color: ${theme.lightBlack};
+`
+export const PurpleHeading = styled.span`
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 54px;
+    color: ${theme.primaryColor};
 `

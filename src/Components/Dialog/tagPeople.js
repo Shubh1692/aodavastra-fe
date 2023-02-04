@@ -11,7 +11,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import user from '../../Assets/Images/jwel_main.png';
 import '../Feed/index.scss';
 import './index.scss';
-import { BolderText, TagPrize } from '../../Utils/Common/styledComponent';
+import { BolderText, DialogHeading, TagPrize } from '../../Utils/Common/styledComponent';
 
 const TagPeople = ({ open, handleClose }) => {
     return (
@@ -22,9 +22,11 @@ const TagPeople = ({ open, handleClose }) => {
             aria-describedby="alert-dialog-slide-description"
         >
             <DialogTitle className='creator_title'>
-                <Box sx={{ paddingBottom: '8px', borderBottom: `1px solid ${theme.lightBlack}`, width: '100%' }}>
-                    <Box sx={{ textAlign: 'center', width: '100%' }}>Tagged People</Box>
-                    <IconButton sx={{ position: 'absolute', left: '91%', top: '6%' }} onClick={handleClose}>
+                <Box sx={{ padding: '18px 0px 8px', borderBottom: `1px solid ${theme.lightBlack}`, width: '100%' }}>
+                    <Box sx={{ textAlign: 'center', width: '100%' }}>
+                        <DialogHeading>Tagged People</DialogHeading>
+                    </Box>
+                    <IconButton sx={{ position: 'absolute', left: '91%', top: '5%' }} onClick={handleClose}>
                         <CloseIcon sx={{ fontSize: '37px', color: 'black' }} className='close_icon' />
                     </IconButton>
                 </Box>
@@ -32,10 +34,10 @@ const TagPeople = ({ open, handleClose }) => {
             <DialogContent sx={{ padding: '24px 27px 41px 27px' }}>
                 <DialogContentText sx={{ width: '464px', padding: '24px 235px' }}>
                     <Box sx={{ height: '426px' }}>
-                        <Box className='tag_container' sx={{width:'427px !important'}}>
+                        <Box className='tag_container' sx={{ width: '427px !important' }}>
                             <Box component={'img'} src={user} sx={{ borderRadius: '50px !important' }} />
                             <Box component={'div'}>
-                                <Box component={'span'} sx={{ display: 'flex' ,justifyContent:'space-between'}}>
+                                <Box component={'span'} sx={{ display: 'flex', justifyContent: 'space-between' }}>
                                     <BolderText>Sonali</BolderText>
                                     <Box className='dialog_follow_button'>Unfollow</Box>
                                 </Box>

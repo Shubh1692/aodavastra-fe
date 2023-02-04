@@ -61,10 +61,10 @@ const AddressAction = () => {
         },
         validationSchema: validationSchema,
         onSubmit: (values) => {
-            console.log(values)
+            console.log(values,'yyyyyyyyyyyyyyyeeessssssssss')
             const payload = {
                 name: values.name,
-                phoneNo: values.phoneNo,
+                phoneNo: values.phoneNo.toString(),
                 pinCode: values.pinCode,
                 city: values.city,
                 state: values.state,
@@ -76,7 +76,7 @@ const AddressAction = () => {
             }
             AddressService.add(payload)
                 .then((result) => {
-                    if (result.status === 201) {
+                    if (result.status < 400) {
                         toast.success('Address added successFully');
                         setTimeout(() => {
                             navigate('/address')

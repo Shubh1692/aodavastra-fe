@@ -1,53 +1,5 @@
 @import "../../Assets/Styles/theme.scss";
-.address_container {
-  width: 466px;
-  height: 191.83px;
-  background: $boxContainer;
-  border-radius: 5.36585px;
-  .address_name {
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 27px;
-  }
-  .address_add {
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 13.5px;
-    line-height: 20px;
-    width: 261px;
-    color: $lightBlack;
-    flex-wrap: wrap;
-    opacity: 0.7;
-  }
-  .action_section {
-    display: flex;
-    height: 56px;
-    width: 100%;
-    border-top: 1.34px solid $gray;
-    position: relative;
-    bottom: 0;
-    .adress_action {
-      width: 50%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      span {
-        color: $darkGray;
-        font-weight: 400;
-        font-size: 21.4634px;
-        line-height: 32px;
-      }
-      :hover {
-        color: $primaryColor;
-      }
-    }
-  }
-}
+
 .address_link {
   font-style: normal;
   font-weight: 600;
@@ -145,10 +97,6 @@
   width: 400px;
   height: 48px;
   background: $primaryColor;
-  font-style: normal;
-  font-weight: 400 !important;
-  font-size: 24px !important;
-  line-height: 36px !important;
   text-transform: capitalize !important;
   margin-top: 56.26px !important;
 }

@@ -1,0 +1,40 @@
+@import "../../Assets/Styles/theme.scss";
+.store_section {
+  width: 952px;
+  height: 346px;
+  background: $lighterPink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .category {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 54px;
+    color: $lightBlack;
+  }
+  .category_count {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 48px;
+    color: $thirdPrimaryColor;
+  }
+  .store_name {
+    margin-top: 16px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 42px;
+    line-height: 63px;
+    color: $thirdPrimaryColor;
+  }
+}
+.load_button_product {
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid $lightBlack;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

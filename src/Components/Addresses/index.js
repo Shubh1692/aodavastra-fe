@@ -12,6 +12,7 @@ import theme from '../../Assets/Styles/theme';
 import { useNavigate } from 'react-router-dom';
 import AddressService from '../../Services/Address.service';
 import { toast } from 'react-toastify';
+import AddressContainer from './addressContainer';
 
 const AddressComponent = () => {
     const navigate = useNavigate();
@@ -31,19 +32,6 @@ const AddressComponent = () => {
     useEffect(() => {
         getAddresses()
     }, [])
-    const handleDelete = (id) => {
-        AddressService.delete(id).then((result) => {
-            console.log('result', result)
-            if (result.status === 200) {
-                toast.success('Deleted Successfully!')
-                getAddresses()
-            }
-        }).catch((err) => {
-            if (err.response?.data?.message) {
-                toast.error(err.response.data.message);
-            }
-        })
-    }
     return (
         <>
             <Box
@@ -65,32 +53,12 @@ const AddressComponent = () => {
                                 <Grid item sx={{ marginLeft: '12px' }} className='add_btn' onClick={() => navigate('/address/add')}><Typography variant='span'>Add Address</Typography></Grid>
                             </Grid>
                             <Grid>
-                                {addresses?.map((data) =>
-                                    <Grid item key={data._id} className='address_container' sx={{ marginBottom: '10px' }}>
-                                        <Box sx={{ display: 'flex', justifyContent: 'space-between', padding: '16px 17px 0px 17px' }}>
-                                            <Box sx={{ marginBottom: '30.5px' }}>
-                                                <Typography className='address_name'>{data.name}</Typography>
-                                                <Typography className='address_add'>{`${data.address?.address1},${data.city} , ${data.state} - ${data.pinCode}`}</Typography>
-                                                <Typography sx={{ fontWeight: '600', fontSize: '13.5px' }}>9896927760</Typography>
-                                            </Box>
-                                            <Box>
-                                                <Checkbox sx={{
-                                                    p: 0,
-                                                    '& .MuiSvgIcon-root': {
-                                                        fontSize: 38,
-                                                        color: theme.primaryColor
-                                                        // borderRadius: 20
-                                                    }
-                                                }} checked={data.isDefault} />
-                                            </Box>
-                                        </Box>
-                                        <Box className='action_section'>
-                                            <Grid className='adress_action' onClick={() => navigate(`/address/edit/${data._id}`)}>
-                                                <Typography variant='span'> Edit</Typography>
-                                            </Grid>
-                                            <Grid className='adress_action' onClick={() => handleDelete(data._id)}><Typography variant='span'> Remove</Typography></Grid>
-                                        </Box>
-                                    </Grid>)}
+                                {addresses?.map((data) => {
+                                    return (<AddressContainer key={data._id}
+                                        data={data}
+                                        handleData={getAddresses}
+                                    />)
+                                })}
                             </Grid>
                         </Box>
                     </Grid>

@@ -11,6 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Dashboard from "../Components/Home/dashboard";
 import CreatorDashboard from "../Components/CreatorDashboard";
 import Checkout from "../Components/Checkout";
+import ProductByCategory from "../Components/ProductsByCategory";
 
 const SignUpComponent = lazy(() => import("../Components/SignUp"));
 const Login = lazy(() => import("../Components/Login"));
@@ -69,6 +70,10 @@ const masterComponent = () => {
           <Route path="/feed" element={<PrivateRoute component={<Feed />} />}></Route>
           <Route path="/dashboard" element={<PrivateRoute component={<Dashboard />} />}></Route>
           {/* dashboard end */}
+
+          {/* Product by category start  */}
+          <Route path="/dashboard/clothes" element={<PrivateRoute component={<ProductByCategory />} />}></Route>
+          {/* Product by category end  */}
 
           {/* bag start */}
           <Route path="/emptybag" element={<PrivateRoute component={<EmptyBag />} />}></Route>

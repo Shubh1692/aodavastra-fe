@@ -1,5 +1,5 @@
-import React from 'react'
-import { BoldText, FlexCenterColumn, Heading, LightText, ShoppingHeading } from '../../Utils/Common/styledComponent';
+import React, { useState } from 'react'
+import { BoldText, FlexCenterColumn, Heading, HeadingWhite, LightText, PurpleText, ShoppingHeading } from '../../Utils/Common/styledComponent';
 import { Box, Grid, TextField, Typography, Button } from '@mui/material';
 import Layout from '../Layout';
 import { CheckBox } from '@mui/icons-material';
@@ -8,8 +8,25 @@ import post1 from '../../Assets/Images/post-1.png';
 import './index.scss';
 import PaymentAccordian from '../Accordion/paymentMethod';
 import { BagProductDetails } from '../../Utils/Common/component';
+import AddressContainer from '../Addresses/addressContainer';
+import { OrderPlaced } from '../Dialog/orderPlaced';
+
+const demoAddess = {
+    _id: '1234567890',
+    name: 'Sukrut Patil',
+    address: {
+        address1: 'add11111111',
+        address2: 'add22222',
+    },
+    city: 'cityyyyy',
+    state: 'stateeeee',
+    isDefault: false,
+    pinCode: '45678',
+    phoneNo: '9898989898'
+}
 
 const Checkout = () => {
+    const [ordered, setOrdered] = useState(false)
     return (
         <>
             <Box sx={{ margin: '8pc auto 0px', width: '1084px', display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
@@ -21,34 +38,11 @@ const Checkout = () => {
                             <Typography className='address_link'>Add New Address</Typography>
                         </Box>
                         <Box sx={{ marginBottom: '12px' }}>
-                            <Grid item className='address_container' sx={{ marginBottom: '10px' }}>
-                                <Box sx={{ display: 'flex', justifyContent: 'space-between', padding: '16px 17px 0px 17px' }}>
-                                    <Box sx={{ marginBottom: '30.5px' }}>
-                                        <Typography className='address_name'>Sukrut Patil </Typography>
-                                        <Typography className='address_add'>J2 303, Nyati Equatorial, Bavdhan, Pune - 411023</Typography>
-                                        <Typography sx={{ fontWeight: '600', fontSize: '13.5px' }}>9896927760</Typography>
-                                    </Box>
-                                    <Box>
-                                        <CheckBox sx={{
-                                            p: 0,
-                                            '& .MuiSvgIcon-root': {
-                                                fontSize: 38,
-                                                color: theme.primaryColor
-                                                // borderRadius: 20
-                                            }
-                                        }} />
-                                    </Box>
-                                </Box>
-                                <Box className='action_section'>
-                                    <Grid className='adress_action' onClick={() => alert('Edit')}>
-                                        <Typography variant='span' sx={{ color: `${theme.primaryColor} !important` }}> Edit</Typography>
-                                    </Grid>
-                                    <Grid className='adress_action' onClick={() => alert('Delete')}><Typography variant='span'> Remove</Typography></Grid>
-                                </Box>
-                            </Grid>
+                            <AddressContainer data={demoAddess} />
+                            <AddressContainer data={demoAddess} />
                         </Box>
                         <Heading>Apply Coupons</Heading>
-                        <Box sx={{ margin: '12px 0px 24px 0px', display: 'flex' }}>
+                        <Box sx={{ margin: '12px 0px 9px 0px', display: 'flex' }}>
                             <Box className='coupons_code'>
                                 <TextField sx={{ width: '100%' }} placeholder='Enter Coupon Code' />
                             </Box>
@@ -56,7 +50,7 @@ const Checkout = () => {
                         </Box>
                         <Box sx={{ padding: '15px' }}>
                             <LightText>Popular offers</LightText>
-                            <Box sx={{ width: '450px', height: '183.6px', display: '-webkit-box', overflowX: 'scroll' }}>
+                            <Box sx={{ width: '450px', height: '183.6px', margin: '4px 0px', display: '-webkit-box', overflowX: 'scroll' }}>
                                 <Box className='coupon_section'>
                                     <Box component={'img'} src={post1} />
                                     <Typography variant='span'>10% off on MODAVASTRA</Typography>
@@ -122,7 +116,8 @@ const Checkout = () => {
                     </Box>
                     <Box sx={{ width: "488px" }}>
                         <LightText>1 item(s) in bag:</LightText>
-                        <Box sx={{ height: '651px', overflowY: 'scroll', margin: '18px 0px 12.8px' }}>
+                        <Box sx={{ height: '660px', overflowY: 'scroll', margin: '18px 0px 12.8px' }}>
+                            <BagProductDetails />
                             <BagProductDetails />
                             <BagProductDetails />
                             <BagProductDetails />
@@ -154,16 +149,17 @@ const Checkout = () => {
                                 </Box>
                                 <Box sx={{ width: '100%', marginBottom: '10px', display: 'flex' }}>
                                     <Grid item lg={6} md={6} sx={{ width: '50%' }}><BoldText>Order Total:</BoldText></Grid>
-                                    <Grid item lg={6} md={6} sx={{ width: '50%' }}><LightText>₹ 1019.00</LightText></Grid>
+                                    <Grid item lg={6} md={6} sx={{ width: '50%' }}><PurpleText>₹ 1019.00</PurpleText></Grid>
                                 </Box>
                             </Box>
                         </Box>
                         <Box sx={{
-                            width: '100%', display: 'flex',justifyContent:'center'
-                        }}><Button variant='contained' className='bag_proceed'>Proceed to Checkout</Button></Box>
+                            width: '100%', display: 'flex', justifyContent: 'center'
+                        }}><Button variant='contained' onClick={() => setOrdered(true)} className='bag_proceed'><HeadingWhite>Proceed to Checkout</HeadingWhite></Button></Box>
                     </Box>
                 </Box>
             </Box>
+            <OrderPlaced open={ordered} handleClose={() => setOrdered(false)} />
         </>
     )
 }

@@ -11,7 +11,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import user from '../../Assets/Images/jwel_main.png';
 import add_comment from '../../Assets/Images/add_comment.svg'
 import './index.scss';
-import { BolderText, CommentMessage } from '../../Utils/Common/styledComponent';
+import { BolderText, CommentMessage, DialogHeading } from '../../Utils/Common/styledComponent';
 
 export const CommentDialog = ({ open, handleClose }) => {
     return (
@@ -22,9 +22,11 @@ export const CommentDialog = ({ open, handleClose }) => {
             aria-describedby="alert-dialog-slide-description"
         >
             <DialogTitle className='creator_title'>
-                <Box sx={{ paddingBottom: '8px', borderBottom: `1px solid ${theme.lightBlack}`, width: '100%' }}>
-                    <Box sx={{ textAlign: 'center', width: '100%' }}>Comments</Box>
-                    <IconButton sx={{ position: 'absolute', left: '91%', top: '6%' }} onClick={handleClose}>
+                <Box sx={{ padding: '18px 0px 8px', borderBottom: `1px solid ${theme.lightBlack}`, width: '100%' }}>
+                    <Box sx={{ textAlign: 'center', width: '100%' }}>
+                        <DialogHeading>Comments</DialogHeading>
+                    </Box>
+                    <IconButton sx={{ position: 'absolute', left: '91%', top: '5%' }} onClick={handleClose}>
                         <CloseIcon sx={{ fontSize: '37px', color: 'black' }} className='close_icon' />
                     </IconButton>
                 </Box>

@@ -12,6 +12,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import app_store from '../../Assets/Images/app_store.svg';
 import google_play from '../../Assets/Images/google_play.svg'
 import './index.scss';
+import { DialogHeading } from '../../Utils/Common/styledComponent';
 
 export const BecomeInfluencer = ({ open, handleClose }) => {
   return (
@@ -22,11 +23,11 @@ export const BecomeInfluencer = ({ open, handleClose }) => {
       aria-describedby="alert-dialog-slide-description"
     >
       <DialogTitle className='creator_title'>
-        <Box sx={{ paddingBottom: '8px', borderBottom: `1px solid ${theme.lightBlack}`, width: '100%' }}>
+        <Box sx={{padding: '18px 0px 8px', borderBottom: `1px solid ${theme.lightBlack}`, width: '100%' }}>
           <Box sx={{ textAlign: 'center', width: '100%' }}>
-            Become a ModaVastra Creator
+            <DialogHeading> Become a ModaVastra Creator</DialogHeading>
           </Box>
-          <IconButton sx={{ position: 'absolute', left: '91%', top: '9%' }} onClick={handleClose}>
+          <IconButton sx={{ position: 'absolute', left: '91%', top: '6%' }} onClick={handleClose}>
             <CloseIcon sx={{ fontSize: '37px', color: 'black' }} className='close_icon' />
           </IconButton>
         </Box>
