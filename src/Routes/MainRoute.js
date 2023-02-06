@@ -27,6 +27,7 @@ const Checkout = lazy(() => import("../Components/Checkout"));
 const ProductByCategory = lazy(() => import("../Components/Products/ProductsByCategory"));
 const ProductsById = lazy(() => import("../Components/Products/ProductsById"));
 const JewelleryProduct = lazy(() => import("../Components/JewelleryProducts"));
+const SearchComponent = lazy(() => import("../Utils/Common/searchComponent"));
 
 const masterComponent = () => {
   return (
@@ -70,6 +71,7 @@ const masterComponent = () => {
           {/*  dashboard start */}
           <Route path="/feed" element={<PrivateRoute component={<Feed />} />}></Route>
           <Route path="/dashboard" element={<PrivateRoute component={<Dashboard />} />}></Route>
+          <Route path='/search' element={<PrivateRoute component={<SearchComponent />} />}></Route>
           {/* dashboard end */}
 
           {/* Product by category start  */}

@@ -30,6 +30,18 @@ export const BagProductDetails = () => {
                 <Box component={'img'} alt='product_img' src={Ring} />
                 <Box sx={{ marginLeft: '12.3px' }}>
                     <Typography variant='h6'>American Diamond Bangles</Typography>
+                    <Box className='qty_div'>
+                        <Typography variant='h6'>Qty: </Typography>
+                        <select className='select'>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                        </select>
+                    </Box>
                     <Typography>by Seller’s Name</Typography>
                     <Typography>₹ 999.00</Typography>
                 </Box>

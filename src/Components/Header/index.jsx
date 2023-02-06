@@ -1,17 +1,29 @@
 import React from "react";
-import { Box, AppBar, Link, Grid, Stack } from "@mui/material";
+import {
+  Box,
+  AppBar,
+  Link,
+  Grid,
+  Stack,
+  TextField,
+  InputAdornment,
+  IconButton,
+} from "@mui/material";
 
 import headerLogo from "../../Assets/Images/ModavastraLogo_Black 2.svg";
 import SearchImage from "../../Assets/Images/search.svg";
 import shopingBag from "../../Assets/Images/shopping-bag.svg";
 import userLogo from "../../Assets/Images/ic_user_white.svg";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import theme from "../../Assets/Styles/theme";
+import "./index.scss";
 
 const Header = (props) => {
   const navigate = useNavigate();
+  let location = useLocation();
 
+  console.log("navigate-------->", location.pathname);
   return (
     <>
       <AppBar position="fixed">
@@ -38,7 +50,7 @@ const Header = (props) => {
               alignItems: "center",
             }}
           >
-            <Grid item lg={6}>
+            <Grid item lg={4}>
               <Box
                 component={"img"}
                 onClick={() => navigate("/")}
@@ -49,10 +61,27 @@ const Header = (props) => {
                 style={{ cursor: "pointer" }}
               />
             </Grid>
+            {location.pathname === "/search" && (
+              <Grid item lg={4}>
+                <Box className="search_container">
+                  {/* <TextField
+                    sx={{ border: "none" }}
+                    label="With normal TextField"
+                    endAdornment={
+                      <InputAdornment position="end">
+                        <IconButton>
+                          <Box component={"img"} src={SearchImage} />
+                        </IconButton>
+                      </InputAdornment>
+                    }
+                  /> */}
+                </Box>
+              </Grid>
+            )}
             <Grid
               item
-              lg={6}
-              md={6}
+              lg={4}
+              md={4}
               style={{
                 display: "flex",
                 justifyContent: "flex-end",
@@ -67,7 +96,7 @@ const Header = (props) => {
                   justifyContent: "space-evenly",
                 }}
               >
-                <Link href="/">
+                <Link href="/search">
                   <Box sx={{ cursor: "pointer", display: "flex" }}>
                     <Box
                       component={"img"}

@@ -28,6 +28,27 @@
     width: 124.31px;
     height: 167.82px;
   }
+  .qty_div {
+    width: 65px;
+    height: 31.08px;
+    background: $orangeLighter;
+    margin: 6px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 3px;
+    h6 {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 13.9851px;
+      line-height: 21px;
+      color: $lightBlack;
+    }
+    .select {
+      background-color: transparent;
+      border: none;
+    }
+  }
   h6 {
     font-style: normal;
     font-weight: 600;
