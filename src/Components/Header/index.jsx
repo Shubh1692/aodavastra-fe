@@ -2,13 +2,13 @@ import React from "react";
 import {
   Box,
   AppBar,
-  Link,
   Grid,
   Stack,
   TextField,
   InputAdornment,
   IconButton,
 } from "@mui/material";
+import { Link } from "react-router-dom";
 
 import headerLogo from "../../Assets/Images/ModavastraLogo_Black 2.svg";
 import SearchImage from "../../Assets/Images/search.svg";
@@ -96,7 +96,7 @@ const Header = (props) => {
                   justifyContent: "space-evenly",
                 }}
               >
-                <Link href="/search">
+                <Link to="/search">
                   <Box sx={{ cursor: "pointer", display: "flex" }}>
                     <Box
                       component={"img"}
@@ -107,7 +107,7 @@ const Header = (props) => {
                     />
                   </Box>
                 </Link>
-                <Link href="/">
+                <Link to="/">
                   <Box sx={{ cursor: "pointer", display: "flex" }}>
                     <Box
                       component={"img"}
@@ -118,7 +118,7 @@ const Header = (props) => {
                     />
                   </Box>
                 </Link>
-                <Link href="/profile">
+                <Link to="/profile">
                   <Box
                     sx={{
                       cursor: "pointer",
@@ -177,7 +177,7 @@ const Header = (props) => {
                   justifyContent: "flex-start",
                 }}
               >
-                <Link href="/">
+                <Link to="/">
                   <Box component={"img"} src={headerLogo} alt="" />
                 </Link>
               </Box>
