@@ -20,7 +20,7 @@ const ProductByCategory = () => {
                             {['Sarees', 'Suits', 'Lehenga', 'Anarkali', 'Fusion Wear', 'Designer Shawls']?.map((category) =>
                                 <FormControlLabel name='isDefault' key={category}
                                     control={<Checkbox sx={{
-                                        padding: '4px 6px',
+                                        padding: '0px 6px',
                                         '& .MuiSvgIcon-root': {
                                             fontSize: 25.34,
                                             color: '#3c3c3c'
@@ -36,7 +36,7 @@ const ProductByCategory = () => {
                             {['XL', 'S', 'M', 'L', 'XL', 'XXL']?.map((category) =>
                                 <FormControlLabel name='isDefault' key={category}
                                     control={<Checkbox sx={{
-                                        padding: '4px 6px',
+                                        padding: '0px 6px',
                                         '& .MuiSvgIcon-root': {
                                             fontSize: 25.34,
                                             color: '#3c3c3c'
@@ -52,7 +52,7 @@ const ProductByCategory = () => {
                             {['Arabella', 'Bootique', 'Drapes by Rashmi', 'Modavastra', 'NA', 'Sarbear']?.map((category) =>
                                 <FormControlLabel name='isDefault' key={category}
                                     control={<Checkbox sx={{
-                                        padding: '4px 6px',
+                                        padding: '0px 6px',
                                         '& .MuiSvgIcon-root': {
                                             fontSize: 25.34,
                                             color: '#3c3c3c'
@@ -65,8 +65,7 @@ const ProductByCategory = () => {
                     <Box sx={{ width: '976px', display: 'flex', flexWrap: 'wrap' }}>
                         <ProductContainer /><ProductContainer /><ProductContainer /><ProductContainer />
                         <ProductContainer /><ProductContainer /><ProductContainer /><ProductContainer />
-                        <ProductContainer /><ProductContainer /><ProductContainer />
-                        <ProductContainer />
+                        <ProductContainer /><ProductContainer /><ProductContainer /><ProductContainer />
                     </Box>
                 </Box>
             </Box>

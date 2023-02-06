@@ -12,13 +12,14 @@ const theme = {
     lightBackground: '#F9F9F9',
     lightBlack: '#3c3c3c',
     lighterBlack: '#777777',
+    orangeLighter: '#FFD5CC',
     orangeLight: '#FFBFB2',
     orangeDark: '#FF7C61',
     purple: '#7A628F',
     redPrimary: "#D83B3B",
     grayText: '#4E4E4E',
     lightGray: '#A4A4A4',
-    black: '#1E1E1E'
+    black: '#1E1E1E',
 }
 
 export default theme

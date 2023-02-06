@@ -6,12 +6,7 @@ import PublicRoute from "../Routes/Public";
 import PrivateRoute from "../Routes/Private";
 import { Grid } from "@mui/material";
 import EmptyBag from "../Components/EmptyBag";
-import JewelleryProduct from "../Components/JewelleryProducts";
 import "react-toastify/dist/ReactToastify.css";
-import Dashboard from "../Components/Home/dashboard";
-import CreatorDashboard from "../Components/CreatorDashboard";
-import Checkout from "../Components/Checkout";
-import ProductByCategory from "../Components/ProductsByCategory";
 
 const SignUpComponent = lazy(() => import("../Components/SignUp"));
 const Login = lazy(() => import("../Components/Login"));
@@ -26,6 +21,12 @@ const UpdatePassword = lazy(() => import("../Components/Profile/updatePassword")
 const AddressAction = lazy(() => import("../Components/Addresses/addressAction"));
 const Wishlist = lazy(() => import("../Components/Wishlist"));
 const Address = lazy(() => import("../Components/Addresses"));
+const Dashboard = lazy(() => import("../Components/Home/dashboard"));
+const CreatorDashboard = lazy(() => import("../Components/CreatorDashboard"));
+const Checkout = lazy(() => import("../Components/Checkout"));
+const ProductByCategory = lazy(() => import("../Components/Products/ProductsByCategory"));
+const ProductsById = lazy(() => import("../Components/Products/ProductsById"));
+const JewelleryProduct = lazy(() => import("../Components/JewelleryProducts"));
 
 const masterComponent = () => {
   return (
@@ -73,6 +74,7 @@ const masterComponent = () => {
 
           {/* Product by category start  */}
           <Route path="/dashboard/clothes" element={<PrivateRoute component={<ProductByCategory />} />}></Route>
+          <Route path="/dashboard/clothes/:id" element={<PrivateRoute component={<ProductsById />} />}></Route>
           {/* Product by category end  */}
 
           {/* bag start */}

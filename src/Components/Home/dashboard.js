@@ -10,8 +10,10 @@ import { BorderDesignerText, SemiDarkText } from '../../Utils/Common/styledCompo
 import Layout from '../Layout';
 import './index.scss';
 import { DesignerComponent } from '../../Utils/Common/component';
+import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
+    const navigate = useNavigate()
     return (
         <>
             <Box sx={{
@@ -23,19 +25,19 @@ const Dashboard = () => {
             }}>
                 <BorderDesignerText>BEST SELLERS</BorderDesignerText>
                 <Grid sx={{ width: '956px', display: 'flex', justifyContent: 'space-between' }}>
-                    <Box sx={{ height: '360px', width: '224px' }}>
+                    <Box sx={{ height: '360px', width: '224px', cursor: 'pointer' }} onClick={() => navigate('/dashboard/clothes')}>
                         <Box component={'img'} alt="product_image" src={s1} sx={{ height: '304px', borderRadius: '10px' }} />
                         <SemiDarkText className='semi_text'>Gorgeous Designer Saree ₹ 2,599.00</SemiDarkText>
                     </Box>
-                    <Box sx={{ height: '360px', width: '224px' }}>
+                    <Box sx={{ height: '360px', width: '224px', cursor: 'pointer' }} onClick={() => navigate('/dashboard/clothes')}>
                         <Box component={'img'} alt="product_image" src={s2} sx={{ height: '304px', borderRadius: '10px' }} />
                         <SemiDarkText className='semi_text'>Traditional Saree <br />₹ 2,599.00</SemiDarkText>
                     </Box>
-                    <Box sx={{ height: '360px', width: '224px' }}>
+                    <Box sx={{ height: '360px', width: '224px', cursor: 'pointer' }} onClick={() => navigate('/dashboard/clothes')}>
                         <Box component={'img'} alt="product_image" src={s3} sx={{ height: '304px', borderRadius: '10px' }} />
                         <SemiDarkText className='semi_text'>Net Multi Work Saree <br />₹ 2,599.00</SemiDarkText>
                     </Box>
-                    <Box sx={{ height: '360px', width: '224px' }}>
+                    <Box sx={{ height: '360px', width: '224px', cursor: 'pointer' }} onClick={() => navigate('/dashboard/clothes')}>
                         <Box component={'img'} alt="product_image" src={s4} sx={{ height: '304px', borderRadius: '10px' }} />
                         <SemiDarkText className='semi_text'>Silk Saree <br />₹ 2,599.00</SemiDarkText>
                     </Box>

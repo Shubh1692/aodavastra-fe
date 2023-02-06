@@ -39,7 +39,8 @@ const Header = (props) => {
             }}
           >
             <Grid item lg={6}>
-              <img
+              <Box
+                component={"img"}
                 onClick={() => navigate("/")}
                 src={headerLogo}
                 alt="header_logo"
@@ -68,7 +69,8 @@ const Header = (props) => {
               >
                 <Link href="/">
                   <Box sx={{ cursor: "pointer", display: "flex" }}>
-                    <img
+                    <Box
+                      component={"img"}
                       src={SearchImage}
                       alt="search"
                       width="30"
@@ -78,7 +80,13 @@ const Header = (props) => {
                 </Link>
                 <Link href="/">
                   <Box sx={{ cursor: "pointer", display: "flex" }}>
-                    <img src={shopingBag} alt="" width="28" height="30" />
+                    <Box
+                      component={"img"}
+                      src={shopingBag}
+                      alt=""
+                      width="28"
+                      height="30"
+                    />
                   </Box>
                 </Link>
                 <Link href="/profile">
@@ -94,12 +102,11 @@ const Header = (props) => {
                       alignItems: "center",
                     }}
                   >
-                    <img
+                    <Box
+                      component={"img"}
                       src={userLogo}
                       alt=""
-                      height="30"
-                      width="30"
-                      style={{ width: "100%" }}
+                      sx={{ width: "30px", height: "30px" }}
                     />
                   </Box>
                 </Link>
@@ -142,7 +149,7 @@ const Header = (props) => {
                 }}
               >
                 <Link href="/">
-                  <img src={headerLogo} alt="" />
+                  <Box component={"img"} src={headerLogo} alt="" />
                 </Link>
               </Box>
             </Grid>

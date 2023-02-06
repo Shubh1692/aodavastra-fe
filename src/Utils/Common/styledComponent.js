@@ -194,3 +194,13 @@ export const PurpleHeading = styled.span`
     line-height: 54px;
     color: ${theme.primaryColor};
 `
+
+export const ProductHeading = styled.span`
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 54px;
+    color: ${theme.lightBlack};
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+`

@@ -1,0 +1,162 @@
+@import "../../Assets/Styles/theme.scss";
+.fillters {
+  width: 267px;
+  height: 860px;
+  box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
+  padding: 12px 6px;
+  .fillters_heading {
+    letter-spacing: 0.06em;
+    display: flex;
+  }
+  .fillters_sub_category {
+    margin: 12px 0px 10px 0px;
+  }
+}
+
+.product_view {
+  width: 400px;
+  margin-right: 64px;
+  .product_view_img {
+    width: 400px;
+    position: relative;
+
+    .parent_product_img {
+      width: 100%;
+      height: 528px;
+    }
+    .child_product_img {
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      background-color: $white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      bottom: 152px;
+      right: 16px;
+    }
+    .add_to_bag {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 48px;
+      border: 1px solid $lightBlack;
+      margin-top: 18px;
+    }
+    .buy_now {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 48px;
+      background: $primaryColor;
+      color: $white;
+      margin-top: 18px;
+    }
+  }
+}
+.product_name_div {
+  // .product_name:before {
+  //   content: "";
+  //   position: absolute;
+  //   width: 50%;
+  //   height: 1px;
+  //   bottom: 0;
+  //   left: 25%;
+  //   border-bottom: 1px solid red;
+  // }
+  .store_name {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .product_prize {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 42px;
+    color: $lightBlack;
+    margin: 16px 0px 24px 0px;
+  }
+  .size_container {
+    width: 400px;
+    height: 48px;
+    background: $orangeLighter;
+    border-radius: 5px;
+    display: flex;
+    margin: 6px 0px;
+    div {
+      cursor: pointer;
+      width: 66.6px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    :hover {
+      background-color: $orangeLight;
+    }
+  }
+  .size_chart {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: $primaryColor;
+    margin-top: 6px;
+    cursor: pointer;
+  }
+  .pin_code_details {
+    width: 258.89px;
+    height: 40px;
+    input {
+      height: 7.1px;
+      ::placeholder {
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 24px;
+        color: rgba(60, 60, 60, 0.7);
+      }
+    }
+  }
+  .available_details {
+    width: 207.11px;
+    height: 40px;
+    background: $thirdPrimaryColor;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    color: $lightBlack;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.suggetion_product {
+  width: 120px;
+  margin: auto;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.slider_container {
+  width: 64px;
+  height: 280px;
+  margin-right: 20px;
+  .active {
+    border: 3px solid $primaryColor;
+  }
+  img {
+    width: 64px;
+    height: 64px;
+    filter: drop-shadow(0px 0px 7px rgba(0, 0, 0, 0.2));
+  }
+}
