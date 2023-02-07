@@ -8,16 +8,14 @@ import DialogTitle from '@mui/material/DialogTitle';
 import './index.scss';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { withCookies } from 'react-cookie';
 
-export const Logout = ({ open, handleClose }) => {
+export const Logout = ({ open, handleClose, cookies }) => {
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        localStorage.removeItem('access_token')
         toast.success('Logged out successfully!')
-        setTimeout(() => {
-            navigate('/login')
-        }, 2000)
+        cookies.remove('token')
     }
     return (
         <Dialog maxWidth={'lg'}
@@ -39,3 +37,5 @@ export const Logout = ({ open, handleClose }) => {
 
     )
 }
+
+export default withCookies(Logout);

@@ -3,10 +3,6 @@ import { api_base_url } from "../Utils/Common/urls";
 
 const AddressService = {}
 
-const config = {
-    "Authorization": `Bearer ${localStorage.getItem('access_token')}`
-}
-
 AddressService.add = async (payload) => {
     return await HttpService.post(api_base_url + '/address', payload)
 }
