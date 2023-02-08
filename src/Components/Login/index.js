@@ -13,8 +13,11 @@ import { FlexCenterColumn } from "../../Utils/Common/styledComponent";
 import { toast } from "react-toastify";
 import AuthService from "../../Services/Auth.service";
 import '../index.scss';
+import { withCookies } from "react-cookie";
 
-const LoginComponent = () => {
+const LoginComponent = ({
+  cookies
+}) => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -57,7 +60,7 @@ const LoginComponent = () => {
       try {
         const result = await AuthService.login(userPayload);
         if (result.data && result.data.token) {
-          localStorage.setItem('access_token', result.data.token);
+          cookies.set('token', result.data.token);
           setLoading(false)
           toast['success']('Logged in successfully!')
           setTimeout(() => { navigate('/') }, 2000)
@@ -207,4 +210,4 @@ const LoginComponent = () => {
   );
 };
 
-export default LoginComponent;
+export default withCookies(LoginComponent);

@@ -28,7 +28,7 @@ import { useNavigate } from "react-router-dom";
 const Profile = () => {
   const theme = useTheme();
   const fileInput = useRef();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [disabled, setDisabled] = useState(true);
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(false);
@@ -50,27 +50,14 @@ const Profile = () => {
     },
   });
 
-  const profile = () => {
-    AuthService.userGet()
-      .then((result) => {
-        if (result.status === 200) {
-          setFormValues({
-            name: { value: result?.data?.user?.name },
-            bio: { value: result?.data?.user?.bio },
-          });
-          setUser(result.data.user);
-        }
-      })
-      .catch((err) => {
-        console.log('------------>',err.response?.status)
-        if(err.response?.status===401){
-          localStorage.removeItem('access_token')
-          setTimeout(()=>{navigate('/login')},2000)
-        }
-        if (err.response?.data?.message) {
-          toast.error(err.response.data.message);
-        }
-      });
+  const profile = async () => {
+    const result = await AuthService.userGet();
+    console.log('result',result?.data?.user?.name)
+    setFormValues({
+      name: { value: result?.data?.user?.name },
+      bio: { value: result?.data?.user?.bio },
+    });
+    setUser(result.data.user);
   };
 
   useEffect(() => {
