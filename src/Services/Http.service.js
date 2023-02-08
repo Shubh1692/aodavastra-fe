@@ -40,7 +40,8 @@ HttpService.interceptors.response.use(
   },
   (error) => {
     if (error?.response?.status === 401) {
-      // cookies.remove('token');
+       cookies.remove('token');
+        window.location.href = '/'
     } else if (error?.response?.status === 400) {
       toast.error(error.response.data.message);
     }
