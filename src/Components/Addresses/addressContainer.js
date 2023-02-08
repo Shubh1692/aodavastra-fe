@@ -67,9 +67,9 @@ const AddressContainer = ({ data, handleData }) => {
         <Grid className="adress_action" onClick={() => handleEdit(data._id)}>
           <Typography variant="span"> Edit</Typography>
         </Grid>
-        {!data.isDefault && <Grid className="adress_action" onClick={() => handleDelete(data._id)}>
+        <Grid className="adress_action" onClick={() => handleDelete(data._id)}>
           <Typography variant="span"> Remove</Typography>
-        </Grid>}
+        </Grid>
       </Box>
     </Grid>
   );
