@@ -11,8 +11,7 @@ import {
 import React from "react";
 import Layout from "../Layout";
 import './index.scss';
-import jwel from "../../Assets/Images/jwel_main.png";
-import prod from "../../Assets/Images/jwel.png";
+import jwel from "../../Assets/Images/seller_2.svg";
 import { LightText, PurpleHeading } from "../../Utils/Common/styledComponent";
 import { ProductContainer } from "../../Utils/Common/component";
 import theme from "../../Assets/Styles/theme";

@@ -55,7 +55,7 @@
   justify-content: center;
   margin-top: 12px;
 }
-.semi-outlined-button {
+.linear-button {
   width: 229.25px;
   height: 48.81px;
   color: $lightBlack;
@@ -75,18 +75,15 @@
 .login_button {
   cursor: pointer;
   width: 229.25px;
-  text-transform: capitalize;
+  text-transform: capitalize !important;
   height: 48.81px;
   background: $secondPrimaryColor;
   border-radius: 5px;
   font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
+  font-weight: 400 !important;
+  font-size: 18px !important;
   line-height: 27px;
   color: $white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin-top: 12px;
 }
 

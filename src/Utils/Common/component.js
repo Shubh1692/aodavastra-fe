@@ -7,7 +7,7 @@ import design4 from '../../Assets/Images/design4.svg';
 import design5 from '../../Assets/Images/design5.svg';
 import design6 from '../../Assets/Images/design6.svg';
 import { DesignerContainer, LightText, SemiLightText } from '../../Utils/Common/styledComponent';
-import Ring from '../../Assets/Images/ring.svg';
+import Ring from '../../Assets/Images/seller_2.svg';
 import './index.scss';
 
 export const DesignerComponent = () => {

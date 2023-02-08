@@ -280,7 +280,7 @@ const Profile = () => {
                   </Grid>
                 ) : (
                   <Button
-                    className="semi-outlined-button"
+                    className="linear-button"
                     variant="outlined"
                     onClick={() => fileInput.current.click()}
                     sx={{

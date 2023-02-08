@@ -8,7 +8,7 @@ import { IconButton, Typography } from '@mui/material';
 import theme from '../../Assets/Styles/theme';
 import { Box } from '@mui/system';
 import CloseIcon from "@mui/icons-material/Close";
-import user from '../../Assets/Images/jwel_main.png';
+import user from '../../Assets/Images/seller_1.svg';
 import '../Feed/index.scss';
 import './index.scss';
 import { BolderText, DialogHeading, TagPrize } from '../../Utils/Common/styledComponent';

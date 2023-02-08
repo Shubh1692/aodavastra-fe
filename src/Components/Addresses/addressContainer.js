@@ -9,8 +9,16 @@ import "./index.scss";
 const AddressContainer = ({ data, handleData }) => {
   const navigate = useNavigate();
 
-  const handleCheck = (e, id) => {
+  const handleCheck = async (e, id) => {
     console.log("--------~~~>", id, e);
+    if (window.confirm('Are you sure want to change default address ?')) {
+      const result = await AddressService.update(id, { ...data, isDefault: e.target.checked })
+      if (result.status < 400) {
+        toast.success("Updated Successfully!");
+        // handleData();
+      }
+      console.log('result---->', result)
+    }
   };
   const handleDelete = async (id) => {
     const result = await AddressService.delete(id);
@@ -59,9 +67,9 @@ const AddressContainer = ({ data, handleData }) => {
         <Grid className="adress_action" onClick={() => handleEdit(data._id)}>
           <Typography variant="span"> Edit</Typography>
         </Grid>
-        <Grid className="adress_action" onClick={() => handleDelete(data._id)}>
+        {!data.isDefault && <Grid className="adress_action" onClick={() => handleDelete(data._id)}>
           <Typography variant="span"> Remove</Typography>
-        </Grid>
+        </Grid>}
       </Box>
     </Grid>
   );

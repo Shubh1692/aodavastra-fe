@@ -8,7 +8,7 @@ import {
 
 } from "@mui/material";
 import post1 from '../../Assets/Images/feed.svg';
-import user from '../../Assets/Images/jwel_main.png';
+import user from '../../Assets/Images/seller_1.svg';
 import like from '../../Assets/Images/liked.svg';
 import unlike from '../../Assets/Images/un_like.svg';
 import comment from '../../Assets/Images/comment.svg';

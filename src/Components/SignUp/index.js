@@ -292,7 +292,7 @@ const SignUpComponent = () => {
                 }}>
                   <Grid item component='span' >Already Have an Account?</Grid>
                 </Grid>
-                <Grid item className="semi-outlined-button"
+                <Grid item className="linear-button"
                   variant="outlined"
                   onClick={() => navigate('/login')}
                   sx={{

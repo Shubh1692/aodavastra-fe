@@ -61,7 +61,7 @@ const AddressAction = () => {
         },
         validationSchema: validationSchema,
         onSubmit: (values) => {
-            console.log(values,'yyyyyyyyyyyyyyyeeessssssssss')
+            console.log(values, 'yyyyyyyyyyyyyyyeeessssssssss')
             const payload = {
                 name: values.name,
                 phoneNo: values.phoneNo.toString(),
@@ -214,12 +214,14 @@ const AddressAction = () => {
                                 })}
                                 <Box className='make_default'>
                                     <FormControlLabel name='isDefault'
-                                        onChange={formik.handleChange} control={<Checkbox sx={{
-                                            '& .MuiSvgIcon-root': {
-                                                fontSize: 22,
-                                                color: '#3c3c3c'
-                                            }
-                                        }} checked={formik.values.isDefault}
+                                        onChange={formik.handleChange} control={<Checkbox
+                                            disabled={formik.values.isDefault}
+                                            sx={{
+                                                '& .MuiSvgIcon-root': {
+                                                    fontSize: 22,
+                                                    color: '#3c3c3c'
+                                                }
+                                            }} 
                                         />} label={<Typography className='add_checkbox' >Make this my default address.</Typography>} />
                                 </Box>
                                 <Button variant="contained" type="submit" className="save_changes_add">Save Changes</Button>

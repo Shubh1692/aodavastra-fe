@@ -193,7 +193,7 @@ const LoginComponent = ({
                   <Grid item component='span' >New here?</Grid>
                 </Grid>
                 <Grid item
-                  className="semi-outlined-button"
+                  className="linear-button"
                   variant="outlined"
                   onClick={() => navigate('/register')}
                   sx={{

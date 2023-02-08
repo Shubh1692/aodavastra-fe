@@ -1,9 +1,7 @@
 import React from 'react';
 import { Grid, Box, Typography } from '@mui/material';
-import s1 from '../../Assets/Images/selller_1.svg';
+import s1 from '../../Assets/Images/seller_1.svg';
 import s2 from '../../Assets/Images/seller_2.svg';
-import s3 from '../../Assets/Images/seller_3.svg';
-import s4 from '../../Assets/Images/seller_4.svg';
 import v1 from '../../Assets/Images/verticle1.svg';
 import v2 from '../../Assets/Images/verticle2.svg';
 import { BorderDesignerText, SemiDarkText } from '../../Utils/Common/styledComponent';
@@ -26,30 +24,30 @@ const Dashboard = () => {
                 <BorderDesignerText>BEST SELLERS</BorderDesignerText>
                 <Grid sx={{ width: '956px', display: 'flex', justifyContent: 'space-between' }}>
                     <Box sx={{ height: '360px', width: '224px', cursor: 'pointer' }} onClick={() => navigate('/dashboard/clothes')}>
-                        <Box component={'img'} alt="product_image" src={s1} sx={{ height: '304px', borderRadius: '10px' }} />
+                        <Box component={'img'} alt="product_image" src={s1} sx={{ height: '304px', width: '100%', objectFit: 'cover', borderRadius: '10px' }} />
                         <SemiDarkText className='semi_text'>Gorgeous Designer Saree ₹ 2,599.00</SemiDarkText>
                     </Box>
                     <Box sx={{ height: '360px', width: '224px', cursor: 'pointer' }} onClick={() => navigate('/dashboard/clothes')}>
-                        <Box component={'img'} alt="product_image" src={s2} sx={{ height: '304px', borderRadius: '10px' }} />
+                        <Box component={'img'} alt="product_image" src={s2} sx={{ height: '304px', width: '100%', objectFit: 'cover', borderRadius: '10px' }} />
                         <SemiDarkText className='semi_text'>Traditional Saree <br />₹ 2,599.00</SemiDarkText>
                     </Box>
                     <Box sx={{ height: '360px', width: '224px', cursor: 'pointer' }} onClick={() => navigate('/dashboard/clothes')}>
-                        <Box component={'img'} alt="product_image" src={s3} sx={{ height: '304px', borderRadius: '10px' }} />
+                        <Box component={'img'} alt="product_image" src={s1} sx={{ height: '304px', width: '100%', objectFit: 'cover', borderRadius: '10px' }} />
                         <SemiDarkText className='semi_text'>Net Multi Work Saree <br />₹ 2,599.00</SemiDarkText>
                     </Box>
                     <Box sx={{ height: '360px', width: '224px', cursor: 'pointer' }} onClick={() => navigate('/dashboard/clothes')}>
-                        <Box component={'img'} alt="product_image" src={s4} sx={{ height: '304px', borderRadius: '10px' }} />
+                        <Box component={'img'} alt="product_image" src={s2} sx={{ height: '304px', width: '100%', objectFit: 'cover', borderRadius: '10px' }} />
                         <SemiDarkText className='semi_text'>Silk Saree <br />₹ 2,599.00</SemiDarkText>
                     </Box>
                 </Grid>
                 <Grid sx={{ width: '1362px', margin: '48px 0px 7px', display: 'flex', justifyContent: 'space-between' }}>
                     <Box sx={{ width: '49.35%', height: '373.33px', position: 'relative' }}>
                         <Box className='img_content'>Accessories</Box>
-                        <Box component={'img'} alt="product_image" src={v1} sx={{ height: 'auto', maxWidth: '100%' }} />
+                        <Box component={'img'} alt="product_image" src={v1} sx={{ height: 'auto',borderRadius:'18.66px', maxWidth: '100%' }} />
                     </Box>
                     <Box sx={{ width: '49.35%', height: '373.33px', position: 'relative' }}>
                         <Box className='img_content'>CLOTHING</Box>
-                        <Box component={'img'} src={v2} alt='img' sx={{ height: 'auto', maxWidth: '100%' }} />
+                        <Box component={'img'} src={v2} alt='img' sx={{ height: 'auto',borderRadius:'18.66px', maxWidth: '100%' }} />
                     </Box>
                 </Grid>
                 <BorderDesignerText>Designers on ModaVastra</BorderDesignerText>

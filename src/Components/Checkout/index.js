@@ -10,6 +10,7 @@ import PaymentAccordian from '../Accordion/paymentMethod';
 import { BagProductDetails } from '../../Utils/Common/component';
 import AddressContainer from '../Addresses/addressContainer';
 import { OrderPlaced } from '../Dialog/orderPlaced';
+import { Link } from 'react-router-dom';
 
 const demoAddess = {
     _id: '1234567890',
@@ -35,7 +36,7 @@ const Checkout = () => {
                     <Box sx={{ width: '466px' }}>
                         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
                             <Heading>Delivery Address</Heading>
-                            <Typography className='address_link'>Add New Address</Typography>
+                            <Link to='/address/add' className='address_link'>Add New Address</Link>
                         </Box>
                         <Box sx={{ marginBottom: '12px' }}>
                             <AddressContainer data={demoAddess} />

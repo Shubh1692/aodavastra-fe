@@ -1,7 +1,7 @@
 import { Box, Typography, Grid, TextField } from '@mui/material';
 import React, { useState } from 'react'
 import Layout from '../Layout';
-import product1 from '../../Assets/Images/jwel.png';
+import product1 from '../../Assets/Images/seller_1.svg';
 import product2 from '../../Assets/Images/post-1.png';
 import product3 from '../../Assets/Images/post-2.png';
 import product4 from '../../Assets/Images/post-3.png';
@@ -120,23 +120,23 @@ const ProductsById = () => {
                 <BoldHeading>You may also like</BoldHeading>
                 <Box sx={{ display: 'flex', marginTop: '6px' }}>
                     <Box sx={{ height: '275px', width: '200px', marginRight: '28px' }}>
-                        <Box component={'img'} src={product1} sx={{ height: '240px' }} />
+                        <Box component={'img'} src={product1} sx={{ height: '240px', width:'100%', objectFit:'cover' }} />
                         <Box className='suggetion_product'><LightText>Silk Saree 99999999999</LightText></Box>
                     </Box>
                     <Box sx={{ height: '275px', width: '200px', marginRight: '28px' }}>
-                        <Box component={'img'} src={product1} sx={{ height: '240px' }} />
+                        <Box component={'img'} src={product1} sx={{ height: '240px', width:'100%', objectFit:'cover' }} />
                         <Box className='suggetion_product'><LightText>Silk Saree 99999999999</LightText></Box>
                     </Box>
                     <Box sx={{ height: '275px', width: '200px', marginRight: '28px' }}>
-                        <Box component={'img'} src={product1} sx={{ height: '240px' }} />
+                        <Box component={'img'} src={product1} sx={{ height: '240px', width:'100%', objectFit:'cover' }} />
                         <Box className='suggetion_product'><LightText>Silk Saree 99999999999</LightText></Box>
                     </Box>
                     <Box sx={{ height: '275px', width: '200px', marginRight: '28px' }}>
-                        <Box component={'img'} src={product1} sx={{ height: '240px' }} />
+                        <Box component={'img'} src={product1} sx={{ height: '240px', width:'100%', objectFit:'cover' }} />
                         <Box className='suggetion_product'><LightText>Silk Saree 99999999999</LightText></Box>
                     </Box>
                     <Box sx={{ height: '275px', width: '200px', marginRight: '28px' }}>
-                        <Box component={'img'} src={product1} sx={{ height: '240px' }} />
+                        <Box component={'img'} src={product1} sx={{ height: '240px', width:'100%', objectFit:'cover' }} />
                         <Box className='suggetion_product'><LightText>Silk Saree 99999999999</LightText></Box>
                     </Box>
                 </Box>

@@ -18,16 +18,11 @@ const AddressComponent = () => {
     const navigate = useNavigate();
     const [addresses, setAddresses] = useState([])
 
-    const getAddresses = () => {
-        AddressService.getAll().then((result) => {
-            if (result.status === 200) {
-                setAddresses(result.data)
-            }
-        }).catch((err) => {
-            if (err.response?.data?.message) {
-                toast.error(err.response.data.message);
-            }
-        })
+    const getAddresses = async () => {
+        const result = await AddressService.getAll()
+        if (result.status < 400) {
+            setAddresses(result.data)
+        }
     }
     useEffect(() => {
         getAddresses()

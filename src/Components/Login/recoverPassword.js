@@ -66,7 +66,7 @@ const RecoverComponent = () => {
                     <Container component="main">
                         <Box component="form" noValidate className="recover-form">
                             <Typography className='forget_heading'>Forgot Your Password</Typography>
-                            <Typography className="sub-heading">Enter the email you use to login to ModaVastra Admin Panel and we will send you a link to get you back into your account.</Typography>
+                            <Typography className="sub-heading">Enter the email you use to login to ModaVastra and we will send you a link to get you back into your account.</Typography>
                             <TextField
                                 type="email" placeholder="E-mail"
                                 name="email" inputProps={{
