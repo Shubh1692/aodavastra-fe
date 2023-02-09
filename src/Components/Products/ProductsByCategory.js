@@ -1,12 +1,14 @@
-import { Box, Typography, Checkbox, FormControlLabel } from '@mui/material'
+import { Box, Checkbox, FormControlLabel } from '@mui/material'
 import React from 'react'
 import theme from '../../Assets/Styles/theme';
 import { ProductContainer } from '../../Utils/Common/component';
 import { BolderHeading, BoldText, LightText } from '../../Utils/Common/styledComponent';
 import Layout from '../Layout';
+import { useNavigate } from 'react-router-dom';
 import './index.scss';
 
 const ProductByCategory = () => {
+    const navigate = useNavigate()
     return (
         <>
             <Box sx={{ marginTop: '8pc', display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
@@ -63,9 +65,11 @@ const ProductByCategory = () => {
                         </Box>
                     </Box>
                     <Box sx={{ width: '976px', display: 'flex', flexWrap: 'wrap' }}>
-                        <ProductContainer /><ProductContainer /><ProductContainer /><ProductContainer />
-                        <ProductContainer /><ProductContainer /><ProductContainer /><ProductContainer />
-                        <ProductContainer /><ProductContainer /><ProductContainer /><ProductContainer />
+                        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]?.map((i) => (
+                            <Box onClick={() => navigate(`/dashboard/clothes/${i}`)} >
+                                <ProductContainer />
+                            </Box>
+                        ))}
                     </Box>
                 </Box>
             </Box>

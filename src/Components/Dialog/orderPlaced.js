@@ -13,8 +13,10 @@ import ordered from '../../Assets/Images/order_placed.svg';
 import google_play from '../../Assets/Images/google_play.svg'
 import './index.scss';
 import { DialogHeading, LightText } from '../../Utils/Common/styledComponent';
+import { useNavigate } from 'react-router-dom';
 
 export const OrderPlaced = ({ open, handleClose }) => {
+    const navigate = useNavigate()
     return (
         <Dialog maxWidth={'lg'}
             open={open}
@@ -24,7 +26,7 @@ export const OrderPlaced = ({ open, handleClose }) => {
         >
             <DialogTitle className='creator_title'>
                 <Box sx={{ padding: '18px 0px 8px', borderBottom: `1px solid ${theme.lightBlack}`, width: '100%' }}>
-                    <Box sx={{ textAlign: 'center', width: '100%'  }}>
+                    <Box sx={{ textAlign: 'center', width: '100%' }}>
                         <DialogHeading>Order Placed Successfully</DialogHeading>
                     </Box>
                     <IconButton sx={{ position: 'absolute', left: '91%', top: '6%' }} onClick={handleClose}>
@@ -33,15 +35,21 @@ export const OrderPlaced = ({ open, handleClose }) => {
                 </Box>
             </DialogTitle>
             <DialogContent>
-                <DialogContentText sx={{textAlign:'center'}} className='email_dialog_text'>
+                <DialogContentText sx={{ textAlign: 'center' }} className='email_dialog_text'>
                     <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                         <Box component="img" sx={{ width: 152, height: 152 }} src={ordered} alt='google_play' />
                     </Box>
                     <Box className='' sx={{ width: '464px', marginTop: '40px', textAlign: 'center' }}>
                         <LightText>You’ll receive a confirmation email shortly with expected delivery date.</LightText>
                     </Box>
-                    <Grid className='resend_button'><Typography variant='span'>Review Your Order</Typography></Grid>
-                    <Button variant='contained' sx={{textTransform:'capitalize'}} className='login_button_dialog'><Typography variant='span'>Continue Shopping</Typography></Button>
+                    <Grid className='resend_button' onClick={()=>navigate('/orders/123456')}>
+                        <Typography variant='span'>Review Your Order</Typography>
+                    </Grid>
+                    <Button variant='contained' sx={{ textTransform: 'capitalize' }}
+                        onClick={() => navigate('/dashboard')}
+                        className='login_button_dialog'>
+                        <Typography variant='span'>Continue Shopping</Typography>
+                    </Button>
                 </DialogContentText>
             </DialogContent >
         </Dialog>

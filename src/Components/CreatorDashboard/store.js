@@ -3,20 +3,22 @@ import { Box, Grid, Typography } from '@mui/material';
 import v1 from '../../Assets/Images/verticle1.svg';
 import './index.scss';
 import theme from '../../Assets/Styles/theme';
+import { useNavigate } from 'react-router-dom';
 
 const Store = () => {
+    const navigate = useNavigate();
     return (
         <>
             <Grid sx={{ background: theme.white }}>
                 <Box sx={{ position: 'relative', marginTop: '16px' }}>
-                    <Box className='store_image_content'>
+                    <Box className='store_image_content' onClick={() => navigate('/store')}>
                         <Typography>Jewellry</Typography>
                         <Typography variant='span'>(166 Items)</Typography>
                     </Box>
                     <Box component={'img'} alt="product_image" src={v1} sx={{ height: 'auto', maxWidth: '100%' }} />
                 </Box>
                 <Box sx={{ position: 'relative', marginTop: '16px' }}>
-                    <Box className='store_image_content'>
+                    <Box className='store_image_content' onClick={() => navigate('/store')}>
                         <Typography>Jewellry</Typography>
                         <Typography variant='span'>(166 Items)</Typography>
                     </Box>

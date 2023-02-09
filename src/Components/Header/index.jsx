@@ -1,16 +1,9 @@
 import React from "react";
-import {
-  Box,
-  AppBar,
-  Grid,
-  Stack,
-  TextField,
-  InputAdornment,
-  IconButton,
-} from "@mui/material";
+import { Box, AppBar, Grid, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
 
 import headerLogo from "../../Assets/Images/ModavastraLogo_Black 2.svg";
+import closet from "../../Assets/Images/closet_black.svg";
 import SearchImage from "../../Assets/Images/search.svg";
 import shopingBag from "../../Assets/Images/shopping-bag.svg";
 import userLogo from "../../Assets/Images/ic_user_white.svg";
@@ -96,25 +89,33 @@ const Header = (props) => {
                   justifyContent: "space-evenly",
                 }}
               >
+                <Link to="/">
+                  <Box sx={{ cursor: "pointer", display: "flex" }}>
+                    <Box
+                      component={"img"}
+                      src={closet}
+                      alt="closet"
+                      sx={{ width: "50px", height: "30px" }}
+                    />
+                  </Box>
+                </Link>
                 <Link to="/search">
                   <Box sx={{ cursor: "pointer", display: "flex" }}>
                     <Box
                       component={"img"}
                       src={SearchImage}
                       alt="search"
-                      width="30"
-                      height="30"
+                      sx={{ width: "30px", height: "30px" }}
                     />
                   </Box>
                 </Link>
-                <Link to="/">
+                <Link to="/emptybag">
                   <Box sx={{ cursor: "pointer", display: "flex" }}>
                     <Box
                       component={"img"}
                       src={shopingBag}
-                      alt=""
-                      width="28"
-                      height="30"
+                      alt="bag"
+                      sx={{ width: "28px", height: "30px" }}
                     />
                   </Box>
                 </Link>

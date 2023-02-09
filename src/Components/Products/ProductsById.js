@@ -1,4 +1,4 @@
-import { Box, Typography, Grid, TextField } from '@mui/material';
+import { Box, Typography, Grid, TextField, Button } from '@mui/material';
 import React, { useState } from 'react'
 import Layout from '../Layout';
 import product1 from '../../Assets/Images/seller_1.svg';
@@ -16,6 +16,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import { useNavigate } from 'react-router-dom';
 
 function createData(inches, XS, S, M, L, XL, dXL, tXL, fXL, FXL, SXL) {
     return { inches, XS, S, M, L, XL, dXL, tXL, fXL, FXL, SXL };
@@ -31,6 +32,7 @@ const ProductsById = () => {
     const [sizeChart, setSizeChart] = useState(false);
     const [active, setActive] = useState(product1);
     const [liked, setLiked] = useState(true);
+    const navigate = useNavigate()
     return (
         <Box sx={{ width: '1140px', margin: '8pc auto 0px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <Box sx={{ display: 'flex' }}>
@@ -43,9 +45,11 @@ const ProductsById = () => {
                 <Box className='product_view'>
                     <Box className='product_view_img'>
                         <Box className='parent_product_img' component={'img'} src={active} alt='product_image' />
-                        <Box className='child_product_img'>{liked ? <FavoriteIcon sx={{color:theme.orangeLighter, fontSize:'24px'}} /> : <FavoriteBorderIcon size='24' />}</Box>
+                        <Box className='child_product_img'>{liked ? <FavoriteIcon sx={{ color: theme.orangeLighter, fontSize: '24px' }} /> : <FavoriteBorderIcon size='24' />}</Box>
                         <Box className='add_to_bag'><Heading>Add to Bag</Heading></Box>
-                        <Box className='buy_now'><HeadingWhite>Buy Now</HeadingWhite></Box>
+                        <Button variant='contained' className='buy_now' onClick={() => navigate('/checkout')}>
+                            <HeadingWhite>Buy Now</HeadingWhite>
+                        </Button>
                     </Box>
                 </Box>
                 <Box sx={{ width: '545px' }}>
@@ -70,7 +74,7 @@ const ProductsById = () => {
                         {sizeChart && <Box sx={{ width: '462px', border: `2px solid ${theme.lightBlack}` }}>
                             <Box sx={{
                                 height: '36px', display: 'flex', border: `1px solid ${theme.lightBlack}`,
-                                justifyContent: 'center', alignItems: 'center'
+                                justifyContent: 'center', alignItems: 'center', overflow: 'hidden'
                             }}><SemiDarkText>Size Chart</SemiDarkText></Box>
                             <TableContainer>
                                 <Table aria-label="simple table">
@@ -120,23 +124,23 @@ const ProductsById = () => {
                 <BoldHeading>You may also like</BoldHeading>
                 <Box sx={{ display: 'flex', marginTop: '6px' }}>
                     <Box sx={{ height: '275px', width: '200px', marginRight: '28px' }}>
-                        <Box component={'img'} src={product1} sx={{ height: '240px', width:'100%', objectFit:'cover' }} />
+                        <Box component={'img'} src={product1} sx={{ height: '240px', width: '100%', objectFit: 'cover' }} />
                         <Box className='suggetion_product'><LightText>Silk Saree 99999999999</LightText></Box>
                     </Box>
                     <Box sx={{ height: '275px', width: '200px', marginRight: '28px' }}>
-                        <Box component={'img'} src={product1} sx={{ height: '240px', width:'100%', objectFit:'cover' }} />
+                        <Box component={'img'} src={product1} sx={{ height: '240px', width: '100%', objectFit: 'cover' }} />
                         <Box className='suggetion_product'><LightText>Silk Saree 99999999999</LightText></Box>
                     </Box>
                     <Box sx={{ height: '275px', width: '200px', marginRight: '28px' }}>
-                        <Box component={'img'} src={product1} sx={{ height: '240px', width:'100%', objectFit:'cover' }} />
+                        <Box component={'img'} src={product1} sx={{ height: '240px', width: '100%', objectFit: 'cover' }} />
                         <Box className='suggetion_product'><LightText>Silk Saree 99999999999</LightText></Box>
                     </Box>
                     <Box sx={{ height: '275px', width: '200px', marginRight: '28px' }}>
-                        <Box component={'img'} src={product1} sx={{ height: '240px', width:'100%', objectFit:'cover' }} />
+                        <Box component={'img'} src={product1} sx={{ height: '240px', width: '100%', objectFit: 'cover' }} />
                         <Box className='suggetion_product'><LightText>Silk Saree 99999999999</LightText></Box>
                     </Box>
                     <Box sx={{ height: '275px', width: '200px', marginRight: '28px' }}>
-                        <Box component={'img'} src={product1} sx={{ height: '240px', width:'100%', objectFit:'cover' }} />
+                        <Box component={'img'} src={product1} sx={{ height: '240px', width: '100%', objectFit: 'cover' }} />
                         <Box className='suggetion_product'><LightText>Silk Saree 99999999999</LightText></Box>
                     </Box>
                 </Box>

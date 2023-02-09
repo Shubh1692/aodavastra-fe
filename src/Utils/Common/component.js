@@ -6,7 +6,7 @@ import design3 from '../../Assets/Images/design3.svg';
 import design4 from '../../Assets/Images/design4.svg';
 import design5 from '../../Assets/Images/design5.svg';
 import design6 from '../../Assets/Images/design6.svg';
-import { DesignerContainer, LightText, SemiLightText } from '../../Utils/Common/styledComponent';
+import { DesignerContainer, SemiLightText } from '../../Utils/Common/styledComponent';
 import Ring from '../../Assets/Images/seller_2.svg';
 import './index.scss';
 
@@ -56,7 +56,8 @@ export const BagProductDetails = () => {
 
 export const ProductContainer = () => {
     return (
-        <Box sx={{ height: '348px', width: '224px', margin: '0px 20px 18px 0px' }}>
+        <Box sx={{ height: '348px', width: '224px', margin: '0px 20px 18px 0px', cursor: 'pointer' }}
+        >
             <Box component={'img'} sx={{
                 width: '224px',
                 height: '292px',

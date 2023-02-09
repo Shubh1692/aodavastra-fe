@@ -42,12 +42,12 @@ const Dashboard = () => {
                 </Grid>
                 <Grid sx={{ width: '1362px', margin: '48px 0px 7px', display: 'flex', justifyContent: 'space-between' }}>
                     <Box sx={{ width: '49.35%', height: '373.33px', position: 'relative' }}>
-                        <Box className='img_content'>Accessories</Box>
-                        <Box component={'img'} alt="product_image" src={v1} sx={{ height: 'auto',borderRadius:'18.66px', maxWidth: '100%' }} />
+                        <Box className='img_content' onClick={() => navigate('/dashboard/clothes')}>Accessories</Box>
+                        <Box component={'img'} alt="product_image" src={v1} sx={{ height: 'auto', borderRadius: '18.66px', maxWidth: '100%' }} />
                     </Box>
                     <Box sx={{ width: '49.35%', height: '373.33px', position: 'relative' }}>
-                        <Box className='img_content'>CLOTHING</Box>
-                        <Box component={'img'} src={v2} alt='img' sx={{ height: 'auto',borderRadius:'18.66px', maxWidth: '100%' }} />
+                        <Box className='img_content' onClick={() => navigate('/dashboard/clothes')}>CLOTHING</Box>
+                        <Box component={'img'} src={v2} alt='img' sx={{ height: 'auto', borderRadius: '18.66px', maxWidth: '100%' }} />
                     </Box>
                 </Grid>
                 <BorderDesignerText>Designers on ModaVastra</BorderDesignerText>

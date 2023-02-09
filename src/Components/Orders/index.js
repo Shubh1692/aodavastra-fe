@@ -27,7 +27,7 @@ const Orders = () => {
                 }}
             >
                 <Grid container sx={{ flexDirection: { xs: 'column-reverse', md: 'row' }, display: { xs: 'none', sm: 'none', md: 'flex' } }}>
-                    <Grid item md={4} lg={4} sx={{ display: 'flex', justifyContent: 'end'}}>
+                    <Grid item md={4} lg={4} sx={{ display: 'flex', justifyContent: 'end' }}>
                         <LeftNavbar />
                     </Grid>
                     <Grid>
@@ -76,12 +76,14 @@ const Orders = () => {
                     </Grid>
                     <Grid sx={{ width: '150px', marginLeft: '20px' }}>
                         <BoldHeading>Apply Filters</BoldHeading>
-                        <Grid sx={{ marginTop:'8px',width: '112px', border: `1px solid ${theme.lightBlack}`}}></Grid>
+                        <Grid sx={{ marginTop: '8px', width: '112px', border: `1px solid ${theme.lightBlack}` }}></Grid>
                         <Grid sx={{ margin: '12px 0px' }}><BoldText>Order Status</BoldText></Grid>
-                        {['All', 'Ordered', 'Delivered', 'Cancelled']?.map((filter) => <FormControlLabel key={filter}
-                            control={<Checkbox sx={{ padding: '3px 12px 0px 0px' }} />} label={<Box sx={{ padding: '3px 12px 0px 0px' }}>
-                                <LightText>{filter}</LightText>
-                            </Box>} />)}
+                        <Box className='product_status'>
+                            {['All', 'Ordered', 'Delivered', 'Cancelled']?.map((filter) => <FormControlLabel key={filter}
+                                control={<Checkbox sx={{ padding: '3px 12px 0px 0px' }} />} label={<Box sx={{ padding: '3px 12px 0px 0px' }}>
+                                    <LightText>{filter}</LightText>
+                                </Box>} />)}
+                        </Box>
                     </Grid>
                 </Grid>
             </Box>

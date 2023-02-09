@@ -68,9 +68,16 @@ const MasterComponent = ({ cookies }) => {
   }, []);
   if (authenticateLoading) {
     return (
-      <>
+      <Grid
+        sx={{
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <CircularProgress color="secondary" size={200} thickness={1} />
-      </>
+      </Grid>
     );
   }
   return (
@@ -121,7 +128,7 @@ const MasterComponent = ({ cookies }) => {
 
                 {/* bag start */}
                 <Route path="/emptybag" element={<EmptyBag />}></Route>
-                <Route path="/jewellery" element={<JewelleryProduct />}></Route>
+                <Route path="/store" element={<JewelleryProduct />}></Route>
                 <Route
                   path="/orders/:orderId"
                   element={<OrdersDetails />}

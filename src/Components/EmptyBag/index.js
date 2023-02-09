@@ -6,7 +6,10 @@ import bag from "../../Assets/Images/Empty_bag.svg";
 import bagMobile from "../../Assets/Images/Empty_bag_mobile.jpeg";
 import './index.scss';
 import { ShoppingHeading } from "../../Utils/Common/styledComponent";
+import { useNavigate } from "react-router-dom";
 const EmptyBag = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <Grid container md={12} lg={12} sx={{
@@ -31,7 +34,7 @@ const EmptyBag = () => {
         <Grid item className="shopping_cart_msg">
           <Typography component={'span'}>Your Shopping Bag is Empty Right Now.</Typography>
         </Grid>
-        <Button variant="contained" className="shop_now">Shop Now</Button>
+        <Button variant="contained" className="shop_now" onClick={() => navigate('/dashboard')}>Shop Now</Button>
       </Grid>
     </>
   );
