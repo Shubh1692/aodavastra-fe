@@ -78,9 +78,7 @@ const AddressAction = () => {
                 .then((result) => {
                     if (result.status < 400) {
                         toast.success('Address added successFully');
-                        setTimeout(() => {
-                            navigate('/address')
-                        }, 2000)
+                        navigate('/address')
                     }
                 }).catch(err => {
                     // setLoading(false)

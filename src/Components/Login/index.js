@@ -63,7 +63,7 @@ const LoginComponent = ({
           cookies.set('token', result.data.token);
           setLoading(false)
           toast['success']('Logged in successfully!')
-          setTimeout(() => { navigate('/') }, 2000)
+          navigate('/')
         }
       } catch (err) {
         setLoading(false)

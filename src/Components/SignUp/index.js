@@ -13,9 +13,11 @@ import { toast } from "react-toastify";
 import { EmailVerification } from "../Dialog/emailVerification";
 import AuthService from "../../Services/Auth.service";
 import "../index.scss";
+import { withCookies } from "react-cookie";
 
-
-const SignUpComponent = () => {
+const SignUpComponent = ({
+  cookies
+}) => {
   const navigate = useNavigate();
   const [modelOpen, setModelOpen] = useState(false);
   const [loading, setLoading] = useState(false)
@@ -88,9 +90,9 @@ const SignUpComponent = () => {
         AuthService.signup(userPayload).then((result) => {
           setLoading(false)
           if (result.data && result.data.token) {
-            localStorage.setItem('access_token', result.data.token);
+            cookies.set('token', result.data.token);
             toast['success']('User created successfully!')
-            setTimeout(() => { navigate('/') }, 2000)
+            navigate('/')
           }
         }).catch((err) => {
           setLoading(false)
@@ -310,4 +312,4 @@ const SignUpComponent = () => {
   );
 };
 
-export default SignUpComponent;
+export default withCookies(SignUpComponent);

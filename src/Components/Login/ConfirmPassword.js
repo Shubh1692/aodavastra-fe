@@ -67,9 +67,7 @@ const ConfirmPassword = () => {
                 const result = await AuthService.resetPassword(payload);
                 if (result.data && result.data.token) {
                     toast['success']('Password updated successfully!')
-                    setTimeout(() => {
-                        navigate('/login')
-                    }, 2000)
+                    navigate('/login')
                 }
             } catch (err) {
                 if (!!err.response && err.response.data && err.response.data.error) {
