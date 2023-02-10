@@ -32,6 +32,7 @@ const ProductsById = () => {
     const [sizeChart, setSizeChart] = useState(false);
     const [active, setActive] = useState(product1);
     const [liked, setLiked] = useState(true);
+    const [added, setAdded] = useState(false);
     const navigate = useNavigate()
     return (
         <Box sx={{ width: '1140px', margin: '8pc auto 0px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
@@ -46,7 +47,9 @@ const ProductsById = () => {
                     <Box className='product_view_img'>
                         <Box className='parent_product_img' component={'img'} src={active} alt='product_image' />
                         <Box className='child_product_img'>{liked ? <FavoriteIcon sx={{ color: theme.orangeLighter, fontSize: '24px' }} /> : <FavoriteBorderIcon size='24' />}</Box>
-                        <Box className='add_to_bag'><Heading>Add to Bag</Heading></Box>
+                        <Box className='add_to_bag' sx={{ background: added ? theme.orangeLight : '' }} onClick={() => setAdded(!added)}>
+                            <Heading>{!added ? 'Add to Bag' : 'Added to Bag'}</Heading>
+                        </Box>
                         <Button variant='contained' className='buy_now' onClick={() => navigate('/checkout')}>
                             <HeadingWhite>Buy Now</HeadingWhite>
                         </Button>
@@ -76,7 +79,7 @@ const ProductsById = () => {
                                 height: '36px', display: 'flex', border: `1px solid ${theme.lightBlack}`,
                                 justifyContent: 'center', alignItems: 'center', overflow: 'hidden'
                             }}><SemiDarkText>Size Chart</SemiDarkText></Box>
-                            <TableContainer>
+                            <TableContainer sx={{ overflow: 'hidden' }}>
                                 <Table aria-label="simple table">
                                     <TableHead>
                                         <TableRow>

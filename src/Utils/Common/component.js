@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Grid, Typography, Checkbox } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import design1 from '../../Assets/Images/design1.svg';
 import design2 from '../../Assets/Images/design2.svg';
 import design3 from '../../Assets/Images/design3.svg';
@@ -8,17 +8,18 @@ import design5 from '../../Assets/Images/design5.svg';
 import design6 from '../../Assets/Images/design6.svg';
 import { DesignerContainer, SemiLightText } from '../../Utils/Common/styledComponent';
 import Ring from '../../Assets/Images/seller_2.svg';
+import { styled, InputBase } from '@mui/material'
 import './index.scss';
 
 export const DesignerComponent = () => {
     return (
         <Grid sx={{ width: '1275px', display: 'flex', justifyContent: 'space-between' }}>
-            <DesignerContainer><Box component={'img'} src={design6} /></DesignerContainer>
-            <DesignerContainer><Box component={'img'} src={design5} /></DesignerContainer>
-            <DesignerContainer><Box component={'img'} src={design4} /></DesignerContainer>
-            <DesignerContainer><Box component={'img'} src={design3} /></DesignerContainer>
-            <DesignerContainer><Box component={'img'} src={design2} /></DesignerContainer>
-            <DesignerContainer><Box component={'img'} src={design1} /></DesignerContainer>
+            <DesignerContainer><Box component={'img'} src={design6} alt='designer_img' /></DesignerContainer>
+            <DesignerContainer><Box component={'img'} src={design5} alt='designer_img' /></DesignerContainer>
+            <DesignerContainer><Box component={'img'} src={design4} alt='designer_img' /></DesignerContainer>
+            <DesignerContainer><Box component={'img'} src={design3} alt='designer_img' /></DesignerContainer>
+            <DesignerContainer><Box component={'img'} src={design2} alt='designer_img' /></DesignerContainer>
+            <DesignerContainer><Box component={'img'} src={design1} alt='designer_img' /></DesignerContainer>
         </Grid>
     )
 }
@@ -71,3 +72,39 @@ export const ProductContainer = () => {
         </Box>
     )
 }
+
+export const Search = styled('div')(({ theme }) => ({
+    position: 'relative',
+    borderRadius: '50px',
+    backgroundColor: '#e9e9e9',
+    // '&:hover': {
+    //     backgroundColor: '#e6e0e0',
+    // },
+    marginRight: theme.spacing(2),
+    marginLeft: 0,
+    width: '100%',
+}));
+// alpha(theme.palette.common.white, 0.15),--->without hover
+// alpha(theme.palette.common.white, 0.25), ---->with hover
+
+export const SearchIconWrapper = styled('div')(({ theme }) => ({
+    padding: theme.spacing(0, 2),
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+}));
+
+export const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    color: 'black',
+    width: 'inherit',
+    '& .MuiInputBase-input': {
+        padding: theme.spacing(1, 1, 1, 0),
+        // vertical padding + font size from searchIcon
+        paddingLeft: `calc(1em + ${theme.spacing(5)})`,
+        transition: theme.transitions.create('width'),
+        width: '100%',
+    },
+}));
