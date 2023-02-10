@@ -16,7 +16,7 @@ export const Logout = ({ open, handleClose, cookies }) => {
     const handleLogout = () => {
         toast.success('Logged out successfully!')
         cookies.remove('token')
-        window.location.href = '/'
+        navigate('/')
     }
     return (
         <Dialog maxWidth={'lg'}

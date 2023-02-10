@@ -1,7 +1,5 @@
 import React from 'react';
-import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -10,7 +8,6 @@ import theme from '../../Assets/Styles/theme';
 import { Box } from '@mui/system';
 import CloseIcon from "@mui/icons-material/Close";
 import email_image from '../../Assets/Images/undraw_mail_sent_re_0ofv.svg';
-import google_play from '../../Assets/Images/google_play.svg'
 import './index.scss';
 import { DialogHeading } from '../../Utils/Common/styledComponent';
 

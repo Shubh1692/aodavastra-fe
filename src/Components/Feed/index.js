@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Layout from '../Layout';
 import {
     Box,
-    Divider,
     Grid,
     Typography,
 
@@ -16,13 +15,15 @@ import tagged from '../../Assets/Images/tagged.svg';
 import './index.scss';
 import { BolderText, BoldHeading, FeedText, TagPrize, TimeSection } from '../../Utils/Common/styledComponent';
 import theme from '../../Assets/Styles/theme';
-import TagPeople from '../Dialog/tagPeople';
-import { CommentDialog } from '../Dialog/commentDialog';
+import TagPeople from '../dialog/tagPeople';
+import { CommentDialog } from '../dialog/commentDialog';
+import { useNavigate } from 'react-router-dom';
 
 const Feed = () => {
     const [liked, setLiked] = useState(false);
     const [isTagModel, setTagModel] = useState(false);
     const [isCommentModel, setCommentModel] = useState(false);
+    const navigate = useNavigate();
     return (
         <>
             <Box
@@ -35,7 +36,7 @@ const Feed = () => {
             >
                 <Grid container sx={{ width: '945px', marginBottom: '36px' }}>
                     <Grid sx={{ width: '50%', height: '699px', display: 'flex', flexDirection: 'column', background: theme.lighterPink }}>
-                        <Box component="img" sx={{ height: 651, width: '100%',objectFit:'cover' }} src={post1} alt='feed_image' />
+                        <Box component="img" sx={{ height: 651, width: '100%', objectFit: 'cover' }} src={post1} alt='feed_image' />
                         <Box sx={{ height: '100%', display: 'flex' }}>
                             <Box sx={{ width: '33.3%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                 <Box component="img" sx={{ width: 22.7, height: 19.75, cursor: 'pointer' }}
@@ -64,7 +65,8 @@ const Feed = () => {
                             </Box>
                             <Box sx={{ paddingLeft: '13.6px', width: '353px' }} className='feed_name'>
                                 <Grid sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                                    <Typography sx={{ fontWeight: "400", fontSize: "24px", lineHeight: "36px", }}>
+                                    <Typography sx={{ fontWeight: "400", fontSize: "24px", lineHeight: "36px", cursor: 'pointer' }}
+                                        onClick={() => navigate('/creator')}>
                                         Anjali Verma
                                     </Typography>
                                     <Box className="unfollow_button_feed">Follow</Box>
@@ -75,46 +77,14 @@ const Feed = () => {
                         <Typography className='feed_text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque integer dolor sem hendrerit et maecenas. Pellentesque massa vulputate integer maecenas. Gravida accumsan in accumsan</Typography>
                         <BoldHeading>Tagged Products</BoldHeading>
                         <Box sx={{ height: '370px', marginTop: '12px', overflowY: 'scroll' }}>
-                            <Box className='tag_container'>
+                            {[1, 2, 3, 4, 5]?.map((tag) => <Box className='tag_container' key={tag}>
                                 <Box component={'img'} src={user} />
                                 <Box component={'div'}>
                                     <BolderText>Silk Saree</BolderText>
                                     <TagPrize>₹ 2,599.00</TagPrize>
-                                    <Typography className='tag_link'>View Details</Typography>
+                                    <Typography className='tag_link' onClick={() => navigate('/dashboard')}>View Details</Typography>
                                 </Box>
-                            </Box>
-                            <Box className='tag_container'>
-                                <Box component={'img'} src={user} />
-                                <Box component={'div'}>
-                                    <BolderText>Silk Saree</BolderText>
-                                    <TagPrize>₹ 2,599.00</TagPrize>
-                                    <Typography className='tag_link'>View Details</Typography>
-                                </Box>
-                            </Box>
-                            <Box className='tag_container'>
-                                <Box component={'img'} src={user} />
-                                <Box component={'div'}>
-                                    <BolderText>Silk Saree</BolderText>
-                                    <TagPrize>₹ 2,599.00</TagPrize>
-                                    <Typography className='tag_link'>View Details</Typography>
-                                </Box>
-                            </Box>
-                            <Box className='tag_container'>
-                                <Box component={'img'} src={user} />
-                                <Box component={'div'}>
-                                    <BolderText>Silk Saree</BolderText>
-                                    <TagPrize>₹ 2,599.00</TagPrize>
-                                    <Typography className='tag_link'>View Details</Typography>
-                                </Box>
-                            </Box>
-                            <Box className='tag_container'>
-                                <Box component={'img'} src={user} />
-                                <Box component={'div'}>
-                                    <BolderText>Silk Saree</BolderText>
-                                    <TagPrize>₹ 2,599.00</TagPrize>
-                                    <Typography className='tag_link'>View Details</Typography>
-                                </Box>
-                            </Box>
+                            </Box>)}
                         </Box>
                     </Grid>
                 </Grid>

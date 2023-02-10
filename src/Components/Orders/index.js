@@ -7,11 +7,11 @@ import {
     Grid,
     Typography,
 } from "@mui/material";
-import { LeftNavbar } from '../Leftbar';
+import { LeftNavbar } from '../leftbar';
 import theme from '../../Assets/Styles/theme';
 import { Delivered } from '../../Utils/Common/orderStatus';
 import { useNavigate } from 'react-router-dom';
-import { BoldHeading, BoldText, Heading, LightText } from '../../Utils/Common/styledComponent';
+import { BoldHeading, BoldText, LightText } from '../../Utils/Common/styledComponent';
 import './index.scss';
 
 const Orders = () => {
@@ -27,7 +27,7 @@ const Orders = () => {
                 }}
             >
                 <Grid container sx={{ flexDirection: { xs: 'column-reverse', md: 'row' }, display: { xs: 'none', sm: 'none', md: 'flex' } }}>
-                    <Grid item md={4} lg={4} sx={{ display: 'flex', justifyContent: 'end' }}>
+                    <Grid item md={4} lg={4} sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                         <LeftNavbar />
                     </Grid>
                     <Grid>

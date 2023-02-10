@@ -9,9 +9,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { FlexCenterColumn } from "../../Utils/Common/styledComponent";
-import HttpService from "../../Services/Http.service";
 import { toast } from "react-toastify";
-import { api_base_url } from "../../Utils/Common/urls";
 import '../index.scss'
 import AuthService from "../../Services/Auth.service";
 

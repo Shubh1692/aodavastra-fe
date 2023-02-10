@@ -10,7 +10,7 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { FlexCenterColumn, PrimaryText, FlexDivRow, PrimaryColorText } from "../../Utils/Common/styledComponent";
 import { toast } from "react-toastify";
-import { EmailVerification } from "../Dialog/emailVerification";
+import { EmailVerification } from "../dialog/emailVerification";
 import AuthService from "../../Services/Auth.service";
 import "../index.scss";
 import { withCookies } from "react-cookie";

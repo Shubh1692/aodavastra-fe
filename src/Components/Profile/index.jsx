@@ -11,24 +11,22 @@ import {
 } from "@mui/material";
 
 import Layout from "../Layout";
-import { LeftNavbar } from "../Leftbar";
+import { LeftNavbar } from "../leftbar";
 import themes from "../../Assets/Styles/theme";
 import userLogo from "../../Assets/Images/user_logo.png";
 import closet from "../../Assets/Images/closet.svg";
 import nextButton from "../../Assets/Images/next_button.svg";
 import "../index.scss";
-import { BecomeInfluencer } from "../Dialog/becomeInfluencer";
+import { BecomeInfluencer } from "../dialog/becomeInfluencer";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 import AuthService from "../../Services/Auth.service";
 import Following from "./following";
 import Posts from "./posts";
-import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const theme = useTheme();
   const fileInput = useRef();
-  const navigate = useNavigate();
   const [disabled, setDisabled] = useState(true);
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(false);
@@ -199,7 +197,7 @@ const Profile = () => {
               md={4}
               lg={4}
               className="profile_div"
-              sx={{ display: "flex", justifyContent: "end" }}
+              sx={{ display: "flex", justifyContent: "flex-end" }}
             >
               <LeftNavbar />
             </Grid>

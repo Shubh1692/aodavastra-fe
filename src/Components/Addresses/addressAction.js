@@ -7,7 +7,7 @@ import {
     Typography,
     FormControl, OutlinedInput, FormControlLabel, FormHelperText, Button
 } from "@mui/material";
-import { LeftNavbar } from '../Leftbar';
+import { LeftNavbar } from '../leftbar';
 import './index.scss';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useFormik } from 'formik';
@@ -60,7 +60,7 @@ const AddressAction = () => {
             address2: '',
         },
         validationSchema: validationSchema,
-        onSubmit: (values) => {
+        onSubmit: async (values) => {
             console.log(values, 'yyyyyyyyyyyyyyyeeessssssssss')
             const payload = {
                 name: values.name,
@@ -74,26 +74,12 @@ const AddressAction = () => {
                     address2: values.address2
                 }
             }
-            AddressService.add(payload)
-                .then((result) => {
-                    if (result.status < 400) {
-                        toast.success('Address added successFully');
-                        navigate('/address')
-                    }
-                }).catch(err => {
-                    // setLoading(false)
-                    if (!!err.response && err.response.data && err.response.data.error) {
-                        const errArray = err.response && err.response.data && err.response.data.message
-                        if (typeof (errArray) == 'string') {
-                            toast['error'](errArray)
-                        } else {
-                            for (let error of errArray) {
-                                toast['error'](error)
-                            }
-                        }
+            const result = await AddressService.add(payload)
+            if (result.status < 400) {
+                toast.success('Address added successFully');
+                navigate('/address')
+            }
 
-                    }
-                })
         }
     });
 
@@ -119,7 +105,7 @@ const AddressAction = () => {
                 }}
             >
                 <Grid container sx={{ flexDirection: { xs: 'column-reverse', md: 'row' }, display: { xs: 'none', sm: 'flex' } }}>
-                    <Grid item sm={4} md={4} lg={4} sx={{ display: 'flex', justifyContent: 'end' }}>
+                    <Grid item sm={4} md={4} lg={4} sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                         <LeftNavbar />
                     </Grid>
                     <Grid item sm={8} md={8} lg={6}>
@@ -219,7 +205,7 @@ const AddressAction = () => {
                                                     fontSize: 22,
                                                     color: '#3c3c3c'
                                                 }
-                                            }} 
+                                            }}
                                         />} label={<Typography className='add_checkbox' >Make this my default address.</Typography>} />
                                 </Box>
                                 <Button variant="contained" type="submit" className="save_changes_add">Save Changes</Button>

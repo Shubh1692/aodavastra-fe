@@ -4,7 +4,7 @@ import {
     Box,
     Grid, Typography
 } from "@mui/material";
-import { LeftNavbar } from '../Leftbar';
+import { LeftNavbar } from '../leftbar';
 import theme from '../../Assets/Styles/theme';
 import { Ordered } from '../../Utils/Common/orderStatus';
 import { BoldText, Heading, LightText, OrderConatiner, PurpleText, SemiLightText } from '../../Utils/Common/styledComponent';
@@ -23,7 +23,7 @@ const OrdersDetails = () => {
             }}
         >
             <Grid container sx={{ flexDirection: { xs: 'column-reverse', md: 'row' }, display: { xs: 'none', sm: 'flex', md: 'flex' } }}>
-                <Grid item sm={4} md={4} lg={4} sx={{ display: 'flex', justifyContent: 'end' }}>
+                <Grid item sm={4} md={4} lg={4} sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                     <LeftNavbar />
                 </Grid>
                 <Grid item sm={4} md={8} lg={8}>

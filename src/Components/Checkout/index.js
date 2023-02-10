@@ -1,15 +1,13 @@
 import React, { useState } from 'react'
-import { BoldText, FlexCenterColumn, Heading, HeadingWhite, LightText, PurpleText, ShoppingHeading } from '../../Utils/Common/styledComponent';
+import { BoldText, Heading, HeadingWhite, LightText, PurpleText, ShoppingHeading } from '../../Utils/Common/styledComponent';
 import { Box, Grid, TextField, Typography, Button } from '@mui/material';
 import Layout from '../Layout';
-import { CheckBox } from '@mui/icons-material';
-import theme from '../../Assets/Styles/theme';
 import post1 from '../../Assets/Images/post-1.png';
 import './index.scss';
-import PaymentAccordian from '../Accordion/paymentMethod';
+import PaymentAccordian from '../accordion/paymentMethod';
 import { BagProductDetails } from '../../Utils/Common/component';
-import AddressContainer from '../Addresses/addressContainer';
-import { OrderPlaced } from '../Dialog/orderPlaced';
+import AddressContainer from '../addresses/addressContainer';
+import { OrderPlaced } from '../dialog/orderPlaced';
 import { Link } from 'react-router-dom';
 
 const demoAddess = {

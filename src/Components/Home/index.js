@@ -28,7 +28,7 @@ const Home = () => {
                     <LightText>Follow some people to keep up with latest trends.</LightText>
                     <Grid sx={{ margin: '48px 0px', width: '1092px', display: 'flex', justifyContent: 'space-between' }}>
                         {[1, 2, 3, 4, 5].map((data) =>
-                            <Grid item key={data} className='request_list' onClick={() => navigate('/creator')}>
+                            <Grid item key={data} className='request_list' onClick={() => navigate('/feed')}>
                                 <Box sx={{ paddingTop: '22.7px' }}><Box src={user} component={'img'} sx={{ width: 64, height: 64, borderRadius: '50px' }} /></Box>
                                 <Typography component={'p'}>Anjali Verma</Typography>
                                 <Box sx={{ display: 'flex', flexWrap: 'wrap' }} className='image_container'>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import v1 from '../../Assets/Images/verticle1.svg';
 import post1 from '../../Assets/Images/post-1.png';
 import play from '../../Assets/Images/play.svg';

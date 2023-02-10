@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import Layout from '../Layout';
 import { Box, Button, Grid, Typography } from '@mui/material';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
 import profile_picture from '../../Assets/Images/post-1.png';
 import cover_picture from '../../Assets/Images/cover_picture.svg';
 import Instagram from '../../Assets/Images/Instagram.svg';

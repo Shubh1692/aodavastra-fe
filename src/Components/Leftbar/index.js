@@ -4,7 +4,7 @@ import { SidebarData } from './sideMenus';
 import { NavLink } from 'react-router-dom';
 import theme from '../../Assets/Styles/theme';
 import './index.scss';
-import Logout from '../Dialog/logout';
+import Logout from '../dialog/logout';
 
 export const LeftNavbar = () => {
     const [sidebar] = useState(true);

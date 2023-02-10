@@ -2,16 +2,13 @@ import React, { useEffect, useState } from 'react';
 import Layout from '../Layout';
 import {
     Box,
-    Checkbox,
     Grid,
     Typography,
 } from "@mui/material";
-import { LeftNavbar } from '../Leftbar';
+import { LeftNavbar } from '../leftbar';
 import './index.scss';
-import theme from '../../Assets/Styles/theme';
 import { useNavigate } from 'react-router-dom';
 import AddressService from '../../Services/Address.service';
-import { toast } from 'react-toastify';
 import AddressContainer from './addressContainer';
 
 const AddressComponent = () => {
@@ -38,7 +35,7 @@ const AddressComponent = () => {
                 }}
             >
                 <Grid container sx={{ flexDirection: { xs: 'column-reverse', md: 'row' }, display: { xs: 'none', sm: 'flex', md: 'flex' } }}>
-                    <Grid item md={4} lg={4} sx={{ display: 'flex', justifyContent: 'end' }}>
+                    <Grid item md={4} lg={4} sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                         <LeftNavbar />
                     </Grid>
                     <Grid item md={8} lg={8}>

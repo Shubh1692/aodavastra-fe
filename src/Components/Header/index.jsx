@@ -12,7 +12,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import theme from "../../Assets/Styles/theme";
 import "./index.scss";
 
-const Header = (props) => {
+const Header = () => {
   const navigate = useNavigate();
   let location = useLocation();
 

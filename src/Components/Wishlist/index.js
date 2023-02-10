@@ -3,13 +3,10 @@ import Layout from '../Layout';
 import {
     Box,
     Typography,
-    Stack,
-    Grid,
-    Button
-
+    Grid
 } from "@mui/material";
 import bangle from '../../Assets/Images/bangales_img.png'
-import { LeftNavbar } from '../Leftbar';
+import { LeftNavbar } from '../leftbar';
 import { useNavigate } from 'react-router-dom';
 import theme from '../../Assets/Styles/theme';
 import '../index.scss'

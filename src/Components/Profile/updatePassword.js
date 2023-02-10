@@ -4,11 +4,11 @@ import {
     Typography, Grid,
     FormControl, OutlinedInput, Box, FormHelperText
 } from "@mui/material";
-import { LeftNavbar } from '../Leftbar';
+import { LeftNavbar } from '../leftbar';
 import '../index.scss'
 
 const UpdatePassword = () => {
-    const [errors, setErrors] = useState({
+    const [errors] = useState({
         name: '',
         email: '',
         password: '',
@@ -29,7 +29,7 @@ const UpdatePassword = () => {
                 }}
             >
                 <Grid container sx={{ flexDirection: { xs: 'column-reverse', md: 'row' }, display: { xs: 'none', sm: 'none', md: 'flex' } }}>
-                    <Grid item md={4} lg={4} sx={{ display: 'flex', justifyContent: 'end' }}>
+                    <Grid item md={4} lg={4} sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                         <LeftNavbar />
                     </Grid>
                     <Grid sx={{ width: '466px' }}>

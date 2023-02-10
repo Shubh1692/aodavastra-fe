@@ -1,6 +1,6 @@
 import "./App.css";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import MasterComponent from "./Routes/MainRoute";
+import MasterComponent from "./Routes";
 import { BrowserRouter } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { CookiesProvider } from "react-cookie";

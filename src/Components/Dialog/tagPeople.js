@@ -4,12 +4,12 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { IconButton, Typography } from '@mui/material';
+import { IconButton } from '@mui/material';
 import theme from '../../Assets/Styles/theme';
 import { Box } from '@mui/system';
 import CloseIcon from "@mui/icons-material/Close";
 import user from '../../Assets/Images/seller_1.svg';
-import '../Feed/index.scss';
+import '../feed/index.scss';
 import './index.scss';
 import { BolderText, DialogHeading, TagPrize } from '../../Utils/Common/styledComponent';
 

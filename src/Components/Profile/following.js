@@ -44,7 +44,7 @@ const Following = () => {
               sx={{
                 display: "flex",
                 justifyContent: "space-between",
-                alignItems: "end",
+                alignItems: "flex-end",
                 padding: "10.35px",
               }}
             >
@@ -94,7 +94,7 @@ const Following = () => {
               sx={{
                 display: "flex",
                 justifyContent: "space-between",
-                alignItems: "end",
+                alignItems: "flex-end",
                 padding: "10.35px",
               }}
             >

@@ -8,35 +8,35 @@ import "react-toastify/dist/ReactToastify.css";
 import { withCookies } from "react-cookie";
 import AuthService from "../Services/Auth.service";
 
-const SignUpComponent = lazy(() => import("../Components/SignUp"));
-const Login = lazy(() => import("../Components/Login"));
+const SignUpComponent = lazy(() => import("../Components/signUp"));
+const Login = lazy(() => import("../Components/login"));
 const RecoverComponent = lazy(() =>
-  import("../Components/Login/recoverPassword")
+  import("../Components/login/recoverPassword")
 );
 const ConfirmPassword = lazy(() =>
-  import("../Components/Login/confirmPassword")
+  import("../Components/login/confirmPassword")
 );
-const Home = lazy(() => import("../Components/Home"));
-const Feed = lazy(() => import("../Components/Feed"));
-const Profile = lazy(() => import("../Components/Profile"));
-const Orders = lazy(() => import("../Components/Orders"));
-const OrdersDetails = lazy(() => import("../Components/Orders/ordersDetails"));
+const Home = lazy(() => import("../Components/home"));
+const Feed = lazy(() => import("../Components/feed"));
+const Profile = lazy(() => import("../Components/profile"));
+const Orders = lazy(() => import("../Components/orders"));
+const OrdersDetails = lazy(() => import("../Components/orders/ordersDetails"));
 const UpdatePassword = lazy(() =>
-  import("../Components/Profile/updatePassword")
+  import("../Components/profile/updatePassword")
 );
 const AddressAction = lazy(() =>
-  import("../Components/Addresses/addressAction")
+  import("../Components/addresses/addressAction")
 );
-const Wishlist = lazy(() => import("../Components/Wishlist"));
-const Address = lazy(() => import("../Components/Addresses"));
-const Dashboard = lazy(() => import("../Components/Home/dashboard"));
-const CreatorDashboard = lazy(() => import("../Components/CreatorDashboard"));
-const Checkout = lazy(() => import("../Components/Checkout"));
+const Wishlist = lazy(() => import("../Components/wishlist"));
+const Address = lazy(() => import("../Components/addresses"));
+const Dashboard = lazy(() => import("../Components/home/dashboard"));
+const CreatorDashboard = lazy(() => import("../Components/creatorDashboard"));
+const Checkout = lazy(() => import("../Components/checkout"));
 const ProductByCategory = lazy(() =>
-  import("../Components/Products/ProductsByCategory")
+  import("../Components/productsView/productsByCategory")
 );
-const ProductsById = lazy(() => import("../Components/Products/ProductsById"));
-const JewelleryProduct = lazy(() => import("../Components/JewelleryProducts"));
+const ProductsById = lazy(() => import("../Components/productsView/productsById"));
+const StoreDetails = lazy(() => import("../Components/store"));
 const SearchComponent = lazy(() => import("../Utils/Common/searchComponent"));
 
 const MasterComponent = ({ cookies }) => {
@@ -128,7 +128,7 @@ const MasterComponent = ({ cookies }) => {
 
                 {/* bag start */}
                 <Route path="/emptybag" element={<EmptyBag />}></Route>
-                <Route path="/store" element={<JewelleryProduct />}></Route>
+                <Route path="/store" element={<StoreDetails />}></Route>
                 <Route
                   path="/orders/:orderId"
                   element={<OrdersDetails />}
