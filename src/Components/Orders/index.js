@@ -80,7 +80,7 @@ const Orders = () => {
                         <Grid sx={{ margin: '12px 0px' }}><BoldText>Order Status</BoldText></Grid>
                         <Box className='product_status'>
                             {['All', 'Ordered', 'Delivered', 'Cancelled']?.map((filter) => <FormControlLabel key={filter}
-                                control={<Checkbox sx={{ padding: '3px 12px 0px 0px' }} />} label={<Box sx={{ padding: '3px 12px 0px 0px' }}>
+                                control={<Checkbox sx={{ padding: '3px 8px 0px 0px' }} />} label={<Box sx={{ padding: '3px 12px 0px 0px' }}>
                                     <LightText>{filter}</LightText>
                                 </Box>} />)}
                         </Box>

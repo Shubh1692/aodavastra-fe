@@ -11,6 +11,11 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { useNavigate, useLocation } from "react-router-dom";
 import theme from "../../Assets/Styles/theme";
 import "./index.scss";
+import {
+  Search,
+  SearchIconWrapper,
+  StyledInputBase,
+} from "../../Utils/Common/component";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -43,7 +48,7 @@ const Header = () => {
               alignItems: "center",
             }}
           >
-            <Grid item lg={4}>
+            <Grid item lg={4} md={4}>
               <Box
                 component={"img"}
                 onClick={() => navigate("/")}
@@ -55,15 +60,36 @@ const Header = () => {
               />
             </Grid>
             {location.pathname === "/search" && (
-              <Grid item lg={4}>
-                <Box className="search_container">
+              <Grid item lg={4} md={4}>
+                <Box
+                  className="search_container"
+                  sx={{ width: { xl: "466px", lg: "100%" } }}
+                >
+                  <Search>
+                    <SearchIconWrapper>
+                      <Box component={"img"} src={SearchImage} />
+                    </SearchIconWrapper>
+                    <StyledInputBase
+                      placeholder="Search Here"
+                      inputProps={{ "aria-label": "search" }}
+                    />
+                  </Search>
+                  {/* <Search>
+            <SearchIconWrapper >
+                <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+                // className='cursor-pointer' onClick={() => setSearch(!OpenSearch)}
+                placeholder="Search..."
+                inputProps={{ 'aria-label': 'search' }}
+            />
+        </Search> */}
                   {/* <TextField
                     sx={{ border: "none" }}
                     label="With normal TextField"
                     endAdornment={
                       <InputAdornment position="end">
                         <IconButton>
-                          <Box component={"img"} src={SearchImage} />
                         </IconButton>
                       </InputAdornment>
                     }

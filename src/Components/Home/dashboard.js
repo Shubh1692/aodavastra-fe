@@ -4,7 +4,7 @@ import s1 from '../../Assets/Images/seller_1.svg';
 import s2 from '../../Assets/Images/seller_2.svg';
 import v1 from '../../Assets/Images/verticle1.svg';
 import v2 from '../../Assets/Images/verticle2.svg';
-import { BorderDesignerText, SemiDarkText } from '../../Utils/Common/styledComponent';
+import { BorderDesignerText, LightText, SellerText, SemiDarkText } from '../../Utils/Common/styledComponent';
 import Layout from '../Layout';
 import './index.scss';
 import { DesignerComponent } from '../../Utils/Common/component';
@@ -21,7 +21,8 @@ const Dashboard = () => {
                 alignItems: "center",
                 flexDirection: 'column'
             }}>
-                <BorderDesignerText>BEST SELLERS</BorderDesignerText>
+                <SellerText>BEST SELLERS</SellerText>
+                <Box sx={{ width: '956px', display: 'flex', justifyContent: 'flex-end', marginBottom: '6px' }}><LightText> view more </LightText></Box>
                 <Grid sx={{ width: '956px', display: 'flex', justifyContent: 'space-between' }}>
                     <Box sx={{ height: '360px', width: '224px', cursor: 'pointer' }} onClick={() => navigate('/dashboard/clothes')}>
                         <Box component={'img'} alt="product_image" src={s1} sx={{ height: '304px', width: '100%', objectFit: 'cover', borderRadius: '10px' }} />

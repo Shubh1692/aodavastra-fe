@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { List, ListItem } from '@mui/material';
+import { List, ListItem, Box } from '@mui/material';
 import { SidebarData } from './sideMenus';
 import { NavLink } from 'react-router-dom';
 import theme from '../../Assets/Styles/theme';
@@ -12,7 +12,7 @@ export const LeftNavbar = () => {
     return (
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
             <List className='nav-menu-items' sx={{
-                mr: '11px', pr: '69px',
+                mr: '11px', width: '230px',
                 height: '376px', borderRight: `2px solid ${theme.lightBlack}`
             }}>
                 {SidebarData?.map((tab, index) => {
