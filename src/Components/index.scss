@@ -140,7 +140,25 @@
 
 .container_div {
   margin-top: 8pc;
-  // height: calc(100vh - 1pc);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .user_text {
+    font-size: 24px;
+    margin-right: 3px;
+    font-weight: 400;
+    color: $lightBlack;
+  }
+  .profile_image_div {
+    width: 144px;
+    height: 144px;
+    margin: auto;
+    background: $primaryColor;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 // recover password
@@ -246,9 +264,7 @@
   line-height: 36px;
   margin-top: 56px;
   color: $white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-transform: capitalize;
 }
 
 // wishlist

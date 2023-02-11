@@ -40,10 +40,18 @@ HttpService.interceptors.response.use(
   },
   (error) => {
     if (error?.response?.status === 401) {
-       cookies.remove('token');
-        window.location.href = '/'
-    } else if (error?.response?.status === 400) {
-      toast.error(error.response.data.message);
+      cookies.remove('token');
+      window.location.href = '/'
+    } else if (!!error.response && error.response.data && error.response.data.error) {
+      const errArray = error.response && error.response.data && error.response.data.message
+      if (typeof (errArray) == 'string') {
+        toast['error'](errArray)
+      } else {
+        for (let error of errArray) {
+          toast['error'](error)
+        }
+      }
+
     }
     /* common place for handling errors of every API response*/
     return Promise.reject(error);

@@ -35,4 +35,12 @@ AuthService.updatePassword = async (payload) => {
     return await HttpService.put(api_base_url + '/user/change-password', payload)
 }
 
+AuthService.likedPost = async (payload) => {
+    return await HttpService.get(api_base_url + '/post-like', payload)
+}
+
+AuthService.changePassword = async (payload) => {
+    return await HttpService.put(api_base_url + '/user/change-password', payload)
+}
+
 export default AuthService;

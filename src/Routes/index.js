@@ -65,7 +65,7 @@ const MasterComponent = ({ cookies }) => {
       }
     };
     validateUser();
-  }, [token]);
+  }, []);
   if (authenticateLoading) {
     return (
       <Grid
