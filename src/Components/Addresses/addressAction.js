@@ -1,12 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Layout from '../Layout';
-import {
-    Box,
-    Checkbox,
-    Grid,
-    Typography,
-    FormControl, OutlinedInput, FormControlLabel, FormHelperText, Button
-} from "@mui/material";
+import { Box, Checkbox, Grid, Typography, FormControl, OutlinedInput, FormControlLabel, FormHelperText, Button } from "@mui/material";
 import { LeftNavbar } from '../leftbar';
 import './index.scss';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -46,7 +40,9 @@ const validationSchema = yup.object({
 const AddressAction = () => {
     const navigate = useNavigate()
     const { id } = useParams()
-    const [isEdit, setEdit] = useState()
+    const [isEdit, setEdit] = useState();
+    const [checked, setChecked] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const formik = useFormik({
         initialValues: {
@@ -61,39 +57,60 @@ const AddressAction = () => {
         },
         validationSchema: validationSchema,
         onSubmit: async (values) => {
-            console.log(values, 'yyyyyyyyyyyyyyyeeessssssssss')
+            setLoading(true)
             const payload = {
                 name: values.name,
                 phoneNo: values.phoneNo.toString(),
                 pinCode: values.pinCode,
                 city: values.city,
                 state: values.state,
-                isDefault: values.isDefault,
+                isDefault: checked,
                 address: {
                     address1: values.address1,
                     address2: values.address2
                 }
             }
-            const result = await AddressService.add(payload)
-            if (result.status < 400) {
-                toast.success('Address added successFully');
-                navigate('/address')
+            if (id) {
+                const result = await AddressService.update(id, payload)
+                if (result.status < 400) {
+                    setLoading(false);
+                    toast.success('Updated successFully');
+                    navigate('/address')
+                }
+            } else {
+                const result = await AddressService.add(payload)
+                if (result.status < 400) {
+                    setLoading(false);
+                    toast.success('Address added successFully');
+                    navigate('/address')
+                }
             }
-
         }
     });
 
-    const editAddress = () => {
-        AddressService.getById(id).then((result) => formik.setValues(result?.data))
-    }
-
     useEffect(() => {
         if (id) {
-            setEdit(true)
+            setEdit(true);
             editAddress()
         }
-    }, [])
-    console.log('------------------------------===========>', formik, formik.values?.address)
+    }, [id])
+
+    const editAddress = async () => {
+        const result = await AddressService.getById(id);
+        if (result?.status < 400) {
+            formik.setValues({
+                name: result?.data?.name,
+                phoneNo: result?.data?.phoneNo,
+                pinCode: result?.data?.pinCode,
+                city: result?.data?.city,
+                state: result?.data?.state,
+                address1: result?.data?.address?.address1,
+                address2: result?.data?.address?.address2,
+            })
+            setChecked(result?.data?.isDefault)
+        }
+    }
+
     return (
         <>
             <Box
@@ -177,7 +194,7 @@ const AddressAction = () => {
                                                 id="outlined-adornment-password" fullWidth name={field.name}
                                                 type={field.type} placeholder={field.placeholder}
                                                 onChange={formik.handleChange}
-                                                value={['address1', 'address2'].includes(field.name) ? formik.values?.address?.[field.name] : formik.values[field.name]}
+                                                value={formik.values[field.name]}
                                                 inputProps={{
                                                     sx: {
                                                         height: 21,
@@ -198,7 +215,7 @@ const AddressAction = () => {
                                 })}
                                 <Box className='make_default'>
                                     <FormControlLabel name='isDefault'
-                                        onChange={formik.handleChange} control={<Checkbox
+                                        onChange={(e) => setChecked(e.target.checked)} control={<Checkbox
                                             disabled={formik.values.isDefault}
                                             sx={{
                                                 '& .MuiSvgIcon-root': {
@@ -206,9 +223,10 @@ const AddressAction = () => {
                                                     color: '#3c3c3c'
                                                 }
                                             }}
+                                            checked={checked}
                                         />} label={<Typography className='add_checkbox' >Make this my default address.</Typography>} />
                                 </Box>
-                                <Button variant="contained" type="submit" className="save_changes_add">Save Changes</Button>
+                                <Button variant="contained" disabled={loading} type="submit" className="save_changes_add">Save Changes</Button>
                             </Box>
                         </Box>
                     </Grid>

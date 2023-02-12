@@ -74,26 +74,6 @@ const Header = () => {
                       inputProps={{ "aria-label": "search" }}
                     />
                   </Search>
-                  {/* <Search>
-            <SearchIconWrapper >
-                <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-                // className='cursor-pointer' onClick={() => setSearch(!OpenSearch)}
-                placeholder="Search..."
-                inputProps={{ 'aria-label': 'search' }}
-            />
-        </Search> */}
-                  {/* <TextField
-                    sx={{ border: "none" }}
-                    label="With normal TextField"
-                    endAdornment={
-                      <InputAdornment position="end">
-                        <IconButton>
-                        </IconButton>
-                      </InputAdornment>
-                    }
-                  /> */}
                 </Box>
               </Grid>
             )}
