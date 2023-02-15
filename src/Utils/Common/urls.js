@@ -1,1 +1,1 @@
-export const api_base_url = 'http://100.25.24.6'
+export const api_base_url = 'https://test-app-jxbj.onrender.com'

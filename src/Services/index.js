@@ -1,7 +1,7 @@
 import HttpService from "./Http.service";
-import ProfileService from "./Profile.service";
+import PostService from "./Post.service";
 
 export {
     HttpService,
-    ProfileService
+    PostService
 }
