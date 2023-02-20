@@ -55,7 +55,7 @@ export const CommentDialog = ({ data, handleClose }) => {
             </DialogTitle>
             <DialogContent sx={{ padding: '24px 27px 41px 27px' }}>
                 <Box sx={{ width: '464px', padding: '24px 235px' }}>
-                    <Box> {/*  sx={{ height: '300px' ,overflowY: 'scroll' }}*/}
+                    <Box sx={{ height: '300px' ,overflowY: 'auto' }}> {/*  sx={{ height: '300px' ,overflowY: 'scroll' }}*/}
                         {data?.data?.comments?.map((comm) => <Box className='comment_conatiner' key={comm?._id}>
                             <Box component={'img'} src={user} sx={{ borderRadius: '50px' }} />
                             <Box component={'div'}>

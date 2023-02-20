@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Layout from '../Layout';
 import {
     Box,
+    Button,
     Card,
     CardMedia,
     Divider,
@@ -27,12 +28,18 @@ import InfiniteScroll from "react-infinite-scroll-component";
 let page = 1;
 
 const postsList = async (posts, setPosts, active) => {
-    const result = await PostService.getAll(page, 10)
-    if (result.status < 400) {
-        if (active === 'pagination') {
-            page = page + 1
+    if (active === 'pagination') {
+        page = page + 1
+        const result = await PostService.getAll(page, 10)
+        if (result.status < 400) {
+            console.log('if')
             setPosts([...posts, ...result.data.data])
-        }else{
+        }
+    } else {
+        page = 1;
+        const result = await PostService.getAll(page, 10)
+        if (result.status < 400) {
+            console.log('else')
             setPosts(result.data.data)
         }
     }
@@ -56,7 +63,6 @@ const Feed = () => {
         postsList(posts, setPosts);
     }, [])
 
-    console.log('=======>', posts)
     return (
         <>
             <Box
@@ -68,14 +74,19 @@ const Feed = () => {
                 }}
             >
                 <Grid container sx={{ display: 'flex', justifyContent: 'center' }}>
-                    <InfiniteScroll
+                    {posts.length ? <InfiniteScroll
                         dataLength={posts.length} //This is important field to render the next data
                         next={() => { postsList(posts, setPosts, 'pagination') }}
                         hasMore={true}
+                        endMessage={
+                            <p style={{ textAlign: 'center' }}>
+                                <b>Yay! You have seen it all</b>
+                            </p>
+                        }
                         loader={<h4>Loading...</h4>}>
                         {posts?.map((post) => {
-                            return (<>
-                                <Box sx={{ width: '945px', display: 'flex', margin: 'auto' }} key={post?._id}>
+                            return (<Box key={post?._id} >
+                                <Box key={post?._id} sx={{ width: '945px', display: 'flex', margin: 'auto' }}>
                                     <Grid sx={{ width: '50%', height: '699px', display: 'flex', flexDirection: 'column', background: theme.lighterPink }}>
                                         <Card sx={{ height: 651, width: '100%' }} >
                                             {post?.type === 'video' ?
@@ -103,40 +114,43 @@ const Feed = () => {
                                             </Box>
                                         </Box>
                                     </Grid>
-                                    <Grid sx={{ width: '50%', paddingLeft: '23px' }}>
-                                        <Box sx={{ width: "100%", height: "81.8px", display: 'flex' }}>
-                                            <Box sx={{ width: "81.8px", height: "81.8px" }}>
-                                                <Box component={'img'} src={user} sx={{ borderRadius: "50px" }} alt="demo_img" height={"100%"} width={'100%'} />
-                                            </Box>
-                                            <Box sx={{ paddingLeft: '13.6px', width: '353px' }} className='feed_name'>
-                                                <Grid sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                                                    <Typography sx={{ fontWeight: "400", fontSize: "24px", lineHeight: "36px", cursor: 'pointer' }}
-                                                        onClick={() => navigate('/creator')}>
-                                                        Anjali Verma
-                                                    </Typography>
-                                                    <Box className="unfollow_button_feed">Follow</Box>
-                                                </Grid>
-                                                <TimeSection>7h ago</TimeSection>
-                                            </Box>
-                                        </Box>
-                                        <Typography className='feed_text'>{post?.description}</Typography>
-                                        <BoldHeading>Tagged Products</BoldHeading>
-                                        <Box sx={{ height: '370px', marginTop: '12px', overflowY: post?.tagProduct?.length > 4 ? 'scroll' : '' }}>
-                                            {post?.tagProduct?.map((tag) => <Box className='tag_container' key={tag?._id}>
-                                                <Box component={'img'} src={user} />
-                                                <Box component={'div'}>
-                                                    <BolderText>{tag?.name}</BolderText>
-                                                    <TagPrize>₹ 2,599.00</TagPrize>
-                                                    <Typography className='tag_link' onClick={() => navigate('/dashboard')}>View Details</Typography>
+                                    <Grid sx={{ width: '489px' }}>
+                                        <Box sx={{ marginLeft: '22.99px' }}>
+                                            <Box sx={{ width: "100%", height: "81.8px", display: 'flex', justifyContent: "space-between" }}>
+                                                <Box sx={{ display: 'flex', cursor: 'pointer' }} onClick={() => navigate('/creator')}>
+                                                    <Box sx={{ width: "81.84px", height: "81.8px" }}>
+                                                        <Box component={'img'} src={user} sx={{ borderRadius: "50px" }} alt="demo_img" height={"100%"} width={'100%'} />
+                                                    </Box>
+                                                    <Box sx={{ paddingLeft: '13.6px' }} className='feed_name'>
+                                                        <Grid sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                                                            <Typography sx={{ fontWeight: "400", fontSize: "24px", lineHeight: "36px", cursor: 'pointer' }}>
+                                                                Anjali Verma
+                                                            </Typography>
+                                                        </Grid>
+                                                        <TimeSection>7h ago</TimeSection>
+                                                    </Box>
                                                 </Box>
-                                            </Box>)}
+                                                <Button variant='contained' className="unfollow_button_feed">Follow</Button>
+                                            </Box>
+                                            <Typography className='feed_text'>{post?.description}</Typography>
+                                            <BoldHeading>Tagged Products</BoldHeading>
+                                            <Box sx={{ height: '370px', marginTop: '12px', overflowY: 'auto' }}>
+                                                {post?.tagProduct?.map((tag) => <Box className='tag_container' key={tag?._id}>
+                                                    <Box component={'img'} src={user} />
+                                                    <Box component={'div'}>
+                                                        <BolderText>{tag?.name}</BolderText>
+                                                        <TagPrize>₹ 2,599.00</TagPrize>
+                                                        <Typography className='tag_link' onClick={() => navigate('/dashboard')}>View Details</Typography>
+                                                    </Box>
+                                                </Box>)}
+                                            </Box>
                                         </Box>
                                     </Grid>
                                 </Box>
                                 <Divider sx={{ width: '1340px', margin: '36px 0px', border: '2px solid rgba(238, 187, 204, 0.7)' }} />
-                            </>)
+                            </Box>)
                         })}
-                    </InfiniteScroll>
+                    </InfiniteScroll> : <h6>No data found.</h6>}
                 </Grid >
                 <TagPeople data={isTagModel} handleClose={() => setTagModel({ model: false, data: null })} />
                 <CommentDialog data={isCommentModel} handleClose={() => (setCommentModel({ model: false, data: null }), postsList(posts, setPosts, 'comment'))}

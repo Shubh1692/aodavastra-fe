@@ -12,6 +12,7 @@
   justify-content: center;
   align-items: center;
   color: $white;
+  text-transform: capitalize;
 }
 .feed_text {
   // height: 155px;
@@ -28,7 +29,7 @@
   width: 400px;
   background: $lightBackground;
   border-radius: 3.57778px;
-  padding: 0px 8px ;
+  padding: 0px 8px;
   display: flex;
   align-items: center;
   margin-bottom: 8px;

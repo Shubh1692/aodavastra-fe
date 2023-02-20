@@ -27,15 +27,6 @@ HttpService.interceptors.request.use(
 
 HttpService.interceptors.response.use(
   (response) => {
-    console.log("response", response);
-    // if (
-    //   response &&
-    //   response.data &&
-    //   response.data.hasOwnProperty("success") &&
-    //   !response.data.success
-    // ) {
-    //   toast.success(response.data.message)
-    // }
     return response;
   },
   (error) => {

@@ -64,21 +64,18 @@ const Profile = () => {
   });
 
   const profile = async () => {
-    // setBlock(true);
     const result = await AuthService.userGet();
     if (result?.status < 400) {
       formik.setValues({
         name: result?.data?.user?.name,
         bio: result?.data?.user?.bio,
       });
-      // setBlock(false);
       setUser(result.data.user);
     }
   };
   const likedPost = async () => {
     const result = await AuthService.likedPost();
     if (result?.status < 400) {
-      // setBlock(false);
       setLiked(result.data);
     }
   };
@@ -115,6 +112,15 @@ const Profile = () => {
     console.log("profile_img", e.target.files[0]);
   };
 
+  const handleClose = (activeTab) => {
+    console.log(activeTab,'======================================================')
+    if (activeTab === "post") {
+      setPosts(false);
+    } else {
+      setFollowing(false);
+    }
+    setProfile(true);
+  };
   console.log("user------------->", user);
   return (
     <>
@@ -296,8 +302,8 @@ const Profile = () => {
               </Box>
             </Grid>
           )}
-          {isFollowing && <Following />}
-          {isPosts && <Posts />}
+          {isFollowing && <Following data={liked} handleClose={handleClose} />}
+          {isPosts && <Posts data={liked} handleClose={handleClose} />}
         </Grid>
       </Box>
       {/* <BlockLoading blocking={blockLoading} /> */}

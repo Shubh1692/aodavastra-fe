@@ -213,3 +213,14 @@ export const ProductHeading = styled.span`
     letter-spacing: 0.05em;
     text-transform: uppercase;
 `
+
+export const BackButton = styled.span`
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    text-decoration-line: underline;
+    text-align: center;
+    cursor: pointer;
+    color: ${theme.primaryColor};
+`
