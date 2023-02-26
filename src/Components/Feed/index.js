@@ -65,14 +65,7 @@ const Feed = () => {
 
     return (
         <>
-            <Box
-                sx={{
-                    marginTop: '8pc',
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                }}
-            >
+            <Box className='details__container'>
                 <Grid container sx={{ display: 'flex', justifyContent: 'center' }}>
                     {posts.length ? <InfiniteScroll
                         dataLength={posts.length} //This is important field to render the next data
@@ -86,46 +79,44 @@ const Feed = () => {
                         loader={<h4>Loading...</h4>}>
                         {posts?.map((post) => {
                             return (<Box key={post?._id} >
-                                <Box key={post?._id} sx={{ width: '945px', display: 'flex', margin: 'auto' }}>
-                                    <Grid sx={{ width: '50%', height: '699px', display: 'flex', flexDirection: 'column', background: theme.lighterPink }}>
+                                <Box key={post?._id} className='feed__container'>
+                                    <Grid className='feed__image'>
                                         <Card sx={{ height: 651, width: '100%' }} >
                                             {post?.type === 'video' ?
-                                                <CardMedia component="video" src={post?.media} autoPlay controls sx={{ height: '100%', objectFit: 'cover' }} /> :
-                                                <CardMedia component="img" src={post?.media} alt='feed_image' sx={{ height: '100%', objectFit: 'cover' }} />}
+                                                <CardMedia component="video" src={post?.media} controls className='feed__image_conatiner' /> :
+                                                <CardMedia component="img" src={post?.media} alt='feed_image' className='feed__image_conatiner' />}
                                         </Card>
-                                        <Box sx={{ height: '48px', display: 'flex' }}>
-                                            <Box sx={{ width: '33.3%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                <Box component="img" sx={{ width: 22.7, height: 19.75, cursor: 'pointer' }}
+                                        <Box className='feed__actions__container'>
+                                            <Box className='feed_action_section'>
+                                                <Box component="img" sx={{ width: 22.7, height: 19.75 }}
                                                     onClick={() => setLiked(!liked)}
                                                     src={liked ? like : unlike} alt='feed_image'></Box>
                                                 <FeedText>146</FeedText>
                                             </Box>
-                                            <Box sx={{ width: '33.3%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                <Box component="img" sx={{ height: 19.5, width: 19.5, cursor: 'pointer' }}
+                                            <Box className='feed_action_section'>
+                                                <Box component="img" sx={{ height: 19.5, width: 19.5 }}
                                                     onClick={() => setCommentModel({ model: true, data: post })}
                                                     src={comment} alt='feed_image'></Box>
                                                 <FeedText>{post?.comments?.length}</FeedText>
                                             </Box>
-                                            <Box sx={{ width: '33.3%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                <Box component="img" sx={{ height: 26, width: 26, cursor: 'pointer' }}
+                                            <Box className='feed_action_section'>
+                                                <Box component="img" sx={{ height: 26, width: 26 }}
                                                     onClick={() => setTagModel({ model: true, data: post?.tagPeople })}
                                                     src={tagged} alt='feed_image'></Box>
                                                 <FeedText>{post?.tagPeople?.length}</FeedText>
                                             </Box>
                                         </Box>
                                     </Grid>
-                                    <Grid sx={{ width: '489px' }}>
-                                        <Box sx={{ marginLeft: '22.99px' }}>
-                                            <Box sx={{ width: "100%", height: "81.8px", display: 'flex', justifyContent: "space-between" }}>
-                                                <Box sx={{ display: 'flex', cursor: 'pointer' }} onClick={() => navigate('/creator')}>
-                                                    <Box sx={{ width: "81.84px", height: "81.8px" }}>
+                                    <Grid className='feed__content__section'>
+                                        <Box className='feed__content__container'>
+                                            <Box className='feed__creators'>
+                                                <Box className='creator__name_container' onClick={() => navigate('/creator')}>
+                                                    <Box className='creator__profile'>
                                                         <Box component={'img'} src={user} sx={{ borderRadius: "50px" }} alt="demo_img" height={"100%"} width={'100%'} />
                                                     </Box>
-                                                    <Box sx={{ paddingLeft: '13.6px' }} className='feed_name'>
-                                                        <Grid sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                                                            <Typography sx={{ fontWeight: "400", fontSize: "24px", lineHeight: "36px", cursor: 'pointer' }}>
-                                                                Anjali Verma
-                                                            </Typography>
+                                                    <Box className='feed_name__box'>
+                                                        <Grid className='feed__name__grid'>
+                                                            <Typography className='feed_name__text'>Anjali Verma</Typography>
                                                         </Grid>
                                                         <TimeSection>7h ago</TimeSection>
                                                     </Box>
@@ -134,7 +125,7 @@ const Feed = () => {
                                             </Box>
                                             <Typography className='feed_text'>{post?.description}</Typography>
                                             <BoldHeading>Tagged Products</BoldHeading>
-                                            <Box sx={{ height: '370px', marginTop: '12px', overflowY: 'auto' }}>
+                                            <Box className='feed_tagged_container'>
                                                 {post?.tagProduct?.map((tag) => <Box className='tag_container' key={tag?._id}>
                                                     <Box component={'img'} src={user} />
                                                     <Box component={'div'}>
@@ -147,7 +138,7 @@ const Feed = () => {
                                         </Box>
                                     </Grid>
                                 </Box>
-                                <Divider sx={{ width: '1340px', margin: '36px 0px', border: '2px solid rgba(238, 187, 204, 0.7)' }} />
+                                <Divider className='divider__line' />
                             </Box>)
                         })}
                     </InfiniteScroll> : <h6>No data found.</h6>}

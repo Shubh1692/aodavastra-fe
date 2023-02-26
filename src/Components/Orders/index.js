@@ -18,49 +18,30 @@ const Orders = () => {
     const navigate = useNavigate()
     return (
         <>
-            <Box
-                sx={{
-                    marginTop: '8pc',
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                }}
-            >
+            <Box className='details__container'>
                 <Grid container sx={{ flexDirection: { xs: 'column-reverse', md: 'row' }, display: { xs: 'none', sm: 'none', md: 'flex' } }}>
                     <Grid item md={4} lg={4} sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                         <LeftNavbar />
                     </Grid>
                     <Grid>
                         <Box className='order_container'>
-                            <Box sx={{
-                                height: '35px', background: theme.primaryColor,
-                                borderRadius: '10.86px 10.86px 0px 0px'
-                            }}>
-                                <Box sx={{
-                                    padding: '0px 13.58px', display: 'flex', height: '100%',
-                                    justifyContent: 'space-between', alignItems: 'center'
-                                }}>
-                                    <Grid sx={{
-                                        color: theme.white, fontWeight: 500,
-                                        fontSize: '13.5px', lineHeight: '20px'
-                                    }}>02 March 2020</Grid>
-                                    <Grid sx={{
-                                        color: theme.white, fontWeight: 500,
-                                        fontSize: '13.5px', lineHeight: '20px'
-                                    }}>07 : 30 PM</Grid>
+                            <Box className='profile_order_section'>
+                                <Box className='date_time'>
+                                    <Typography className='date_time_text'>02 March 2020</Typography>
+                                    <Typography className='date_time_text'>07 : 30 PM</Typography>
                                 </Box>
                             </Box>
                             <Box sx={{ padding: '11px' }}>
-                                <Typography sx={{ fontSize: '19px', fontWeight: 400, color: theme.lighterBlack }}>#133589</Typography>
+                                <Typography className='order_text_gray' sx={{ fontWeight: 400 }}>#133589</Typography>
                                 <Box sx={{
                                     margin: '4px 0px',
                                     borderBottom: `1.3px solid ${theme.lightBlack}`,
                                     display: 'flex', justifyContent: "space-between"
                                 }}>
-                                    <Typography sx={{ fontSize: '19px', fontWeight: 400, color: theme.lightBlack }}>₹ 3,099.00</Typography>
-                                    <Typography sx={{ fontSize: '19px', fontWeight: 500, color: theme.lightBlack }}>2 Items</Typography>
+                                    <Typography className='order_text_black' sx={{ fontWeight: 400 }}>₹ 3,099.00</Typography>
+                                    <Typography className='order_text_black' sx={{ fontWeight: 500 }}>2 Items</Typography>
                                 </Box>
-                                <Typography sx={{ fontSize: '19px', fontWeight: 600, color: theme.lightBlack }}>Address</Typography>
+                                <Typography className='order_text_black' sx={{ fontWeight: 600 }}>Address</Typography>
                                 <Box sx={{
                                     background: theme.white, padding: '13.6px 10.8px'
                                 }}>

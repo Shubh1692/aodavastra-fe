@@ -11,7 +11,7 @@ const ProductByCategory = () => {
     const navigate = useNavigate()
     return (
         <>
-            <Box sx={{ marginTop: '8pc', display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+            <Box  className='details__container' sx={{ flexDirection: 'column' }}>
                 <Box sx={{ width: '1303px', display: 'flex', justifyContent: 'space-between' }}>
                     <Box className='fillters'>
                         <BolderHeading className='fillters_heading'>Apply Filters</BolderHeading>

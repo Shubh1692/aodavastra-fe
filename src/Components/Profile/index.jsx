@@ -63,6 +63,11 @@ const Profile = () => {
     },
   });
 
+  useEffect(() => {
+    profile();
+    likedPost();
+  }, []);
+
   const profile = async () => {
     const result = await AuthService.userGet();
     if (result?.status < 400) {
@@ -79,11 +84,6 @@ const Profile = () => {
       setLiked(result.data);
     }
   };
-
-  useEffect(() => {
-    profile();
-    likedPost();
-  }, []);
 
   const handleFollower = () => {
     setFollowing(true);
@@ -113,7 +113,6 @@ const Profile = () => {
   };
 
   const handleClose = (activeTab) => {
-    console.log(activeTab,'======================================================')
     if (activeTab === "post") {
       setPosts(false);
     } else {
@@ -121,7 +120,6 @@ const Profile = () => {
     }
     setProfile(true);
   };
-  console.log("user------------->", user);
   return (
     <>
       <Box className="container_div">
@@ -201,13 +199,7 @@ const Profile = () => {
                   </Typography>
                   {!isEdit && (
                     <Typography
-                      sx={{
-                        fontSize: "14.8px",
-                        fontWeight: 600,
-                        textDecorationLine: "underline",
-                        color: themes.primaryColor,
-                        cursor: "pointer",
-                      }}
+                      className="edit_profile_text"
                       onClick={handleEdit}
                     >
                       Edit Profile

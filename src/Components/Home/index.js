@@ -14,14 +14,7 @@ const Home = () => {
 
     return (
         <>
-            <Box
-                sx={{
-                    marginTop: '8pc',
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                }}
-            >
+            <Box className='details__container'>
                 <Grid container className='welcome_page_conatiner'>
                     <Typography className='welcome_text'>WELCOME TO ModaVastra</Typography>
                     <Box component={'img'} src={logo} alt='logo' sx={{ width: '320px', height: '127px' }} />

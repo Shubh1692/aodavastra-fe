@@ -14,7 +14,7 @@ import './index.scss';
 const SearchComponent = () => {
 
     return (
-        <Box sx={{ marginTop: '8pc', display: 'flex', justifyContent: 'center' }}>
+        <Box className='details__container'>
             <Box className='search_container_div'>
                 <Typography className='search_title'>Users</Typography>
                 <Box className='users_container'>

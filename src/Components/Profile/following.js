@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  Box,
-  Typography,
-  Grid,
-} from "@mui/material";
+import { Box, Typography, Grid } from "@mui/material";
 import userLogo from "../../Assets/Images/user_logo.png";
 import themes from "../../Assets/Styles/theme";
 import { BackButton } from '../../Utils/Common/styledComponent';

@@ -31,14 +31,7 @@ const AddressComponent = () => {
     }, [])
     return (
         <>
-            <Box
-                sx={{
-                    marginTop: '8pc',
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                }}
-            >
+            <Box className='details__container'>
                 <Grid container sx={{ flexDirection: { xs: 'column-reverse', md: 'row' }, display: { xs: 'none', sm: 'flex', md: 'flex' } }}>
                     <Grid item md={4} lg={4} sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                         <LeftNavbar />
